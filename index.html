@@ -149,6 +149,25 @@
     color:var(--membrane-600);text-decoration:none;font-weight:700;
   }
   .social-inline a svg{width:16px;height:16px;stroke:currentColor;flex-shrink:0;}
+  .obra-video{
+    max-width:300px;margin:0 auto 32px;border-radius:12px;overflow:hidden;
+    background:var(--obsidian-950);border:1px solid var(--concrete-300);
+    box-shadow:0 12px 30px rgba(11,20,22,0.18);
+  }
+  .obra-video video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;}
+  .obra-attrib{
+    margin-top:20px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.04em;
+    color:var(--concrete-400);
+  }
+  .proceso-video{
+    margin-top:28px;max-width:280px;border-radius:12px;overflow:hidden;
+    border:1px solid rgba(255,255,255,0.12);background:var(--obsidian-950);
+  }
+  .proceso-video video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;}
+  .proceso-video-cap{
+    font-family:var(--font-mono);font-size:11px;letter-spacing:var(--tracking-wide);
+    text-transform:uppercase;color:var(--concrete-400);margin:12px 0 0;
+  }
 
   /* ---------- Educación (docencia) ---------- */
   .edu{background:var(--concrete-50);}
@@ -334,6 +353,8 @@
     .obra-item img{height:340px;}
     .stats-grid{grid-template-columns:repeat(4,1fr);}
     h2{font-size:32px;}
+    .obra-video{max-width:340px;}
+    .proceso-video{max-width:320px;}
     .header-social{display:flex;}
     .edu-table-card{padding:32px 28px;}
     .edu-table th, .edu-table td{font-size:15px;padding:14px 12px;}
@@ -401,8 +422,11 @@
 <section class="obra" id="obra">
   <div class="wrap">
     <span class="kicker">En obra · Sun Tower Mall</span>
-    <h2>La membrana, no la promesa.</h2>
-    <p class="section-lede">Registro real de aplicación en campo. Sin renders, sin maquetas.</p>
+    <h2>El problema no se veía. Se sentía en cada lluvia.</h2>
+    <p class="section-lede">130 m² de losa de estacionamiento con filtración activa hacia niveles inferiores. Concreto expuesto, manchado por filtración constante — impermeabilizados en un día.</p>
+    <div class="obra-video">
+      <video src="assets/video-antes-despues.mp4" poster="assets/foto-despues.jpeg" autoplay muted loop playsinline></video>
+    </div>
     <div class="obra-grid">
       <div class="obra-item">
         <img src="assets/foto-antes.jpeg" alt="Sustrato de concreto antes de la aplicación, con grietas y filtraciones activas">
@@ -426,6 +450,7 @@
         </div>
       </div>
     </div>
+    <div class="obra-attrib">Caso autorizado por Johnny Simon / Proyectos Rosas.</div>
     <div class="social-inline">
       <span>Más registro de obra:</span>
       <a href="https://instagram.com/polysellos" target="_blank" rel="noopener">
@@ -608,6 +633,10 @@
         </div>
       </div>
     </div>
+    <div class="proceso-video">
+      <video src="assets/video-aplicacion.mp4" poster="assets/proceso-4-aplicacion.jpg" controls playsinline preload="none"></video>
+    </div>
+    <p class="proceso-video-cap">Aplicación real, en proceso, sin cortes — Sun Tower Mall</p>
   </div>
 </section>
 
