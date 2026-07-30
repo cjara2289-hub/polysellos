@@ -55,6 +55,8 @@ a{color:inherit;}
 header.site{
   background:var(--obsidian-900);
   padding:20px 0;
+  position:relative;
+  z-index:100;
 }
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;}
 .brand-link{display:flex;align-items:center;}
