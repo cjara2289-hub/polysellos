@@ -1,2 +1,49 @@
 [build]
   publish = "."
+
+# ============================================================
+# Cabeceras de seguridad.
+# El sitio es estatico y sin formularios, asi que no hay base de datos ni
+# entradas de usuario que atacar. Lo que si aplica es evitar que lo metan
+# dentro de un iframe ajeno y limitar a que servidores puede hablar la
+# pagina si algun dia se cuela codigo de terceros.
+# ============================================================
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Impide que alguien monte la pagina en un iframe suyo y capture los
+    # clics encima (clickjacking). frame-ancestors del CSP hace lo mismo en
+    # navegadores modernos; esta queda para los viejos.
+    X-Frame-Options = "DENY"
+    # Impide que el navegador "adivine" el tipo de un archivo y lo ejecute.
+    X-Content-Type-Options = "nosniff"
+    # No filtra la URL completa de Polysellos a los sitios que se enlazan.
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # La landing no usa camara, microfono ni ubicacion: se apagan de raiz.
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+    # Lista blanca de origenes: lo que no este aqui, el navegador lo bloquea.
+    # connect.facebook.net y www.facebook.com son el pixel de Meta
+    # (1517272426842047), necesario para medir la pauta: si se quitan, se
+    # pierde la atribucion de los anuncios.
+    #
+    # 'unsafe-inline' en script-src es deliberado: los tres bloques <script>
+    # de index.html son inline. La alternativa (hashes SHA-256) es mas
+    # estricta pero se rompe en silencio con cada edicion del HTML, y aqui no
+    # hay vector de inyeccion real: la pagina no recibe datos de nadie, no
+    # tiene formularios ni parametros de URL que se pinten en pantalla.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com; media-src 'self'; connect-src 'self' https://www.facebook.com https://connect.facebook.net; frame-src https://www.facebook.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+
+# Las imagenes y el video no cambian de nombre: se cachean fuerte para que
+# la pagina cargue rapido en el 4G de obra.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# El HTML si debe revalidarse, para que un cambio de copy se vea enseguida.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
