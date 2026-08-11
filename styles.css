@@ -38,6 +38,9 @@
 }
 *,*::before,*::after{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+/* El header sticky mide ~57px cuando esta compacto; sin esto el ancla deja el
+   titulo de la seccion escondido detras de el. */
+section[id],main[id]{scroll-margin-top:76px;}
 html.intro-active,html.intro-active body{overflow:hidden;height:100%;}
 body{
   margin:0;background:var(--obsidian-950);color:var(--concrete-50);
@@ -125,9 +128,16 @@ a{color:inherit;text-decoration:none;}
   display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:end;
 }
 .hero-copy{max-width:720px;}
-.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:26px;}
-.hero-eyebrow .rule{width:34px;height:1px;background:var(--membrane-500);}
-.hero-eyebrow span{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--membrane-500);}
+/* El kicker vive dentro del h1 para que el titular contenga la keyword de servicio
+   y el geo sin perder el eslogan de marca. Hay que resetear font-stretch, weight y
+   tracking a mano porque el h1 los impone hacia abajo. */
+.hero h1 .h1-kicker{
+  display:flex;align-items:center;gap:12px;margin-bottom:26px;
+  font-family:var(--font-mono);font-stretch:normal;font-weight:400;
+  font-size:11.5px;letter-spacing:.22em;line-height:1.5;
+  text-transform:uppercase;color:var(--membrane-500);
+}
+.hero h1 .h1-kicker .rule{width:34px;height:1px;background:var(--membrane-500);flex-shrink:0;}
 .hero h1{
   font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:clamp(34px,8vw,74px);
   line-height:1.02;letter-spacing:-.02em;margin:0;color:var(--concrete-0);text-wrap:balance;
@@ -185,7 +195,7 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .comparativo .lede{max-width:600px;margin-bottom:40px;}
 .comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
 .comp-card{border:1px solid rgba(255,255,255,.09);border-radius:var(--radius-lg);background:var(--obsidian-900);padding:28px 24px 24px;}
-.comp-card-title{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);margin-bottom:22px;}
+.comp-card-title{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);margin:0 0 22px;font-weight:400;}
 .comp-row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,.07);}
 .comp-row .k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--concrete-500);}
 .comp-row .v{font-size:14px;color:var(--concrete-300);text-align:right;}
@@ -247,7 +257,7 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
   display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;font-size:13px;
   border:2px solid var(--concrete-50);
 }
-.cotiza-grid b{display:block;font-family:var(--font-sans);font-size:19px;font-weight:600;margin:22px 0 8px;color:var(--obsidian-900);}
+.cotiza-grid h3{display:block;font-family:var(--font-sans);font-size:19px;font-weight:600;margin:22px 0 8px;color:var(--obsidian-900);}
 .cotiza-grid p{margin:0;font-size:15px;line-height:1.6;color:var(--concrete-600);text-wrap:pretty;}
 
 /* ---------- FAQ ---------- */
@@ -270,6 +280,7 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
   padding:20px 0;font-family:var(--font-sans);font-weight:600;font-size:16.5px;color:var(--obsidian-900);
 }
 .faq-list summary::-webkit-details-marker{display:none;}
+.faq-list summary h3{margin:0;font:inherit;color:inherit;}
 .faq-list summary .plus{font-family:var(--font-mono);color:var(--membrane-800);font-size:19px;flex-shrink:0;}
 .faq-list p{margin:0 0 20px;font-size:15px;line-height:1.65;color:var(--concrete-600);max-width:640px;}
 
@@ -354,6 +365,7 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   .cotiza-num{position:relative;z-index:1;}
 }
 @media(max-width:520px){
+  .hero h1 .h1-kicker{font-size:10.5px;letter-spacing:.14em;}
   .site-bar{gap:16px;padding-left:16px;padding-right:16px;}
   .site-bar img{height:26px;}
   .header-cta span{display:none;}
