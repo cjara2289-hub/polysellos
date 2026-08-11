@@ -25,7 +25,11 @@
 <link rel="icon" href="assets/app-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700;800&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- "Archivo Expanded" no existe como familia en Google Fonts: la peticion devolvia
+     200 pero se ignoraba en silencio y los titulares salian en Archivo normal. El
+     ancho expandido es el eje wdth de la variable Archivo, se pide como wdth,wght
+     y se aplica con font-stretch:125% en las reglas que usan --font-display. -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;100,700;125,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script>
 !function(f,b,e,v,n,t,s)
@@ -42,6 +46,8 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517272426842047&ev=PageView&noscript=1"></noscript>
 </head>
 <body>
+
+<a class="skip-link" href="#contenido">Ir al contenido</a>
 
 <div class="intro" id="intro"><img class="intro-logo" src="assets/app-icon.png" alt="Polysellos"></div>
 <script>
@@ -79,6 +85,8 @@ fbq('track', 'PageView');
 </header>
 
 <!-- HERO -->
+<main id="contenido">
+
 <section class="hero" id="top">
   <div class="hero-bg" data-ps-parallax="0.18"></div>
   <div class="hero-scrim-1"></div>
@@ -349,6 +357,8 @@ fbq('track', 'PageView');
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap footer-inner">
     <img src="assets/logo-horizontal-inverse.png" alt="Polysellos">
@@ -454,7 +464,11 @@ fbq('track', 'PageView');
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+})();
 
+// El tracking de conversion va fuera del bloque de animacion: ese sale temprano
+// con "reducir movimiento" activado y se perdian los clics a WhatsApp del pixel.
+(function(){
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
     link.addEventListener('click', function(){
       if(typeof fbq === 'function') fbq('track', 'Contact');
