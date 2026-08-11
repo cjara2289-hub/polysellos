@@ -8,13 +8,20 @@
   --concrete-200:#DEE1E0;
   --concrete-300:#C5CAC9;
   --concrete-400:#9BA2A1;
-  --concrete-500:#6C7473;
+  /* concrete-500 es el gris de las etiquetas mono, siempre sobre fondo oscuro.
+     Era #6C7473 = 3.89:1 sobre obsidiana-900, por debajo del 4.5:1 que exige AA
+     para texto de 10-11px. Aclarado a 4.86:1. Para texto sobre fondo claro va
+     concrete-600, que no cambia. */
+  --concrete-500:#7B8483;
   --concrete-600:#4B5251;
   --membrane-300:#93E8DC;
   --membrane-400:#4FD8C9;
   --membrane-500:#12C2B0;
   --membrane-600:#00A294;
   --membrane-700:#008C7F;
+  /* Teal para texto sobre fondo claro: membrane-600 daba 2.94:1 y el 700, 3.83:1.
+     Este llega a 4.83:1 sobre concreto-50. Solo para texto, no para fondos. */
+  --membrane-800:#007A70;
 
   /* El ancho expandido de la marca es font-stretch:125% sobre Archivo, no una
      familia aparte. Toda regla que use --font-display debe declararlo tambien. */
@@ -227,7 +234,7 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 
 /* ---------- Cómo cotizamos ---------- */
 .cotiza{background:var(--concrete-50);color:var(--obsidian-900);}
-.cotiza .eyebrow{color:var(--membrane-600);}
+.cotiza .eyebrow{color:var(--membrane-800);}
 .cotiza h2,.faq h2{color:var(--obsidian-900);}
 .cotiza .lede{max-width:600px;margin-bottom:64px;color:var(--concrete-600);}
 .cotiza-steps{position:relative;}
@@ -247,11 +254,11 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .faq{background:var(--concrete-0);color:var(--obsidian-900);}
 .faq-layout{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:56px;align-items:start;}
 .faq-intro .lede{max-width:360px;color:var(--concrete-600);}
-.faq-eyebrow{color:var(--membrane-600);}
+.faq-eyebrow{color:var(--membrane-800);}
 .faq-card{margin-top:36px;max-width:380px;border:1px solid var(--concrete-200);border-radius:var(--radius-lg);background:var(--concrete-50);overflow:hidden;}
 .faq-card-seam{height:3px;background:linear-gradient(90deg,var(--membrane-700),var(--membrane-500),var(--membrane-300));}
 .faq-card-body{padding:24px;}
-.faq-card-tag{display:block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--concrete-500);}
+.faq-card-tag{display:block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--concrete-600);}
 .faq-card p{margin:12px 0 20px;font-size:16px;line-height:1.5;color:var(--obsidian-900);text-wrap:pretty;}
 .faq-card-phone{display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid var(--concrete-200);}
 .faq-card-phone .dot{width:7px;height:7px;border-radius:50%;background:var(--membrane-500);flex-shrink:0;}
@@ -263,7 +270,7 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
   padding:20px 0;font-family:var(--font-sans);font-weight:600;font-size:16.5px;color:var(--obsidian-900);
 }
 .faq-list summary::-webkit-details-marker{display:none;}
-.faq-list summary .plus{font-family:var(--font-mono);color:var(--membrane-600);font-size:19px;flex-shrink:0;}
+.faq-list summary .plus{font-family:var(--font-mono);color:var(--membrane-800);font-size:19px;flex-shrink:0;}
 .faq-list p{margin:0 0 20px;font-size:15px;line-height:1.65;color:var(--concrete-600);max-width:640px;}
 
 /* ---------- CTA final ---------- */
@@ -305,7 +312,7 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
 }
 .footer-social a:hover{border-color:var(--membrane-500);}
 .footer-social svg{width:18px;height:18px;stroke:var(--concrete-300);}
-.footer-legal{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-600);}
+.footer-legal{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);}
 /* Acceso interno a la app de campo. Se ve exactamente igual que el separador
    que ya estaba; el padding negativo solo agranda el area tocable en el celular. */
 .footer-dot{color:inherit;text-decoration:none;padding:12px 8px;margin:-12px -8px;}
@@ -333,6 +340,22 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   .obra-gallery .lg{grid-column:1/-1;height:260px;}
   .final-cta-inner{align-items:start;}
   .final-cta-action{justify-self:start;align-items:flex-start;}
+}
+/* Debajo de ~788px los tres pasos ya no caben en una fila (3x220 + 2x40 de gap =
+   740px de grid, mas 48px de padding del wrap) y el auto-fit los apila, pero la
+   linea de progreso seguia horizontal a top:19px: quedaba cruzada al lado del
+   circulo "01", flotando sobre nada. Aqui se fuerza una sola columna y la linea
+   se gira a vertical, alineada al centro de los circulos de 40px (20px menos el
+   1px de la mitad del grosor de la linea). */
+@media(max-width:800px){
+  .cotiza-grid{grid-template-columns:1fr;gap:34px;}
+  .cotiza-track,.cotiza-fill{top:0;bottom:0;left:19px;right:auto;width:2px;height:auto;}
+  .cotiza-fill{
+    background:linear-gradient(180deg,var(--membrane-700),var(--membrane-500));
+    transform-origin:top center;transform:scaleY(0);
+  }
+  .cotiza-fill.is-grown{transform:scaleY(1);}
+  .cotiza-num{position:relative;z-index:1;}
 }
 @media(max-width:520px){
   .site-bar{gap:16px;padding-left:16px;padding-right:16px;}
