@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-PA">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Polysellos — Impermeabilización con poliurea pura</title>
-<meta name="description" content="Membrana continua de poliurea pura. Sin juntas, curado en segundos, 0% permeabilidad. Cotización por proyecto vía WhatsApp.">
+<!-- El title lleva la keyword y el geo adelante y la marca al final: nadie busca
+     "Polysellos" todavia, buscan el servicio y la ciudad. El og:title de abajo se
+     mantiene con el eslogan a proposito: search y WhatsApp son publicos distintos. -->
+<title>Impermeabilización con poliurea en Panamá | Polysellos</title>
+<meta name="description" content="Membrana continua de poliurea pura para losas, techos y estacionamientos en Ciudad de Panamá. Cero juntas, 0% permeabilidad, curado en segundos. Cotice por WhatsApp.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0B1416">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Polysellos">
 <meta property="og:title" content="Polysellos — Membrana continua. Cero juntas. Cero filtraciones.">
 <meta property="og:description" content="Poliurea pura proyectada en caliente. Cura en segundos, sin juntas y sin detener la operación. Diagnóstico técnico sin costo.">
 <meta property="og:url" content="https://polysellos.netlify.app/">
-<meta property="og:image" content="https://polysellos.netlify.app/assets/foto-despues.jpeg">
-<meta property="og:image:alt" content="Losa impermeabilizada con membrana de poliurea Polysellos.">
+<meta property="og:image" content="https://polysellos.netlify.app/assets/og-polysellos.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Losa de estacionamiento impermeabilizada con membrana de poliurea en Ciudad de Panamá.">
 <meta property="og:locale" content="es_PA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Polysellos — Membrana continua. Cero juntas. Cero filtraciones.">
 <meta name="twitter:description" content="Poliurea pura proyectada en caliente. Cura en segundos, sin juntas y sin detener la operación.">
-<meta name="twitter:image" content="https://polysellos.netlify.app/assets/foto-despues.jpeg">
+<meta name="twitter:image" content="https://polysellos.netlify.app/assets/og-polysellos.jpg">
+<meta name="twitter:image:alt" content="Losa de estacionamiento impermeabilizada con membrana de poliurea en Ciudad de Panamá.">
 <link rel="canonical" href="https://polysellos.netlify.app/">
 <!-- Estas URL son absolutas por exigencia de WhatsApp/Facebook: no aceptan rutas
      relativas para la vista previa. Apuntaban a cjara2289-hub.github.io, que quedo
      en 404 al deshabilitar GitHub Pages, asi que el enlace se compartia sin imagen.
+     La imagen es og-polysellos.jpg y no foto-despues.jpeg: la vista previa grande
+     pide 1200x630, y con la foto vertical 675x900 WhatsApp la recortaba o la
+     degradaba a miniatura. Se genero recortando el original de 1200x1600 que vive
+     en la carpeta del proyecto Sun Tower, no ampliando la version chica.
      Cuando se compre el dominio propio hay que actualizar og:url, og:image,
-     twitter:image y canonical a la nueva URL. -->
+     twitter:image, canonical, el sitemap, el robots.txt y los dos @id del JSON-LD. -->
 <link rel="icon" href="assets/app-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,6 +57,76 @@ fbq('init', '1517272426842047');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517272426842047&ev=PageView&noscript=1"></noscript>
+<!-- Datos estructurados. Faltan a proposito dos campos que no estan en el repo y
+     no se inventan: streetAddress (esta en el Aviso de Operacion; puede omitirse si
+     no se quiere publicar direccion fisica) y openingHoursSpecification (solo se
+     sabe "Lun a sab", sin horas). Un horario inventado que no coincida con el perfil
+     de Google es peor que no tenerlo. priceRange y aggregateRating quedan fuera por
+     regla de marca y por no haber resenas reales. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "RoofingContractor"],
+  "@id": "https://polysellos.netlify.app/#empresa",
+  "name": "Polysellos",
+  "url": "https://polysellos.netlify.app/",
+  "logo": "https://polysellos.netlify.app/assets/app-icon.png",
+  "image": "https://polysellos.netlify.app/assets/og-polysellos.jpg",
+  "description": "Impermeabilización con poliurea pura proyectada en caliente en Ciudad de Panamá. Membrana continua sin juntas para losas, techos, estacionamientos y pisos industriales.",
+  "telephone": "+507 6373-1269",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ciudad de Panamá",
+    "addressRegion": "Provincia de Panamá",
+    "addressCountry": "PA"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Ciudad de Panamá" },
+    { "@type": "AdministrativeArea", "name": "Provincia de Panamá" }
+  ],
+  "sameAs": [
+    "https://instagram.com/polysellos",
+    "https://www.facebook.com/profile.php?id=61592051825236"
+  ],
+  "knowsAbout": [
+    "Impermeabilización con poliurea",
+    "Impermeabilización de losas",
+    "Impermeabilización de techos",
+    "Membrana continua sin juntas",
+    "Filtraciones en concreto"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de impermeabilización",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impermeabilización de losas y techos con poliurea", "serviceType": "Impermeabilización", "areaServed": { "@type": "City", "name": "Ciudad de Panamá" } } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impermeabilización de losas de estacionamiento", "serviceType": "Impermeabilización", "areaServed": { "@type": "City", "name": "Ciudad de Panamá" } } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Recubrimiento de pisos industriales con poliurea", "serviceType": "Recubrimiento industrial", "areaServed": { "@type": "City", "name": "Ciudad de Panamá" } } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnóstico técnico de filtraciones", "serviceType": "Diagnóstico", "areaServed": { "@type": "City", "name": "Ciudad de Panamá" } } }
+    ]
+  }
+}
+</script>
+<!-- El texto de cada respuesta es identico al visible en la seccion FAQ: si se
+     edita una, hay que editar la otra. Google ya no pinta acordeones de FAQ para
+     sitios comerciales desde 2023, asi que esto no da rich result; sirve para que
+     las respuestas se puedan citar como pasajes en busqueda con IA. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://polysellos.netlify.app/#faq",
+  "isPartOf": { "@id": "https://polysellos.netlify.app/#empresa" },
+  "mainEntity": [
+    { "@type": "Question", "name": "¿El diagnóstico tiene costo?", "acceptedAnswer": { "@type": "Answer", "text": "No. Evaluamos su superficie y entregamos un diagnóstico técnico sin costo ni compromiso antes de cotizar." } },
+    { "@type": "Question", "name": "¿Cuánto tiempo toma la aplicación?", "acceptedAnswer": { "@type": "Answer", "text": "La poliurea cura en segundos. La superficie queda transitable el mismo día, a diferencia de sistemas convencionales que requieren días de secado." } },
+    { "@type": "Question", "name": "¿Debo detener mis operaciones?", "acceptedAnswer": { "@type": "Answer", "text": "No. El curado casi instantáneo permite aplicar por secciones sin detener la operación completa del edificio o la planta." } },
+    { "@type": "Question", "name": "¿Se puede aplicar con lluvia o humedad?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. A diferencia de los sistemas que curan por evaporación, la poliurea reacciona químicamente — no depende del clima para sellar la superficie." } },
+    { "@type": "Question", "name": "¿Resiste el sol directo sin degradarse?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El sol panameño degrada el acrílico antes de lo anunciado por el fabricante; la poliurea mantiene su desempeño durante toda su vida útil." } },
+    { "@type": "Question", "name": "¿Funciona sobre cualquier superficie?", "acceptedAnswer": { "@type": "Answer", "text": "Se adhiere a concreto, metal y la mayoría de sustratos con la imprimación correcta — por eso el diagnóstico revisa el sustrato antes de cotizar." } }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -53,16 +136,30 @@ fbq('track', 'PageView');
 <script>
 (function(){
   var intro = document.getElementById('intro');
-  if(sessionStorage.getItem('polysellos_intro_seen')){ intro.remove(); return; }
+  if(!intro) return;
+  // sessionStorage puede lanzar en contextos restringidos; si eso corta el script
+  // el splash se queda tapando la pagina para siempre.
+  var visto = false;
+  try { visto = !!sessionStorage.getItem('polysellos_intro_seen'); } catch(e){}
+  if(visto){ intro.remove(); return; }
   document.documentElement.classList.add('intro-active');
-  window.addEventListener('load', function(){
-    setTimeout(function(){
-      intro.classList.add('intro-hide');
-      document.documentElement.classList.remove('intro-active');
-      sessionStorage.setItem('polysellos_intro_seen','1');
-      setTimeout(function(){ if(intro && intro.parentNode) intro.remove(); }, 650);
-    }, 900);
-  });
+
+  var cerrado = false;
+  function cerrar(){
+    if(cerrado) return;
+    cerrado = true;
+    intro.classList.add('intro-hide');
+    document.documentElement.classList.remove('intro-active');
+    try { sessionStorage.setItem('polysellos_intro_seen','1'); } catch(e){}
+    setTimeout(function(){ if(intro && intro.parentNode) intro.remove(); }, 650);
+  }
+
+  // Antes esto colgaba solo de 'load', que espera a TODAS las imagenes, a las
+  // fuentes de Google y al script del pixel. En 4G desde el navegador de
+  // Instagram eso son varios segundos de pantalla negra antes de ver nada.
+  // Ahora gana el que llegue primero: load + 500ms, o un tope duro de 1800ms.
+  window.addEventListener('load', function(){ setTimeout(cerrar, 500); });
+  setTimeout(cerrar, 1800);
 })();
 </script>
 
@@ -77,7 +174,7 @@ fbq('track', 'PageView');
       <a href="#obra">En obra</a>
       <a href="#cotizamos">Cómo cotizar</a>
     </nav>
-    <a class="header-cta" href="https://wa.me/50763731269?text=Hola%2C%20quisiera%20solicitar%20un%20diagn%C3%B3stico%20para%20mi%20proyecto." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp: +507 6373-1269">
+    <a class="header-cta" data-cta="header" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico.%20Mi%20proyecto%3A%20%28superficie%20%2F%20%C3%A1rea%20aprox.%20en%20m2%20%2F%20ubicaci%C3%B3n%29." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp: +507 6373-1269">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
       <span>+507 6373-1269</span>
     </a>
@@ -95,15 +192,24 @@ fbq('track', 'PageView');
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <div class="hero-eyebrow" data-reveal>
-        <span class="rule"></span>
-        <span>Impermeabilización industrial</span>
-      </div>
-      <h1 data-reveal data-delay="80">Membrana continua.<br>Cero juntas.<br><em>Cero filtraciones.</em></h1>
-      <p class="sub" data-reveal data-delay="160">Poliurea pura proyectada en caliente sobre su estructura. Cura en segundos, sin juntas y sin detener la operación. Deje de reparar lo mismo cada dos años.</p>
-      <div class="hero-tags" data-reveal data-delay="240">
+      <!-- El kicker va DENTRO del h1 para que el titular contenga "impermeabilizacion",
+           "poliurea" y "Panama" sin tocar el eslogan, que es el ejemplo canonico de voz
+           correcta del brief de identidad. Visualmente es identico al div que habia
+           antes. Se quito "industrial": descalificaba a quien tiene una losa
+           residencial filtrando, que es buena parte del trafico de Instagram. -->
+      <h1 data-reveal>
+        <span class="h1-kicker"><span class="rule"></span>Impermeabilización · Panamá</span>
+        Membrana continua.<br>Cero juntas.<br><em>Cero filtraciones.</em>
+      </h1>
+      <!-- El sub ya no repite "sin juntas" (lo dice el h1 justo arriba) y usa esos
+           caracteres en cifras, que es lo que pide la regla de marca. El largo importa
+           tanto como el contenido: cada linea de mas empuja el boton de WhatsApp abajo
+           del pliegue en movil, asi que esto se quedo en 137 caracteres, menos que los
+           155 que tenia antes. El geo no se repite aca porque ya esta en el kicker. -->
+      <p class="sub" data-reveal data-delay="80">Poliurea pura proyectada en caliente sobre su losa: cura en 4 segundos, 0% de permeabilidad, 380% de elongación. Transitable el mismo día.</p>
+      <div class="hero-tags" data-reveal data-delay="160">
         <span>Concreto</span>
-        <span>Azoteas</span>
+        <span>Losas</span>
         <span>Estacionamientos</span>
         <span>Pisos industriales</span>
       </div>
@@ -112,7 +218,7 @@ fbq('track', 'PageView');
     <div class="hero-card" data-reveal data-delay="320">
       <div class="hero-card-seam"></div>
       <span>Diagnóstico sin costo</span>
-      <a class="cta-btn" href="https://wa.me/50763731269?text=Hola%2C%20quisiera%20solicitar%20un%20diagn%C3%B3stico%20para%20mi%20proyecto." target="_blank" rel="noopener">
+      <a class="cta-btn" data-cta="hero" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20solicitar%20un%20diagn%C3%B3stico.%20Mi%20proyecto%3A%20%28superficie%20%2F%20%C3%A1rea%20aprox.%20en%20m2%20%2F%20ubicaci%C3%B3n%29." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
         Escríbanos por WhatsApp
       </a>
@@ -167,7 +273,7 @@ fbq('track', 'PageView');
 
     <div class="comp-grid">
       <div class="comp-card" data-reveal>
-        <div class="comp-card-title">Acrílico</div>
+        <h3 class="comp-card-title">Acrílico</h3>
         <div class="comp-row"><span class="k">Vida útil</span><span class="v">2–5 años</span></div>
         <div class="comp-row"><span class="k">Curado</span><span class="v">Días</span></div>
         <div class="comp-row"><span class="k">Juntas</span><span class="v">Requiere refuerzos</span></div>
@@ -175,7 +281,7 @@ fbq('track', 'PageView');
       </div>
 
       <div class="comp-card" data-reveal data-delay="90">
-        <div class="comp-card-title">Espuma PU / asfáltico</div>
+        <h3 class="comp-card-title">Espuma PU / asfáltico</h3>
         <div class="comp-row"><span class="k">Vida útil</span><span class="v">5–10 años</span></div>
         <div class="comp-row"><span class="k">Curado</span><span class="v">Horas</span></div>
         <div class="comp-row"><span class="k">Juntas</span><span class="v">Entre cada paño</span></div>
@@ -183,7 +289,7 @@ fbq('track', 'PageView');
       </div>
 
       <div class="comp-card is-poly" data-reveal data-delay="180">
-        <div class="comp-card-title"><img src="assets/mark-white.png" alt=""> Poliurea Polysellos</div>
+        <h3 class="comp-card-title"><img src="assets/mark-white.png" alt=""> Poliurea Polysellos</h3>
         <div class="comp-row"><span class="k">Vida útil</span><span class="v">15–25 años</span></div>
         <div class="comp-row"><span class="k">Curado</span><span class="v">≤4 segundos</span></div>
         <div class="comp-row"><span class="k">Juntas</span><span class="v">Cero — continua</span></div>
@@ -218,29 +324,29 @@ fbq('track', 'PageView');
 
     <div class="obra-gallery">
       <figure class="lg" data-reveal>
-        <img src="assets/proceso-4-aplicacion.jpg" alt="Proyección de poliurea con equipo de alta presión">
+        <img loading="lazy" decoding="async" src="assets/proceso-4-aplicacion.jpg" alt="Proyección de poliurea con equipo de alta presión">
         <figcaption>Aplicación · equipo Graco de alta presión</figcaption>
       </figure>
       <figure class="sm" data-reveal data-delay="90">
-        <img src="assets/foto-despues.jpeg" alt="Membrana continua terminada sobre la losa">
+        <img loading="lazy" decoding="async" src="assets/foto-despues.jpeg" alt="Membrana continua terminada sobre la losa">
         <figcaption>Entrega · membrana sin uniones</figcaption>
       </figure>
       <figure class="sm" data-reveal data-delay="150">
-        <img src="assets/proceso-2-preparacion.jpg" alt="Preparación mecánica del sustrato">
+        <img loading="lazy" decoding="async" src="assets/proceso-2-preparacion.jpg" alt="Preparación mecánica del sustrato">
         <figcaption>Preparación del sustrato</figcaption>
       </figure>
       <figure class="sm" data-reveal data-delay="210">
-        <img src="assets/proceso-3-imprimacion.jpg" alt="Imprimación sobre concreto">
+        <img loading="lazy" decoding="async" src="assets/proceso-3-imprimacion.jpg" alt="Imprimación sobre concreto">
         <figcaption>Imprimación</figcaption>
       </figure>
       <figure class="sm" data-reveal data-delay="270">
-        <img src="assets/proceso-5-entrega.jpg" alt="Superficie terminada y transitable">
+        <img loading="lazy" decoding="async" src="assets/proceso-5-entrega.jpg" alt="Superficie terminada y transitable">
         <figcaption>Transitable el mismo día</figcaption>
       </figure>
     </div>
 
     <div class="obra-cta-row" data-reveal data-delay="120">
-      <a class="cta-btn" href="https://wa.me/50763731269?text=Hola%2C%20quisiera%20cotizar%20un%20proyecto%20similar%20al%20de%20Sun%20Tower%20Mall." target="_blank" rel="noopener">
+      <a class="cta-btn" data-cta="obra" href="https://wa.me/50763731269?text=Hola.%20Vi%20el%20caso%20de%20Sun%20Tower%20Mall%20y%20quisiera%20cotizar%20un%20proyecto%20similar.%0ASuperficie%3A%0A%C3%81rea%20aproximada%20%28m2%29%3A%0AUbicaci%C3%B3n%3A" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
         Cotice un proyecto similar
       </a>
@@ -265,17 +371,17 @@ fbq('track', 'PageView');
       <div class="cotiza-grid">
         <div data-reveal>
           <div class="cotiza-num">01</div>
-          <b>Nos escribe por WhatsApp</b>
+          <h3>Nos escribe por WhatsApp</h3>
           <p>Comparta el tipo de superficie, el área aproximada y el problema que enfrenta. Sin formularios, sin costo.</p>
         </div>
         <div data-reveal data-delay="120">
           <div class="cotiza-num">02</div>
-          <b>Evaluamos su caso</b>
+          <h3>Evaluamos su caso</h3>
           <p>Con esa información —o una visita técnica si el proyecto lo requiere— calculamos el precio real según sustrato y acceso.</p>
         </div>
         <div data-reveal data-delay="240">
           <div class="cotiza-num">03</div>
-          <b>Recibe su cotización</b>
+          <h3>Recibe su cotización</h3>
           <p>Precio por proyecto, garantía por escrito y fecha de aplicación. Sin letra pequeña.</p>
         </div>
       </div>
@@ -296,7 +402,7 @@ fbq('track', 'PageView');
         <div class="faq-card-body">
           <span class="faq-card-tag">Hable con un técnico</span>
           <p>Describa su superficie en un mensaje. Le decimos si la poliurea corresponde — y si no, también.</p>
-          <a class="cta-btn cta-dark" href="https://wa.me/50763731269?text=Hola%2C%20tengo%20una%20consulta%20t%C3%A9cnica%20sobre%20mi%20superficie." target="_blank" rel="noopener">
+          <a class="cta-btn cta-dark" data-cta="faq" href="https://wa.me/50763731269?text=Hola.%20Tengo%20una%20consulta%20t%C3%A9cnica%20sobre%20mi%20superficie.%0ASuperficie%3A%0A%C3%81rea%20aproximada%20%28m2%29%3A%0AUbicaci%C3%B3n%3A" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             Consultar por WhatsApp
           </a>
@@ -310,27 +416,27 @@ fbq('track', 'PageView');
 
     <div class="faq-list" data-reveal data-delay="100">
       <details>
-        <summary>¿El diagnóstico tiene costo?<span class="plus">+</span></summary>
+        <summary><h3>¿El diagnóstico tiene costo?</h3><span class="plus">+</span></summary>
         <p>No. Evaluamos su superficie y entregamos un diagnóstico técnico sin costo ni compromiso antes de cotizar.</p>
       </details>
       <details>
-        <summary>¿Cuánto tiempo toma la aplicación?<span class="plus">+</span></summary>
+        <summary><h3>¿Cuánto tiempo toma la aplicación?</h3><span class="plus">+</span></summary>
         <p>La poliurea cura en segundos. La superficie queda transitable el mismo día, a diferencia de sistemas convencionales que requieren días de secado.</p>
       </details>
       <details>
-        <summary>¿Debo detener mis operaciones?<span class="plus">+</span></summary>
+        <summary><h3>¿Debo detener mis operaciones?</h3><span class="plus">+</span></summary>
         <p>No. El curado casi instantáneo permite aplicar por secciones sin detener la operación completa del edificio o la planta.</p>
       </details>
       <details>
-        <summary>¿Se puede aplicar con lluvia o humedad?<span class="plus">+</span></summary>
+        <summary><h3>¿Se puede aplicar con lluvia o humedad?</h3><span class="plus">+</span></summary>
         <p>Sí. A diferencia de los sistemas que curan por evaporación, la poliurea reacciona químicamente — no depende del clima para sellar la superficie.</p>
       </details>
       <details>
-        <summary>¿Resiste el sol directo sin degradarse?<span class="plus">+</span></summary>
+        <summary><h3>¿Resiste el sol directo sin degradarse?</h3><span class="plus">+</span></summary>
         <p>Sí. El sol panameño degrada el acrílico antes de lo anunciado por el fabricante; la poliurea mantiene su desempeño durante toda su vida útil.</p>
       </details>
       <details>
-        <summary>¿Funciona sobre cualquier superficie?<span class="plus">+</span></summary>
+        <summary><h3>¿Funciona sobre cualquier superficie?</h3><span class="plus">+</span></summary>
         <p>Se adhiere a concreto, metal y la mayoría de sustratos con la imprimación correcta — por eso el diagnóstico revisa el sustrato antes de cotizar.</p>
       </details>
     </div>
@@ -348,7 +454,7 @@ fbq('track', 'PageView');
       <p class="sub" data-reveal data-delay="130">Envíe su ubicación, el área aproximada y una foto si la tiene a la mano. Le decimos qué sistema corresponde y qué no.</p>
     </div>
     <div class="final-cta-action" data-reveal data-delay="200">
-      <a class="cta-btn" href="https://wa.me/50763731269?text=Hola%2C%20quisiera%20solicitar%20un%20diagn%C3%B3stico%20para%20mi%20proyecto." target="_blank" rel="noopener">
+      <a class="cta-btn" data-cta="cta-final" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20solicitar%20el%20diagn%C3%B3stico%20sin%20costo.%0ASuperficie%3A%0A%C3%81rea%20aproximada%20%28m2%29%3A%0AUbicaci%C3%B3n%3A" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
         Escríbanos por WhatsApp
       </a>
@@ -374,7 +480,7 @@ fbq('track', 'PageView');
   </div>
 </footer>
 
-<a class="fab" id="fab" href="https://wa.me/50763731269?text=Hola%2C%20quisiera%20solicitar%20un%20diagn%C3%B3stico%20para%20mi%20proyecto." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+<a class="fab" id="fab" data-cta="fab" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20para%20mi%20proyecto%3A%20%28superficie%20%2F%20%C3%A1rea%20aprox.%20en%20m2%20%2F%20ubicaci%C3%B3n%29." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
 </a>
 
@@ -436,20 +542,6 @@ fbq('track', 'PageView');
     growObs.observe(grow);
   }
 
-  var fab = document.getElementById('fab');
-  var corner = document.querySelector('.hero-card');
-  if(fab && corner){
-    var fabObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        var hide = e.isIntersecting;
-        fab.style.opacity = hide ? '0' : '1';
-        fab.style.pointerEvents = hide ? 'none' : 'auto';
-        fab.style.transform = hide ? 'translateY(14px) scale(.86)' : 'none';
-      });
-    }, { threshold: 0.25 });
-    fabObs.observe(corner);
-  }
-
   var bg = document.querySelector('.hero-bg');
   var header = document.getElementById('siteHeader');
   var raf = null;
@@ -466,12 +558,71 @@ fbq('track', 'PageView');
   onScroll();
 })();
 
+// El FAB tambien vive fuera del bloque de animacion: estaba adentro y con
+// "reducir movimiento" activado nunca se registraba, asi que quedaba encima del
+// hero de forma permanente, que es justo lo que se queria evitar.
+//
+// Y solo se esconde en escritorio. En movil la tarjeta del hero pasa a ancho
+// completo dentro del flujo, o sea que no puede solaparse con el FAB, pero el
+// observer igual lo apagaba: hay una franja de viewports (845-894px de alto a
+// 393px de ancho, o sea el iPhone 15 Pro) donde la tarjeta intersecta mas del
+// 25% y su boton todavia no entra en pantalla. Ahi no quedaba ningun CTA visible
+// al cargar. El breakpoint es el mismo en el que la tarjeta deja de flotar.
+(function(){
+  var fab = document.getElementById('fab');
+  var corner = document.querySelector('.hero-card');
+  if(!fab || !corner) return;
+  if(!window.matchMedia('(min-width: 861px)').matches) return;
+
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var hide = e.isIntersecting;
+      fab.style.opacity = hide ? '0' : '1';
+      // visibility saca el FAB del orden de tabulacion y del arbol de
+      // accesibilidad: con opacity sola seguia recibiendo foco estando invisible.
+      fab.style.visibility = hide ? 'hidden' : 'visible';
+      fab.style.pointerEvents = hide ? 'none' : 'auto';
+      fab.style.transform = hide ? 'translateY(14px) scale(.86)' : 'none';
+    });
+  }, { threshold: 0.25 }).observe(corner);
+})();
+
 // El tracking de conversion va fuera del bloque de animacion: ese sale temprano
 // con "reducir movimiento" activado y se perdian los clics a WhatsApp del pixel.
 (function(){
+  var TOPE_POR_SESION = 'ps_contact_';
+
+  // fbq manda el evento con un <img> GET sin keepalive, y ademas lo encola hasta
+  // 10ms por el batching que trae la config del pixel. Al saltar a WhatsApp desde
+  // iOS ese GET puede no salir. El refuerzo por visibilitychange lo reenvia por
+  // sendBeacon; Meta deduplica por eventID, asi que no cuenta doble.
+  function reforzar(eventID){
+    if(!navigator.sendBeacon) return;
+    var once = function(){
+      if(document.visibilityState !== 'hidden') return;
+      document.removeEventListener('visibilitychange', once);
+      try {
+        navigator.sendBeacon('https://www.facebook.com/tr/', new URLSearchParams({
+          id: '1517272426842047', ev: 'Contact', eid: eventID, dl: location.href, rqm: 'SB'
+        }));
+      } catch(e){}
+    };
+    document.addEventListener('visibilitychange', once);
+    setTimeout(function(){ document.removeEventListener('visibilitychange', once); }, 4000);
+  }
+
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
     link.addEventListener('click', function(){
-      if(typeof fbq === 'function') fbq('track', 'Contact');
+      if(typeof fbq !== 'function') return;
+      var cta = link.getAttribute('data-cta') || 'sin-etiqueta';
+      // Un mismo boton tocado tres veces no son tres contactos.
+      try {
+        if(sessionStorage.getItem(TOPE_POR_SESION + cta)) return;
+        sessionStorage.setItem(TOPE_POR_SESION + cta, '1');
+      } catch(e){}
+      var eventID = Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+      fbq('track', 'Contact', { content_name: cta }, { eventID: eventID });
+      reforzar(eventID);
     });
   });
 })();
