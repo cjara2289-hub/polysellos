@@ -44,18 +44,40 @@
      ancho expandido es el eje wdth de la variable Archivo, se pide como wdth,wght
      y se aplica con font-stretch:125% en las reglas que usan --font-display. -->
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;100,700;125,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- El fondo del hero es el elemento LCP y vive en CSS, o sea que el navegador no
+     lo descubre hasta parsear styles.css. Este preload le gana esos ~222ms. -->
+<link rel="preload" as="image" href="assets/hero-losa.webp" fetchpriority="high">
 <link rel="stylesheet" href="styles.css">
+<noscript><style>[data-reveal]{opacity:1;transform:none;}.cotiza-fill{transform:scaleX(1);}</style></noscript>
+<!-- fbevents.js mas la config del pixel son ~170 KB, mas que la imagen del hero.
+     Cargados de inmediato compiten por ancho de banda con el LCP durante toda la
+     carga. El stub se define ya (encola las llamadas), pero el script real se pide
+     despues de pintar. Se adelanta a la primera interaccion porque quien toca un
+     CTA necesita fbq cargado para que el Contact salga. -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+n.queue=[]}(window, document,'script');
 fbq('init', '1517272426842047');
 fbq('track', 'PageView');
+(function(){
+  var pedido = false;
+  function cargar(){
+    if(pedido) return;
+    pedido = true;
+    var t = document.createElement('script');
+    t.async = true;
+    t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    document.head.appendChild(t);
+  }
+  ['pointerdown','touchstart','scroll','keydown'].forEach(function(ev){
+    window.addEventListener(ev, cargar, { once: true, passive: true, capture: true });
+  });
+  if(window.requestIdleCallback) requestIdleCallback(cargar, { timeout: 3000 });
+  else window.addEventListener('load', function(){ setTimeout(cargar, 1200); });
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517272426842047&ev=PageView&noscript=1"></noscript>
 <!-- Datos estructurados. Faltan a proposito dos campos que no estan en el repo y
@@ -164,8 +186,11 @@ fbq('track', 'PageView');
   // fuentes de Google y al script del pixel. En 4G desde el navegador de
   // Instagram eso son varios segundos de pantalla negra antes de ver nada.
   // Ahora gana el que llegue primero: load + 300ms, o un tope duro de 900ms.
-  window.addEventListener('load', function(){ setTimeout(cerrar, 300); });
-  setTimeout(cerrar, 900);
+  // Ya no cuelga de 'load' (esperaba a fbevents.js, a la config del pixel y a
+  // imagenes que no pintan nada del hero). Con dos rAF basta: el contenido ya
+  // esta pintado. El tope de 700ms es la red de seguridad.
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ setTimeout(cerrar, 120); }); });
+  setTimeout(cerrar, 700);
 })();
 </script>
 
@@ -304,7 +329,7 @@ fbq('track', 'PageView');
       </div>
 
       <div class="comp-card is-poly" data-reveal data-delay="180">
-        <h3 class="comp-card-title"><img src="assets/mark-white.png" alt=""> Poliurea Polysellos</h3>
+        <h3 class="comp-card-title"><img src="assets/mark-white.png" alt="" loading="lazy" decoding="async"> Poliurea Polysellos</h3>
         <div class="comp-row"><span class="k">Vida útil</span><span class="v">15–25 años</span></div>
         <div class="comp-row"><span class="k">Curado</span><span class="v">≤4 segundos</span></div>
         <div class="comp-row"><span class="k">Juntas</span><span class="v">Cero — continua</span></div>
@@ -478,7 +503,7 @@ fbq('track', 'PageView');
 
 <footer>
   <div class="wrap footer-inner">
-    <img src="assets/logo-horizontal-inverse.png" alt="Polysellos">
+    <img src="assets/logo-horizontal-inverse.png" alt="Polysellos" loading="lazy" decoding="async">
     <div class="footer-social">
       <a href="https://instagram.com/polysellos" target="_blank" rel="noopener" aria-label="Instagram Polysellos">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
@@ -569,6 +594,9 @@ fbq('track', 'PageView');
   onScroll();
 })();
 
+</script>
+
+<script>
 // El FAB tambien vive fuera del bloque de animacion: estaba adentro y con
 // "reducir movimiento" activado nunca se registraba, asi que quedaba encima del
 // hero de forma permanente, que es justo lo que se queria evitar.
@@ -598,6 +626,9 @@ fbq('track', 'PageView');
   }, { threshold: 0.25 }).observe(corner);
 })();
 
+</script>
+
+<script>
 // El tracking de conversion va fuera del bloque de animacion: ese sale temprano
 // con "reducir movimiento" activado y se perdian los clics a WhatsApp del pixel.
 //

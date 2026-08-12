@@ -117,7 +117,7 @@ a{color:inherit;text-decoration:none;}
 }
 .hero-bg{
   position:absolute;top:-12%;left:0;right:0;height:124%;
-  background-image:url('assets/foto-despues.jpeg');background-size:cover;background-position:center 40%;
+  background-image:url('assets/hero-losa.webp');background-size:cover;background-position:center 40%;
   filter:grayscale(.4) contrast(1.06) brightness(.85);will-change:transform;
 }
 .hero-scrim-1{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,15,17,.94) 0%,rgba(8,15,17,.72) 34%,rgba(8,15,17,.9) 78%,var(--obsidian-950) 100%);}
@@ -322,11 +322,11 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
 
 /* ---------- FAB ---------- */
 .fab{
-  position:fixed;bottom:20px;right:20px;z-index:300;
+  position:fixed;bottom:28px;right:20px;z-index:300;
   width:56px;height:56px;border-radius:50%;
   background:var(--membrane-500);color:var(--obsidian-950);
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 14px 34px rgba(0,0,0,.5);
+  box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.28);
   transition:transform 260ms var(--ease-out),opacity 260ms var(--ease-out);
 }
 .fab:hover{transform:translateY(-3px);}
@@ -335,6 +335,8 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
 /* ================= Mobile ================= */
 @media(max-width:860px){
   .site-nav{display:none;}
+  /* el margin-left:auto vivia en .site-nav, que aqui se oculta */
+  .header-cta{margin-left:auto;}
   .hero{min-height:auto;}
   /* 120px de padding sobre un header de 66px era 17% de la pantalla en blanco,
      y el gap de 56px separaba dos bloques que en una columna ya se leen seguidos. */
@@ -363,7 +365,12 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   .cotiza-num{position:relative;z-index:1;}
 }
 @media(max-width:520px){
-  .hero h1 .h1-kicker{font-size:10.5px;letter-spacing:.14em;}
+  /* Cada px de aqui sube el boton de WhatsApp, que en un iPhone de 812 quedaba
+     123px por debajo del pliegue. Medido: esto lo sube ~120px. */
+  .hero h1 .h1-kicker{font-size:10.5px;letter-spacing:.14em;margin-bottom:14px;}
+  .hero-inner{padding-top:72px;}
+  .hero-tags{margin-top:22px;}
+  .hero-card{padding:18px;gap:12px;}
   .site-bar{gap:16px;padding-left:16px;padding-right:16px;}
   .site-bar img{height:26px;}
   .header-cta span{display:none;}
