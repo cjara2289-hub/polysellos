@@ -18,13 +18,14 @@
 <meta property="og:image" content="https://polysellos.netlify.app/assets/og-polysellos.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Losa de estacionamiento impermeabilizada con membrana de poliurea en Ciudad de Panamá.">
-<meta property="og:locale" content="es_PA">
+<meta property="og:image:alt" content="Losa impermeabilizada con membrana continua de poliurea en Ciudad de Panamá.">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:locale" content="es_LA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Polysellos — Membrana continua. Cero juntas. Cero filtraciones.">
 <meta name="twitter:description" content="Poliurea pura proyectada en caliente. Cura en segundos, sin juntas y sin detener la operación.">
 <meta name="twitter:image" content="https://polysellos.netlify.app/assets/og-polysellos.jpg">
-<meta name="twitter:image:alt" content="Losa de estacionamiento impermeabilizada con membrana de poliurea en Ciudad de Panamá.">
+<meta name="twitter:image:alt" content="Losa impermeabilizada con membrana continua de poliurea en Ciudad de Panamá.">
 <link rel="canonical" href="https://polysellos.netlify.app/">
 <!-- Estas URL son absolutas por exigencia de WhatsApp/Facebook: no aceptan rutas
      relativas para la vista previa. Apuntaban a cjara2289-hub.github.io, que quedo
@@ -73,7 +74,7 @@ fbq('track', 'PageView');
   "logo": "https://polysellos.netlify.app/assets/app-icon.png",
   "image": "https://polysellos.netlify.app/assets/og-polysellos.jpg",
   "description": "Impermeabilización con poliurea pura proyectada en caliente en Ciudad de Panamá. Membrana continua sin juntas para losas, techos, estacionamientos y pisos industriales.",
-  "telephone": "+507 6373-1269",
+  "telephone": "+50763731269",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Ciudad de Panamá",
@@ -599,40 +600,41 @@ fbq('track', 'PageView');
 
 // El tracking de conversion va fuera del bloque de animacion: ese sale temprano
 // con "reducir movimiento" activado y se perdian los clics a WhatsApp del pixel.
+//
+// Hubo aqui un refuerzo por sendBeacon en visibilitychange, pensado para rescatar
+// el evento cuando el <img> GET de fbq no alcanza a salir al saltar a WhatsApp en
+// iOS. Se quito, y conviene no volver a ponerlo sin resolver esto primero:
+// los 6 enlaces son target="_blank", asi que el documento pasa a hidden en CADA
+// clic, no solo cuando el GET falla. O sea que el beacon disparaba siempre y
+// quedaba dependiendo por completo de que Meta deduplique dos eventos de
+// navegador con el mismo eventID — que esta documentado para pixel contra CAPI,
+// no para navegador contra navegador. Si esa dedup no ocurre, no se duplican
+// algunos Contact: se duplican todos. Cambiar una perdida estimada de 5-15% en
+// iOS por un posible doble conteo del 100% es mal negocio.
+// El eventID se mantiene: no cuesta nada y deja el navegador listo para el dia
+// que exista CAPI, que es cuando la dedup si esta documentada.
 (function(){
-  var TOPE_POR_SESION = 'ps_contact_';
-
-  // fbq manda el evento con un <img> GET sin keepalive, y ademas lo encola hasta
-  // 10ms por el batching que trae la config del pixel. Al saltar a WhatsApp desde
-  // iOS ese GET puede no salir. El refuerzo por visibilitychange lo reenvia por
-  // sendBeacon; Meta deduplica por eventID, asi que no cuenta doble.
-  function reforzar(eventID){
-    if(!navigator.sendBeacon) return;
-    var once = function(){
-      if(document.visibilityState !== 'hidden') return;
-      document.removeEventListener('visibilitychange', once);
-      try {
-        navigator.sendBeacon('https://www.facebook.com/tr/', new URLSearchParams({
-          id: '1517272426842047', ev: 'Contact', eid: eventID, dl: location.href, rqm: 'SB'
-        }));
-      } catch(e){}
-    };
-    document.addEventListener('visibilitychange', once);
-    setTimeout(function(){ document.removeEventListener('visibilitychange', once); }, 4000);
-  }
+  var TOPE = 'ps_contact_';
+  var VENTANA_MS = 30 * 60 * 1000;
 
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
     link.addEventListener('click', function(){
       if(typeof fbq !== 'function') return;
       var cta = link.getAttribute('data-cta') || 'sin-etiqueta';
-      // Un mismo boton tocado tres veces no son tres contactos.
+      // Tres toques nerviosos seguidos no son tres contactos. Es una ventana de
+      // tiempo y no la sesion entera porque alguien que vuelve horas despues, o
+      // que reintenta porque WhatsApp no le abrio, si es un contacto real.
+      var ahora = Date.now();
       try {
-        if(sessionStorage.getItem(TOPE_POR_SESION + cta)) return;
-        sessionStorage.setItem(TOPE_POR_SESION + cta, '1');
+        var previo = parseInt(sessionStorage.getItem(TOPE + cta) || '0', 10);
+        if(previo && (ahora - previo) < VENTANA_MS) return;
       } catch(e){}
-      var eventID = Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+      var eventID = ahora.toString(36) + Math.random().toString(36).slice(2, 10);
       fbq('track', 'Contact', { content_name: cta }, { eventID: eventID });
-      reforzar(eventID);
+      // El cupo se marca DESPUES de mandar el evento: al reves, un envio fallido
+      // (fbevents bloqueado, o la pagina cerrada antes de vaciar la cola) quemaba
+      // el cupo igual y el reintento del usuario ya no contaba.
+      try { sessionStorage.setItem(TOPE + cta, String(ahora)); } catch(e){}
     });
   });
 })();
