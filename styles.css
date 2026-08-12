@@ -381,6 +381,37 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   .obra-gallery .lg{grid-column:auto;}
 }
 
+/* ---------- Pagina 404 ---------- */
+.e404{padding:140px 0 120px;background:var(--obsidian-950);min-height:52vh;}
+.e404-title{
+  font-family:var(--font-display);font-stretch:125%;font-weight:800;
+  font-size:clamp(28px,6vw,48px);line-height:1.1;letter-spacing:-.018em;
+  margin:0;color:var(--concrete-0);
+}
+.e404-lede{margin-top:18px;max-width:520px;}
+.e404-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:36px;}
+.e404-actions .cta-btn{margin:0;}
+.e404-ghost{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  border:1px solid rgba(255,255,255,.2);color:var(--concrete-50);
+  font-family:var(--font-sans);font-weight:600;font-size:16px;
+  padding:16px 24px;border-radius:var(--radius-sm);
+  transition:border-color var(--dur-base),color var(--dur-base);
+}
+.e404-ghost:hover{border-color:var(--membrane-500);color:var(--membrane-500);}
+.e404-ghost svg{width:19px;height:19px;flex-shrink:0;}
+.e404-nav{
+  margin:40px 0 0;font-family:var(--font-mono);font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--concrete-500);
+}
+.e404-nav a{color:var(--membrane-500);}
+.e404-nav a:hover{text-decoration:underline;}
+@media(max-width:520px){
+  .e404{padding:96px 0 80px;}
+  .e404-actions{flex-direction:column;align-items:stretch;}
+  .e404-ghost{width:100%;}
+}
+
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
    que las que sobreescriben, asi que solo ganan si van despues.
