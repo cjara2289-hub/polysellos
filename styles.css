@@ -236,11 +236,6 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
   font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--concrete-50);
 }
 .obra-cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:36px;}
-.obra-ig{
-  display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--concrete-300);
-}
-.obra-ig:hover{color:var(--membrane-500);}
-.obra-ig svg{width:16px;height:16px;}
 
 /* ---------- Cómo cotizamos ---------- */
 .cotiza{background:var(--concrete-50);color:var(--obsidian-900);}
@@ -341,8 +336,11 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
 @media(max-width:860px){
   .site-nav{display:none;}
   .hero{min-height:auto;}
-  .hero-inner{grid-template-columns:1fr;padding-top:120px;}
-  .hero-card{justify-self:stretch;width:100%;margin-top:8px;}
+  /* 120px de padding sobre un header de 66px era 17% de la pantalla en blanco,
+     y el gap de 56px separaba dos bloques que en una columna ya se leen seguidos. */
+  .hero-inner{grid-template-columns:1fr;padding-top:80px;gap:24px;}
+  .hero-card{justify-self:stretch;width:100%;margin-top:0;}
+  .hero .sub{margin-top:18px;}
   .obra-head{flex-direction:column;align-items:flex-start;}
   .obra-gallery .lg{grid-column:1/-1;height:260px;}
   .final-cta-inner{align-items:start;}
