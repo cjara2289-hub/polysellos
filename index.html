@@ -142,6 +142,11 @@ fbq('track', 'PageView');
   var visto = false;
   try { visto = !!sessionStorage.getItem('polysellos_intro_seen'); } catch(e){}
   if(visto){ intro.remove(); return; }
+  // Quien llega desde un anuncio de Meta ya pago por ese clic: no se le cobra
+  // el splash. fbclid lo pone Facebook en el enlace; utm_ cubre Linktree y bio.
+  var dePauta = /[?&](fbclid|utm_[a-z]+)=/i.test(location.search);
+  if(dePauta){ intro.remove(); return; }
+
   document.documentElement.classList.add('intro-active');
 
   var cerrado = false;
@@ -157,9 +162,9 @@ fbq('track', 'PageView');
   // Antes esto colgaba solo de 'load', que espera a TODAS las imagenes, a las
   // fuentes de Google y al script del pixel. En 4G desde el navegador de
   // Instagram eso son varios segundos de pantalla negra antes de ver nada.
-  // Ahora gana el que llegue primero: load + 500ms, o un tope duro de 1800ms.
-  window.addEventListener('load', function(){ setTimeout(cerrar, 500); });
-  setTimeout(cerrar, 1800);
+  // Ahora gana el que llegue primero: load + 300ms, o un tope duro de 900ms.
+  window.addEventListener('load', function(){ setTimeout(cerrar, 300); });
+  setTimeout(cerrar, 900);
 })();
 </script>
 
@@ -197,39 +202,48 @@ fbq('track', 'PageView');
            correcta del brief de identidad. Visualmente es identico al div que habia
            antes. Se quito "industrial": descalificaba a quien tiene una losa
            residencial filtrando, que es buena parte del trafico de Instagram. -->
-      <h1 data-reveal>
+      <!-- Sin data-reveal en todo el hero a proposito: arrancaban en opacity:0 y la
+           tarjeta entraba a los 320ms + 620ms de transicion, o sea que el CTA
+           terminaba de aparecer casi un segundo despues del splash. Para trafico
+           pagado eso es la primera impresion entera. El resto de la pagina si
+           conserva la animacion. -->
+      <h1>
         <span class="h1-kicker"><span class="rule"></span>Impermeabilización · Panamá</span>
         Membrana continua.<br>Cero juntas.<br><em>Cero filtraciones.</em>
       </h1>
-      <!-- El sub ya no repite "sin juntas" (lo dice el h1 justo arriba) y usa esos
-           caracteres en cifras, que es lo que pide la regla de marca. El largo importa
-           tanto como el contenido: cada linea de mas empuja el boton de WhatsApp abajo
-           del pliegue en movil, asi que esto se quedo en 137 caracteres, menos que los
-           155 que tenia antes. El geo no se repite aca porque ya esta en el kicker. -->
-      <p class="sub" data-reveal data-delay="80">Poliurea pura proyectada en caliente sobre su losa: cura en 4 segundos, 0% de permeabilidad, 380% de elongación. Transitable el mismo día.</p>
-      <div class="hero-tags" data-reveal data-delay="160">
-        <span>Concreto</span>
+      <!-- El sub es el unico lugar del hero donde puede entrar el problema del
+           visitante, porque el eslogan del h1 no se toca. Antes repetia las cifras
+           que la ficha tecnica da mejor 100px mas abajo. 124 caracteres: el largo
+           importa tanto como el contenido, cada linea empuja el boton de WhatsApp
+           mas abajo del pliegue. -->
+      <p class="sub">Si su losa filtra, el problema son las juntas. Membrana continua de poliurea: sin cerrar el nivel, transitable el mismo día.</p>
+      <!-- Tres tags, no cuatro: a 393px la cuarta caia a una segunda fila y costaba
+           ~42px de pliegue. "Techos" entra porque es como llama a su problema quien
+           llega de Instagram; "losa" es vocabulario de constructor. "Concreto" era
+           sustrato, no trabajo, y "Pisos industriales" sigue en el title, la meta
+           description, el JSON-LD y el comparativo. -->
+      <div class="hero-tags">
+        <span>Techos</span>
         <span>Losas</span>
         <span>Estacionamientos</span>
-        <span>Pisos industriales</span>
       </div>
     </div>
 
-    <div class="hero-card" data-reveal data-delay="320">
+    <div class="hero-card">
       <div class="hero-card-seam"></div>
       <span>Diagnóstico sin costo</span>
       <a class="cta-btn" data-cta="hero" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20solicitar%20un%20diagn%C3%B3stico.%20Mi%20proyecto%3A%20%28superficie%20%2F%20%C3%A1rea%20aprox.%20en%20m2%20%2F%20ubicaci%C3%B3n%29." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-        Escríbanos por WhatsApp
+        Pida su diagnóstico
       </a>
-      <a class="cta-ghost" href="#servicio">Ver el servicio</a>
-      <span class="note">+507 6373-1269 · Sin formularios</span>
+      <a class="cta-ghost" href="#obra">Ver obra terminada</a>
+      <span class="note">WhatsApp · +507 6373-1269 · Sin formularios</span>
     </div>
   </div>
 
   <div class="hero-cue">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
-    <span>Caso Sun Tower Mall — 130 m² de losa sellados en un día</span>
+    <span>Sun Tower Mall — filtración activa sellada en un día, sin cerrar el nivel</span>
   </div>
 </section>
 
@@ -239,7 +253,7 @@ fbq('track', 'PageView');
     <div class="ficha-head">
       <div>
         <span class="eyebrow" data-reveal>Ficha técnica</span>
-        <h2 data-reveal data-delay="70">Las cifras, no el discurso.</h2>
+        <h2 data-reveal data-delay="70">La poliurea en cifras, no en discurso.</h2>
       </div>
       <p class="lede" data-reveal data-delay="140">Desempeño medible del material. Cada número es una propiedad verificable, no un adjetivo de marketing.</p>
     </div>
@@ -268,7 +282,7 @@ fbq('track', 'PageView');
 <section class="comparativo" id="servicio">
   <div class="wrap">
     <span class="eyebrow" data-reveal>Comparativo técnico</span>
-    <h2 data-reveal data-delay="70">Tres sistemas, un mismo techo.</h2>
+    <h2 data-reveal data-delay="70">Acrílico, espuma PU y poliurea sobre el mismo techo.</h2>
     <p class="lede" data-reveal data-delay="130">La poliurea pura no cura por evaporación: reacciona. Esa sola diferencia cambia la vida útil, las juntas y el tiempo de obra.</p>
 
     <div class="comp-grid">
@@ -307,7 +321,7 @@ fbq('track', 'PageView');
     <div class="obra-head">
       <div>
         <span class="eyebrow" data-reveal>En obra · Sun Tower Mall</span>
-        <h2 data-reveal data-delay="70">El problema no se veía. Se sentía en cada lluvia.</h2>
+        <h2 data-reveal data-delay="70">La filtración no se veía. Se sentía en cada lluvia.</h2>
         <p class="lede" data-reveal data-delay="130">130 m² de losa de estacionamiento con filtración activa hacia niveles inferiores. Sellados con membrana continua de poliurea en un día, sin cerrar el nivel.</p>
       </div>
       <div class="obra-figs" data-reveal data-delay="180">
@@ -348,11 +362,7 @@ fbq('track', 'PageView');
     <div class="obra-cta-row" data-reveal data-delay="120">
       <a class="cta-btn" data-cta="obra" href="https://wa.me/50763731269?text=Hola.%20Vi%20el%20caso%20de%20Sun%20Tower%20Mall%20y%20quisiera%20cotizar%20un%20proyecto%20similar.%0ASuperficie%3A%0A%C3%81rea%20aproximada%20%28m2%29%3A%0AUbicaci%C3%B3n%3A" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-        Cotice un proyecto similar
-      </a>
-      <a class="obra-ig" href="https://instagram.com/polysellos" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-        Más registro de obra en Instagram
+        Cotice una losa como esta
       </a>
     </div>
   </div>
@@ -404,7 +414,7 @@ fbq('track', 'PageView');
           <p>Describa su superficie en un mensaje. Le decimos si la poliurea corresponde — y si no, también.</p>
           <a class="cta-btn cta-dark" data-cta="faq" href="https://wa.me/50763731269?text=Hola.%20Tengo%20una%20consulta%20t%C3%A9cnica%20sobre%20mi%20superficie.%0ASuperficie%3A%0A%C3%81rea%20aproximada%20%28m2%29%3A%0AUbicaci%C3%B3n%3A" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-            Consultar por WhatsApp
+            Consulte su caso
           </a>
           <div class="faq-card-phone">
             <span class="dot"></span>
@@ -456,7 +466,7 @@ fbq('track', 'PageView');
     <div class="final-cta-action" data-reveal data-delay="200">
       <a class="cta-btn" data-cta="cta-final" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20solicitar%20el%20diagn%C3%B3stico%20sin%20costo.%0ASuperficie%3A%0A%C3%81rea%20aproximada%20%28m2%29%3A%0AUbicaci%C3%B3n%3A" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-        Escríbanos por WhatsApp
+        Pida su diagnóstico
       </a>
       <span>+507 6373-1269 · Lun a sáb</span>
     </div>
@@ -480,7 +490,7 @@ fbq('track', 'PageView');
   </div>
 </footer>
 
-<a class="fab" id="fab" data-cta="fab" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20para%20mi%20proyecto%3A%20%28superficie%20%2F%20%C3%A1rea%20aprox.%20en%20m2%20%2F%20ubicaci%C3%B3n%29." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+<a class="fab" id="fab" data-cta="fab" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20para%20mi%20proyecto%3A%20%28superficie%20%2F%20%C3%A1rea%20aprox.%20en%20m2%20%2F%20ubicaci%C3%B3n%29." target="_blank" rel="noopener" aria-label="Pedir diagnóstico sin costo por WhatsApp">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
 </a>
 
