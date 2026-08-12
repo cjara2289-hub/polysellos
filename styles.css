@@ -178,7 +178,7 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .lede{margin:0;font-size:15.5px;line-height:1.6;color:var(--concrete-400);text-wrap:pretty;}
 
 /* ---------- Ficha técnica ---------- */
-.ficha{background:var(--obsidian-900);border-top:1px solid rgba(255,255,255,.06);}
+.ficha{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.06);}
 .ficha-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:48px;}
 .ficha-head .lede{max-width:340px;}
 .stats-grid{
@@ -191,10 +191,10 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .stat .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);margin-top:14px;}
 
 /* ---------- Comparativo ---------- */
-.comparativo{background:var(--obsidian-950);}
+.comparativo{background:var(--obsidian-900);}
 .comparativo .lede{max-width:600px;margin-bottom:40px;}
 .comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
-.comp-card{border:1px solid rgba(255,255,255,.09);border-radius:var(--radius-lg);background:var(--obsidian-900);padding:28px 24px 24px;}
+.comp-card{border:1px solid rgba(255,255,255,.09);border-radius:var(--radius-lg);background:var(--obsidian-800);padding:28px 24px 24px;}
 .comp-card-title{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);margin:0 0 22px;font-weight:400;}
 .comp-row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,.07);}
 .comp-row .k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--concrete-500);}
