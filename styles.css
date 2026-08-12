@@ -108,7 +108,7 @@ a{color:inherit;text-decoration:none;}
   transition:border-color var(--dur-base),color var(--dur-base);
 }
 .header-cta:hover{border-color:var(--membrane-500);color:var(--membrane-500);}
-.header-cta svg{width:15px;height:15px;flex-shrink:0;stroke:var(--membrane-500);}
+.header-cta svg{width:15px;height:15px;flex-shrink:0;fill:var(--membrane-500);}
 
 /* ---------- Hero ---------- */
 .hero{
@@ -224,12 +224,12 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .obra-figs{display:flex;gap:32px;flex-shrink:0;}
 .obra-fig-num{font-family:var(--font-mono);font-weight:700;font-size:28px;color:var(--membrane-500);line-height:1;}
 .obra-fig-lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--concrete-500);margin-top:8px;}
-.obra-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+.obra-gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:340px 220px;gap:14px;}
 .obra-gallery figure{margin:0;position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(255,255,255,.08);}
 .obra-gallery img{width:100%;height:100%;object-fit:cover;transition:transform 700ms var(--ease-out);}
 .obra-gallery figure:hover img{transform:scale(1.04);}
-.obra-gallery .lg{grid-column:span 2;height:340px;}
-.obra-gallery .sm{height:220px;}
+.obra-gallery .lg{grid-column:span 2;}
+
 .obra-gallery figcaption{
   position:absolute;left:0;right:0;bottom:0;padding:18px;
   background:linear-gradient(180deg,transparent,rgba(8,15,17,.92));
@@ -344,7 +344,8 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   .hero-card{justify-self:stretch;width:100%;margin-top:0;}
   .hero .sub{margin-top:18px;}
   .obra-head{flex-direction:column;align-items:flex-start;}
-  .obra-gallery .lg{grid-column:1/-1;height:260px;}
+  .obra-gallery{grid-template-columns:repeat(2,1fr);grid-template-rows:260px 200px 200px;}
+  .obra-gallery .lg{grid-column:1/-1;}
   .final-cta-inner{align-items:start;}
   .final-cta-action{justify-self:start;align-items:flex-start;}
 }
@@ -376,8 +377,8 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   .header-cta span{display:none;}
   .wrap{padding:0 18px;}
   section{padding:56px 0;}
-  .obra-gallery{grid-template-columns:1fr;}
-  .obra-gallery .lg{grid-column:auto;height:220px;}
+  .obra-gallery{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:220px;}
+  .obra-gallery .lg{grid-column:auto;}
 }
 
 /* ---------- Reducir movimiento ---------- */
