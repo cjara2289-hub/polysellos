@@ -37,13 +37,8 @@
      Cuando se compre el dominio propio hay que actualizar og:url, og:image,
      twitter:image, canonical, el sitemap, el robots.txt y los dos @id del JSON-LD. -->
 <link rel="icon" href="assets/app-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- "Archivo Expanded" no existe como familia en Google Fonts: la peticion devolvia
-     200 pero se ignoraba en silencio y los titulares salian en Archivo normal. El
-     ancho expandido es el eje wdth de la variable Archivo, se pide como wdth,wght
-     y se aplica con font-stretch:125% en las reglas que usan --font-display. -->
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;100,700;125,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- Fuentes propias (ver @font-face en styles.css). El preload de la variable evita el parpadeo del titular. -->
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-latin-var.woff2" crossorigin>
 <!-- El fondo del hero es el elemento LCP y vive en CSS, o sea que el navegador no
      lo descubre hasta parsear styles.css. Este preload le gana esos ~222ms. -->
 <link rel="preload" as="image" href="assets/hero-losa.webp" fetchpriority="high">
