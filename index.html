@@ -300,6 +300,14 @@ fbq('track', 'PageView');
     cerrado = true;
     intro.classList.add('intro-hide');
     document.documentElement.classList.remove('intro-active');
+    // Mientras el splash estaba activo la pagina tenia overflow:hidden, asi que el
+    // salto al ancla (/#obra) que el navegador intenta al cargar no podia scrollear
+    // y nadie lo reintentaba: el visitante nuevo con un enlace con ancla, incluidos
+    // los atajos de la pagina 404, se quedaba arriba. Se hace aqui, ya sin el candado.
+    if(location.hash.length > 1){
+      var destino = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if(destino) destino.scrollIntoView({ behavior: 'instant' });
+    }
     try { sessionStorage.setItem('polysellos_intro_seen','1'); } catch(e){}
     setTimeout(function(){ if(intro && intro.parentNode) intro.remove(); }, 650);
   }
