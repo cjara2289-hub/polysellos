@@ -340,9 +340,12 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   background:var(--membrane-500);color:var(--obsidian-950);
   display:flex;align-items:center;justify-content:center;
   box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.28);
-  transition:transform 260ms var(--ease-out),opacity 260ms var(--ease-out),scale 140ms var(--ease-out);
+  /* visibility en la lista: el JS la alterna junto con opacity, y sin esto cambia de
+     golpe y el fundido de salida nunca se ve. */
+  transition:transform 260ms var(--ease-out),translate 260ms var(--ease-out),opacity 260ms var(--ease-out),visibility 260ms,scale 140ms var(--ease-out);
 }
-@media (hover:hover) and (pointer:fine){ .fab:hover{transform:translateY(-3px);} }
+/* translate y no transform: el JS fija transform inline en escritorio y ganaria a esta regla. */
+@media (hover:hover) and (pointer:fine){ .fab:hover{translate:0 -3px;} }
 .fab svg{width:26px;height:26px;}
 
 /* ================= Mobile ================= */
