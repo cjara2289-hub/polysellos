@@ -1,0 +1,27 @@
+# Cabeceras para Cloudflare Pages. Equivalen a las de netlify.toml, que Cloudflare no lee.
+#
+# Se llama _headers.cloudflare y NO _headers a proposito: Netlify tambien lee un
+# archivo _headers, y la sintaxis de abajo para quitar una cabecera heredada ('!')
+# podria hacer fallar un deploy de Netlify durante el periodo en que conviven. El
+# comando de build de Cloudflare (cp _headers.cloudflare _headers) lo activa solo
+# alla. Cuando Netlify se retire: renombrar a _headers y borrar netlify.toml.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://www.facebook.com; media-src 'self'; connect-src 'self' https://www.facebook.com https://connect.facebook.net; frame-src https://www.facebook.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+
+/assets/*
+  Cache-Control: public, max-age=604800
+
+# Cloudflare une las cabeceras de todas las reglas que coinciden, asi que sin el
+# '!' el Cache-Control de las fuentes saldria duplicado y contradictorio.
+/assets/fonts/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
