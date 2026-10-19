@@ -2,3 +2,7 @@
 Thumbs.db
 *.log
 .vscode/
+
+# Cache local de las herramientas de Cloudflare
+.cloudflare/
+.wrangler/
