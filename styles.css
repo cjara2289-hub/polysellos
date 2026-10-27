@@ -571,4 +571,5 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   .cotiza-fill{transform:scaleX(1);transition:none;}
   .intro-logo{opacity:1;transform:none;animation:none;}
   .hero-cue svg{animation:none;}
+  .crosslinks a,.comp-link,.page-cta-link{transition:none;}
 }
