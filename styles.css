@@ -514,6 +514,51 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   .e404-ghost{width:100%;}
 }
 
+/* ---------- Paginas internas (sistemas, guia, casos) ---------- */
+/* Curvas propias (Emil Kowalski): salida/entrada fuerte y movimiento en pantalla.
+   Nunca ease-in. Solo se animan transform y opacity. */
+:root{
+  --ease-out-strong:cubic-bezier(0.23,1,0.32,1);
+  --ease-move:cubic-bezier(0.77,0,0.175,1);
+  --dur-press:140ms;
+  --dur-ui:200ms;
+}
+.breadcrumb{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.12em;text-transform:uppercase;color:var(--concrete-500);margin:0 0 20px;}
+.breadcrumb ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;}
+.breadcrumb li+li::before{content:"/";margin-right:8px;color:var(--concrete-500);}
+.breadcrumb a{color:var(--concrete-300);}
+.page-hero{padding:120px 0 48px;background:var(--obsidian-950);}
+.page-title{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:clamp(1.75rem,6vw,3rem);line-height:1.1;letter-spacing:-.018em;margin:0 0 20px;color:var(--concrete-0);text-wrap:balance;}
+.answer{margin:0 0 28px;max-width:680px;font-size:1.0625rem;line-height:1.65;color:var(--concrete-200);border-left:3px solid var(--membrane-500);padding-left:18px;text-wrap:pretty;}
+.page-section{padding:56px 0;border-top:1px solid rgba(255,255,255,.07);}
+.page-section h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:clamp(1.25rem,4vw,1.75rem);line-height:1.2;margin:0 0 16px;color:var(--concrete-0);}
+.page-section p{margin:0 0 14px;font-size:1rem;line-height:1.7;color:var(--concrete-300);max-width:680px;}
+.page-list{margin:0;padding-left:20px;max-width:680px;}
+.page-list li{margin:0 0 8px;font-size:1rem;line-height:1.7;color:var(--concrete-300);}
+.page-figure{margin:24px 0 0;max-width:680px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(255,255,255,.08);}
+.page-figure img{width:100%;height:auto;}
+.page-figure figcaption{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.12em;text-transform:uppercase;color:var(--concrete-500);padding:10px 14px;background:var(--obsidian-800);}
+.page-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px;}
+.page-cta .cta-btn{margin:0;}
+.page-cta-link{display:inline-block;min-height:24px;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.12em;text-transform:uppercase;color:var(--membrane-500);text-decoration:underline;text-underline-offset:3px;transition:color var(--dur-ui) var(--ease-out-strong),transform var(--dur-press) var(--ease-out-strong);}
+.crosslinks ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+.crosslinks a{display:block;min-height:44px;padding:14px 16px;border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-md);color:var(--concrete-50);font-weight:600;transition:border-color var(--dur-ui) var(--ease-out-strong),transform var(--dur-press) var(--ease-out-strong);}
+.comp-link{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.14em;text-transform:uppercase;color:var(--membrane-500);transition:color var(--dur-ui) var(--ease-out-strong),transform var(--dur-press) var(--ease-out-strong);}
+.footer-nav{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.12em;text-transform:uppercase;}
+.footer-nav a{color:var(--concrete-300);}
+.equipo-grid{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;}
+.equipo-grid img{width:100%;height:auto;max-width:360px;border-radius:var(--radius-lg);}
+.equipo-legal{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.14em;text-transform:uppercase;color:var(--concrete-200);}
+@media(min-width:861px){
+  .page-hero{padding:150px 0 64px;}
+  .equipo-grid{grid-template-columns:minmax(0,360px) 1fr;gap:40px;}
+}
+@media (hover:hover) and (pointer:fine){
+  .crosslinks a:hover{border-color:var(--membrane-500);}
+  .comp-link:hover,.page-cta-link:hover,.breadcrumb a:hover,.footer-nav a:hover{color:var(--membrane-400);}
+}
+.crosslinks a:active,.comp-link:active,.page-cta-link:active{transform:scale(.97);}
+
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
    que las que sobreescriben, asi que solo ganan si van despues.
