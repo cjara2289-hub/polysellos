@@ -1156,6 +1156,7 @@ window.psCargarPixel = function(){
         form.reset();
         if(window.turnstile) try { turnstile.reset(); } catch(e){}
         decir('Recibimos sus datos. Le respondemos en horario de oficina.', false);
+        if(window.psEvento) window.psEvento('envio_formulario', 'formulario');
         if(typeof fbq === 'function') fbq('track', 'Lead');
       } else if(x.j && MENSAJES[x.j.campo]){
         decir(MENSAJES[x.j.campo], true);
@@ -1170,5 +1171,6 @@ window.psCargarPixel = function(){
 })();
 </script>
 
+<script src="/assets/eventos.js" defer></script>
 </body>
 </html>
