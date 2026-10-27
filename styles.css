@@ -313,6 +313,14 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .cta-btn svg{width:19px;height:19px;flex-shrink:0;}
 .cta-dark{background:var(--obsidian-900);color:var(--concrete-0);}
 
+/* ---------- Sistemas que aplicamos ---------- */
+.comp-card p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--concrete-300);}
+.comp-card.is-poly{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start;}
+.comp-card.is-poly .comp-card-title{margin-bottom:14px;}
+.comp-card.is-poly .comp-poly-text p{color:var(--concrete-200);max-width:460px;}
+.comp-card.is-poly .comp-poly-rows .comp-row:first-child{border-top:0;padding-top:0;}
+@media(max-width:860px){.comp-card.is-poly{grid-template-columns:1fr;gap:20px;}}
+
 /* ---------- Obra: segunda etapa ---------- */
 .obra-etapa2{margin-top:56px;}
 .obra-etapa2-head{margin-bottom:24px;}
