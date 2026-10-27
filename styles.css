@@ -313,6 +313,17 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .cta-btn svg{width:19px;height:19px;flex-shrink:0;}
 .cta-dark{background:var(--obsidian-900);color:var(--concrete-0);}
 
+/* ---------- Obra: segunda etapa ---------- */
+.obra-etapa2{margin-top:56px;}
+.obra-etapa2-head{margin-bottom:24px;}
+.obra-etapa2-head .eyebrow{margin-bottom:10px;}
+.obra-etapa2-head .lede{max-width:560px;}
+.obra-gallery.obra-gallery--4{grid-template-columns:repeat(4,1fr);grid-template-rows:none;grid-auto-rows:auto;}
+.obra-gallery.obra-gallery--4 figure{aspect-ratio:3/4;}
+.obra-gallery.obra-gallery--4 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+@media(max-width:860px){.obra-gallery.obra-gallery--4{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:auto;}}
+@media(max-width:520px){.obra-gallery.obra-gallery--4{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto;gap:10px;}}
+
 /* ---------- Formulario de contacto ---------- */
 .lead{background:var(--obsidian-800);padding:96px 0;border-top:1px solid rgba(255,255,255,.06);}
 .lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:start;}
