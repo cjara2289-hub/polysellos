@@ -6,3 +6,10 @@ Thumbs.db
 # Cache local de las herramientas de Cloudflare
 .cloudflare/
 .wrangler/
+
+# Secretos: nunca al repo (los de Cloudflare viven cifrados en su panel)
+.env
+.env.*
+.dev.vars
+*.pem
+*.key

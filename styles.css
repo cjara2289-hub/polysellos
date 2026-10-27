@@ -313,6 +313,59 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .cta-btn svg{width:19px;height:19px;flex-shrink:0;}
 .cta-dark{background:var(--obsidian-900);color:var(--concrete-0);}
 
+/* ---------- Formulario de contacto ---------- */
+.lead{background:var(--obsidian-800);padding:96px 0;border-top:1px solid rgba(255,255,255,.06);}
+.lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:start;}
+.lead h2{font-size:clamp(1.75rem,6vw,2.75rem);margin:0 0 18px;}
+.lead .lede{max-width:440px;}
+.lead-form{display:flex;flex-direction:column;gap:18px;background:var(--obsidian-900);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);padding:28px;}
+.field{display:flex;flex-direction:column;gap:7px;flex:1;min-width:0;}
+.field-row{display:flex;gap:16px;flex-wrap:wrap;}
+.field label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-400);}
+.field input,.field select,.field textarea{
+  width:100%;font-family:var(--font-sans);font-size:1rem;color:var(--concrete-50);
+  background:var(--obsidian-950);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-sm);
+  padding:13px 14px;transition:border-color var(--dur-base) var(--ease-out);
+}
+.field textarea{resize:vertical;min-height:84px;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--membrane-500);}
+.lead-consent{display:flex;gap:12px;align-items:flex-start;font-size:.875rem;line-height:1.5;color:var(--concrete-400);}
+.lead-consent input{margin-top:3px;width:18px;height:18px;flex-shrink:0;accent-color:var(--membrane-500);}
+.lead-consent a{color:var(--membrane-400);text-decoration:underline;text-underline-offset:3px;}
+.lead-submit{border:0;cursor:pointer;width:100%;}
+.lead-submit:disabled{opacity:.6;cursor:progress;}
+.lead-status{margin:0;min-height:1.4em;font-size:.9375rem;line-height:1.5;color:var(--concrete-300);}
+.lead-status.is-error{color:#FFB4A8;}
+.lead-status.is-ok{color:var(--membrane-300);}
+.lead-status a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
+/* Campo trampa para bots: fuera de pantalla, no display:none (algunos bots lo detectan). */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+
+/* ---------- Pagina de privacidad ---------- */
+.legal{padding:140px 0 100px;background:var(--obsidian-950);}
+.legal-wrap{max-width:760px;}
+.legal-title{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:clamp(1.75rem,6vw,2.75rem);line-height:1.12;letter-spacing:-.018em;margin:0 0 18px;color:var(--concrete-0);}
+.legal h2{font-size:1.25rem;margin:40px 0 10px;}
+.legal p{margin:0 0 14px;font-size:1rem;line-height:1.7;color:var(--concrete-300);}
+.legal .lede{margin-bottom:8px;}
+.legal-back a{color:var(--membrane-500);text-decoration:underline;text-underline-offset:3px;}
+@media(max-width:520px){.legal{padding:96px 0 72px;}}
+
+/* ---------- Aviso de cookies ---------- */
+.cookie{position:fixed;left:16px;bottom:16px;z-index:60;max-width:400px;background:var(--obsidian-900);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-lg);padding:20px;box-shadow:0 12px 40px rgba(0,0,0,.5);}
+.cookie[hidden]{display:none;}
+.cookie-title{margin:0 0 6px;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--membrane-500);}
+.cookie-text{margin:0 0 16px;font-size:.9375rem;line-height:1.55;color:var(--concrete-300);}
+.cookie-text a{color:var(--membrane-400);text-decoration:underline;text-underline-offset:3px;}
+.cookie-actions{display:flex;gap:10px;}
+.cookie-btn{flex:1;font-family:var(--font-sans);font-weight:700;font-size:.9375rem;padding:12px 16px;border-radius:var(--radius-sm);cursor:pointer;border:1px solid transparent;}
+.cookie-yes{background:var(--membrane-500);color:var(--obsidian-950);}
+.cookie-no{background:transparent;color:var(--concrete-50);border-color:rgba(255,255,255,.28);}
+.cookie-reopen{background:none;border:0;padding:0;cursor:pointer;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);text-decoration:underline;text-underline-offset:3px;}
+/* El FAB de WhatsApp se esconde mientras el aviso esta abierto: ocupan la misma esquina en celular. */
+.cookie-pending .fab{display:none;}
+@media(max-width:520px){.cookie{left:12px;right:12px;bottom:12px;max-width:none;}}
+
 /* ---------- Footer ---------- */
 footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07);padding:44px 0;}
 .footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;}
@@ -323,7 +376,7 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   display:flex;align-items:center;justify-content:center;transition:border-color var(--dur-base),transform 140ms var(--ease-out);
 }
 .footer-social svg{width:18px;height:18px;stroke:var(--concrete-300);}
-.footer-legal{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);}
+.footer-legal{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);line-height:1.8}
 
 /* ---------- FAB ---------- */
 .fab{

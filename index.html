@@ -7,7 +7,7 @@
      "Polysellos" todavia, buscan el servicio y la ciudad. El og:title de abajo se
      mantiene con el eslogan a proposito: search y WhatsApp son publicos distintos. -->
 <title>Impermeabilización con poliurea en Panamá | Polysellos</title>
-<meta name="description" content="Membrana continua de poliurea pura para losas, techos y estacionamientos en Ciudad de Panamá. Cero juntas, 0% permeabilidad, curado en segundos. Cotice por WhatsApp.">
+<meta name="description" content="Membrana continua de poliurea pura para losas, techos y estacionamientos en Ciudad de Panamá. Cero juntas, 0 % permeabilidad, curado ≤4 s. Cotice por WhatsApp.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0B1416">
 <meta property="og:type" content="website">
@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Losa impermeabilizada con membrana continua de poliurea en Ciudad de Panamá.">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:locale" content="es_LA">
+<meta property="og:locale" content="es_PA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Polysellos — Membrana continua. Cero juntas. Cero filtraciones.">
 <meta name="twitter:description" content="Poliurea pura proyectada en caliente. Cura en segundos, sin juntas y sin detener la operación.">
@@ -44,20 +44,24 @@
 <link rel="preload" as="image" href="assets/hero-losa.webp" fetchpriority="high">
 <link rel="stylesheet" href="styles.css">
 <noscript><style>[data-reveal]{opacity:1;transform:none;}.cotiza-fill{transform:scaleX(1);}</style></noscript>
-<!-- fbevents.js mas la config del pixel son ~170 KB, mas que la imagen del hero.
-     Cargados de inmediato compiten por ancho de banda con el LCP durante toda la
-     carga. El stub se define ya (encola las llamadas), pero el script real se pide
-     despues de pintar. Se adelanta a la primera interaccion porque quien toca un
-     CTA necesita fbq cargado para que el Contact salga. -->
+<!-- El pixel de Meta SOLO se carga si el visitante acepta las cookies (aviso al final
+     del body). Sin consentimiento no se define fbq ni se pide fbevents.js, y por eso
+     no hay <noscript><img> del pixel: esa imagen dispara el evento sin permiso.
+     fbevents.js pesa ~170 KB, mas que el hero: tras aceptar se pide cuando el
+     navegador esta ocioso, o antes si la persona toca algo (necesita fbq cargado
+     para que el Contact de WhatsApp salga). -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[]}(window, document,'script');
-fbq('init', '1517272426842047');
-fbq('track', 'PageView');
-(function(){
+window.psCargarPixel = function(){
+  if(window.fbq) return;
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[]}(window, document,'script');
+  // Sin configuracion automatica: el formulario lleva nombre y telefono y no deben ir a Meta.
+  fbq('set', 'autoConfig', false, '1517272426842047');
+  fbq('init', '1517272426842047');
+  fbq('track', 'PageView');
   var pedido = false;
   function cargar(){
     if(pedido) return;
@@ -71,14 +75,12 @@ fbq('track', 'PageView');
     window.addEventListener(ev, cargar, { once: true, passive: true, capture: true });
   });
   if(window.requestIdleCallback) requestIdleCallback(cargar, { timeout: 3000 });
-  else window.addEventListener('load', function(){ setTimeout(cargar, 1200); });
-})();
+  else setTimeout(cargar, 1200);
+};
 </script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517272426842047&ev=PageView&noscript=1"></noscript>
-<!-- Datos estructurados. Faltan a proposito dos campos que no estan en el repo y
-     no se inventa: streetAddress, que esta en el Aviso de Operacion y puede omitirse
-     si no se quiere publicar direccion fisica (Polysellos opera por area de
-     servicio, no recibe clientes en un local). El horario tiene que decir lo mismo
+<!-- Datos estructurados. streetAddress es el establecimiento que declara el Aviso de
+     Operacion (Sun Tower), publicado por decision de Chris el 27-oct-2026. El perfil
+     de Google oculta la direccion (area de servicio). El horario tiene que decir lo mismo
      que el perfil de Google y que el texto visible de la pagina. priceRange y
      aggregateRating quedan fuera por regla de marca y por no haber resenas. -->
 <script type="application/ld+json">
@@ -90,6 +92,8 @@ fbq('track', 'PageView');
   ],
   "@id": "https://polysellos.pages.dev/#empresa",
   "name": "Polysellos",
+  "legalName": "POLYSELLOS, S.E.P.",
+  "taxID": "155774835-2-2025 DV9",
   "url": "https://polysellos.pages.dev/",
   "logo": "https://polysellos.pages.dev/assets/app-icon.png",
   "image": "https://polysellos.pages.dev/assets/og-polysellos.jpg",
@@ -97,6 +101,7 @@ fbq('track', 'PageView');
   "telephone": "+50763731269",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Sun Tower, Piso 1, Oficina 3, Vía Ricardo J. Alfaro, Betania",
     "addressLocality": "Ciudad de Panamá",
     "addressRegion": "Provincia de Panamá",
     "addressCountry": "PA"
@@ -135,8 +140,17 @@ fbq('track', 'PageView');
   ],
   "sameAs": [
     "https://instagram.com/polysellos",
-    "https://www.facebook.com/profile.php?id=61592051825236"
+    "https://www.facebook.com/profile.php?id=61592051825236",
+    "https://linktr.ee/polysellos",
+    "https://g.page/r/CeHbF8N1CG_-ECE"
   ],
+  "hasMap": "https://g.page/r/CeHbF8N1CG_-ECE",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+50763731269",
+    "contactType": "customer service",
+    "availableLanguage": "es"
+  },
   "knowsAbout": [
     "Impermeabilización con poliurea",
     "Impermeabilización de losas",
@@ -200,6 +214,30 @@ fbq('track', 'PageView');
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://polysellos.pages.dev/#website",
+      "url": "https://polysellos.pages.dev/",
+      "name": "Polysellos",
+      "inLanguage": "es-PA",
+      "publisher": { "@id": "https://polysellos.pages.dev/#empresa" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://polysellos.pages.dev/#webpage",
+      "url": "https://polysellos.pages.dev/",
+      "name": "Impermeabilización con poliurea en Panamá | Polysellos",
+      "isPartOf": { "@id": "https://polysellos.pages.dev/#website" },
+      "about": { "@id": "https://polysellos.pages.dev/#empresa" },
+      "inLanguage": "es-PA"
+    }
+  ]
+}
+</script>
 <!-- El texto de cada respuesta es identico al visible en la seccion FAQ: si se
      edita una, hay que editar la otra. Google ya no pinta acordeones de FAQ para
      sitios comerciales desde 2023, asi que esto no da rich result; sirve para que
@@ -210,6 +248,9 @@ fbq('track', 'PageView');
   "@type": "FAQPage",
   "@id": "https://polysellos.pages.dev/#faq",
   "isPartOf": {
+    "@id": "https://polysellos.pages.dev/#webpage"
+  },
+  "about": {
     "@id": "https://polysellos.pages.dev/#empresa"
   },
   "mainEntity": [
@@ -250,7 +291,7 @@ fbq('track', 'PageView');
       "name": "¿Se puede aplicar con lluvia o humedad?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. A diferencia de los sistemas que curan por evaporación, la poliurea reacciona químicamente — no depende del clima para sellar la superficie."
+        "text": "En muchos casos sí. La poliurea no cura por evaporación, así que la humedad del ambiente no frena su curado. Con lluvia intensa no se aplica, por la seguridad de los trabajadores. En el diagnóstico revisamos el estado del sustrato antes de cotizar."
       }
     },
     {
@@ -258,7 +299,7 @@ fbq('track', 'PageView');
       "name": "¿Resiste el sol directo sin degradarse?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. El sol panameño degrada el acrílico antes de lo anunciado por el fabricante; la poliurea mantiene su desempeño durante toda su vida útil."
+        "text": "El desempeño ante la radiación solar depende del sistema y del acabado. Escríbanos y le indicamos cuál corresponde a su superficie."
       }
     },
     {
@@ -335,7 +376,7 @@ fbq('track', 'PageView');
       <a href="#obra">En obra</a>
       <a href="#cotizamos">Cómo cotizar</a>
     </nav>
-    <a class="header-cta" data-cta="header" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico.%20Mi%20proyecto%3A%20%28superficie%20%2F%20%C3%A1rea%20aprox.%20en%20m2%20%2F%20ubicaci%C3%B3n%29." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp: +507 6373-1269">
+    <a class="header-cta" data-cta="header" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20sin%20costo." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp: +507 6373-1269">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
       <span>Diagnóstico sin costo</span>
     </a>
@@ -372,7 +413,7 @@ fbq('track', 'PageView');
            que la ficha tecnica da mejor 100px mas abajo. 124 caracteres: el largo
            importa tanto como el contenido, cada linea empuja el boton de WhatsApp
            mas abajo del pliegue. -->
-      <p class="sub">Si su losa filtra, el problema son las juntas. Membrana continua de poliurea: sin cerrar el nivel, transitable el mismo día.</p>
+      <p class="sub">Si su losa filtra, las juntas suelen ser el punto débil. Membrana continua de poliurea: sin cerrar el nivel, transitable el mismo día.</p>
       <!-- Tres tags, no cuatro: a 393px la cuarta caia a una segunda fila y costaba
            ~42px de pliegue. "Techos" entra porque es como llama a su problema quien
            llega de Instagram; "losa" es vocabulario de constructor. "Concreto" era
@@ -388,12 +429,12 @@ fbq('track', 'PageView');
     <div class="hero-card">
       <div class="hero-card-seam"></div>
       <span>Diagnóstico sin costo</span>
-      <a class="cta-btn" data-cta="hero" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20solicitar%20un%20diagn%C3%B3stico.%20Mi%20proyecto%3A%20%28superficie%20%2F%20%C3%A1rea%20aprox.%20en%20m2%20%2F%20ubicaci%C3%B3n%29." target="_blank" rel="noopener">
+      <a class="cta-btn" data-cta="hero" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20solicitar%20un%20diagn%C3%B3stico%20sin%20costo." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
         Pida su diagnóstico
       </a>
       <a class="cta-ghost" href="#obra">Ver obra terminada</a>
-      <span class="note">WhatsApp · +507 6373-1269 · Sin formularios</span>
+      <span class="note">WhatsApp · +507 6373-1269</span>
     </div>
   </div>
 
@@ -426,23 +467,23 @@ fbq('track', 'PageView');
 
     <div class="obra-gallery">
       <figure class="lg" data-reveal>
-        <img decoding="async" src="assets/proceso-4-aplicacion.jpg" alt="Proyección de poliurea con equipo de alta presión">
-        <figcaption>Aplicación · equipo Graco de alta presión</figcaption>
+        <img loading="lazy" decoding="async" width="420" height="560" src="assets/proceso-4-aplicacion.jpg" alt="Proyección de poliurea con equipo de alta presión">
+        <figcaption>Aplicación · equipo de alta presión</figcaption>
       </figure>
       <figure class="sm" data-reveal data-delay="90">
-        <img loading="lazy" decoding="async" src="assets/foto-despues.jpeg" alt="Membrana continua terminada sobre la losa">
+        <img loading="lazy" decoding="async" width="675" height="900" src="assets/foto-despues.jpeg" alt="Membrana continua terminada sobre la losa">
         <figcaption>Entrega · membrana sin uniones</figcaption>
       </figure>
       <figure class="sm" data-reveal data-delay="150">
-        <img loading="lazy" decoding="async" src="assets/proceso-2-preparacion.jpg" alt="Preparación mecánica del sustrato">
+        <img loading="lazy" decoding="async" width="420" height="560" src="assets/proceso-2-preparacion.jpg" alt="Preparación mecánica del sustrato">
         <figcaption>Preparación del sustrato</figcaption>
       </figure>
       <figure class="sm" data-reveal data-delay="210">
-        <img loading="lazy" decoding="async" src="assets/proceso-3-imprimacion.jpg" alt="Imprimación sobre concreto">
+        <img loading="lazy" decoding="async" width="359" height="560" src="assets/proceso-3-imprimacion.jpg" alt="Imprimación sobre concreto">
         <figcaption>Imprimación</figcaption>
       </figure>
       <figure class="sm" data-reveal data-delay="270">
-        <img loading="lazy" decoding="async" src="assets/proceso-5-entrega.jpg" alt="Superficie terminada y transitable">
+        <img loading="lazy" decoding="async" width="420" height="560" src="assets/proceso-5-entrega.jpg" alt="Superficie terminada y transitable">
         <figcaption>Transitable el mismo día</figcaption>
       </figure>
     </div>
@@ -520,7 +561,7 @@ fbq('track', 'PageView');
       </div>
     </div>
 
-    <p class="comparativo-close" data-reveal data-delay="240">Si ya tuvo que reparar su techo más de una vez, el problema no es el contratista. <em>Es el sistema.</em></p>
+    <p class="comparativo-close" data-reveal data-delay="240">Si ya reparó su techo más de una vez, conviene revisar <em>el sistema,</em> no solo la mano de obra.</p>
   </div>
 </section>
 
@@ -537,8 +578,8 @@ fbq('track', 'PageView');
       <div class="cotiza-grid">
         <div data-reveal>
           <div class="cotiza-num">01</div>
-          <h3>Nos escribe por WhatsApp</h3>
-          <p>Comparta el tipo de superficie, el área aproximada y el problema que enfrenta. Sin formularios, sin costo.</p>
+          <h3>Nos escribe o nos deja sus datos</h3>
+          <p>Comparta el tipo de superficie, el área aproximada y el problema que enfrenta, por WhatsApp o en el formulario. Sin costo.</p>
         </div>
         <div data-reveal data-delay="120">
           <div class="cotiza-num">02</div>
@@ -548,7 +589,7 @@ fbq('track', 'PageView');
         <div data-reveal data-delay="240">
           <div class="cotiza-num">03</div>
           <h3>Recibe su cotización</h3>
-          <p>Precio por proyecto, garantía por escrito y fecha de aplicación. Sin letra pequeña.</p>
+          <p>Precio por proyecto, garantía por escrito y fecha de aplicación, todo por escrito.</p>
         </div>
       </div>
     </div>
@@ -599,17 +640,70 @@ fbq('track', 'PageView');
       </details>
       <details>
         <summary><h3>¿Se puede aplicar con lluvia o humedad?</h3><span class="plus">+</span></summary>
-        <p>Sí. A diferencia de los sistemas que curan por evaporación, la poliurea reacciona químicamente — no depende del clima para sellar la superficie.</p>
+        <p>En muchos casos sí. La poliurea no cura por evaporación, así que la humedad del ambiente no frena su curado. Con lluvia intensa no se aplica, por la seguridad de los trabajadores. En el diagnóstico revisamos el estado del sustrato antes de cotizar.</p>
       </details>
       <details>
         <summary><h3>¿Resiste el sol directo sin degradarse?</h3><span class="plus">+</span></summary>
-        <p>Sí. El sol panameño degrada el acrílico antes de lo anunciado por el fabricante; la poliurea mantiene su desempeño durante toda su vida útil.</p>
+        <p>El desempeño ante la radiación solar depende del sistema y del acabado. Escríbanos y le indicamos cuál corresponde a su superficie.</p>
       </details>
       <details>
         <summary><h3>¿Funciona sobre cualquier superficie?</h3><span class="plus">+</span></summary>
         <p>Se adhiere a concreto, metal y la mayoría de sustratos con la imprimación correcta — por eso el diagnóstico revisa el sustrato antes de cotizar.</p>
       </details>
     </div>
+  </div>
+</section>
+
+<!-- DEJAR DATOS -->
+<section class="lead" id="contacto">
+  <div class="wrap lead-grid">
+    <div>
+      <span class="eyebrow" data-reveal>Prefiere que lo contactemos</span>
+      <h2 data-reveal data-delay="70">Déjenos sus datos.</h2>
+      <p class="lede" data-reveal data-delay="130">Si no quiere escribir por WhatsApp, deje su nombre y su teléfono y le respondemos en horario de oficina. El diagnóstico es sin costo.</p>
+    </div>
+    <form class="lead-form" id="leadForm" method="post" action="/api/lead" novalidate data-reveal data-delay="180">
+      <div class="field">
+        <label for="lf-nombre">Nombre</label>
+        <input id="lf-nombre" name="nombre" type="text" autocomplete="name" maxlength="80" required>
+      </div>
+      <div class="field">
+        <label for="lf-telefono">Teléfono o WhatsApp</label>
+        <input id="lf-telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="lf-superficie">Superficie</label>
+          <select id="lf-superficie" name="superficie">
+            <option value="">Sin definir</option>
+            <option value="techo">Techo</option>
+            <option value="losa">Losa</option>
+            <option value="estacionamiento">Estacionamiento</option>
+            <option value="piso industrial">Piso industrial</option>
+            <option value="otro">Otra</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="lf-area">Área (m²)</label>
+          <input id="lf-area" name="area_m2" type="number" inputmode="decimal" min="1" max="100000" step="any">
+        </div>
+      </div>
+      <div class="field">
+        <label for="lf-mensaje">Mensaje (opcional)</label>
+        <textarea id="lf-mensaje" name="mensaje" rows="3" maxlength="1000"></textarea>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label for="lf-sitio">No llene este campo</label>
+        <input id="lf-sitio" name="sitio" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <label class="lead-consent">
+        <input type="checkbox" name="consentimiento" required>
+        <span>Autorizo a Polysellos a usar estos datos para contactarme por mi consulta. Más información en la <a href="/privacidad.html">política de privacidad</a>.</span>
+      </label>
+      <div class="cf-turnstile" id="leadTurnstile" data-sitekey="0x4AAAAAAFoILZnCF1YqlxBi" data-theme="dark" data-language="es"></div>
+      <button class="cta-btn lead-submit" type="submit">Enviar mis datos</button>
+      <p class="lead-status" id="leadStatus" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 
@@ -646,11 +740,21 @@ fbq('track', 'PageView');
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
       </a>
     </div>
-    <span class="footer-legal">Polysellos · Ciudad de Panamá · Poliurea pura</span>
+    <span class="footer-legal">Polysellos · Ciudad de Panamá · Poliurea pura<br>© 2026 POLYSELLOS, S.E.P. · RUC 155774835-2-2025 DV9<br>Sun Tower, piso 1, oficina 3 · Vía Ricardo J. Alfaro, Betania</span>
+    <button type="button" class="cookie-reopen" id="cookieReabrir">Preferencias de cookies</button>
   </div>
 </footer>
 
-<a class="fab" id="fab" data-cta="fab" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20para%20mi%20proyecto%3A%20%28superficie%20%2F%20%C3%A1rea%20aprox.%20en%20m2%20%2F%20ubicaci%C3%B3n%29." target="_blank" rel="noopener" aria-label="Pedir diagnóstico sin costo por WhatsApp">
+<div class="cookie" id="cookie" role="dialog" aria-labelledby="cookieTitulo" aria-describedby="cookieTexto" hidden>
+  <p class="cookie-title" id="cookieTitulo">Cookies</p>
+  <p class="cookie-text" id="cookieTexto">Usamos el píxel de Meta para medir los contactos que llegan desde anuncios. Solo se activa si usted acepta. Más información en la <a href="/privacidad.html#cookies">política de privacidad</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-btn cookie-yes" id="cookieSi">Aceptar</button>
+    <button type="button" class="cookie-btn cookie-no" id="cookieNo">Rechazar</button>
+  </div>
+</div>
+
+<a class="fab" id="fab" data-cta="fab" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20para%20mi%20proyecto." target="_blank" rel="noopener" aria-label="Pedir diagnóstico sin costo por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
 </a>
 
@@ -801,6 +905,147 @@ fbq('track', 'PageView');
       // el cupo igual y el reintento del usuario ya no contaba.
       try { sessionStorage.setItem(TOPE + cta, String(ahora)); } catch(e){}
     });
+  });
+})();
+</script>
+
+<script>
+// Aviso de cookies. La decision se guarda en localStorage (no es una cookie) y el
+// pixel de Meta solo se carga si es "si". Si alguien cambia de "si" a "no", se
+// recarga la pagina para que el pixel no siga vivo en memoria y se borran sus cookies.
+(function(){
+  var caja = document.getElementById('cookie');
+  if(!caja) return;
+  var raiz = document.documentElement;
+  function leer(){ try { return localStorage.getItem('ps_cookies'); } catch(e){ return null; } }
+  function guardar(v){ try { localStorage.setItem('ps_cookies', v); } catch(e){} }
+  function mostrar(){ caja.hidden = false; raiz.classList.add('cookie-pending'); }
+  function ocultar(){ caja.hidden = true; raiz.classList.remove('cookie-pending'); }
+  function borrarCookiesMeta(){
+    ['_fbp','_fbc'].forEach(function(n){
+      document.cookie = n + '=; Max-Age=0; path=/';
+      document.cookie = n + '=; Max-Age=0; path=/; domain=' + location.hostname;
+    });
+  }
+  var previa = leer();
+  if(previa === 'si') window.psCargarPixel();
+  else if(previa !== 'no') setTimeout(mostrar, 1200);
+
+  document.getElementById('cookieSi').addEventListener('click', function(){
+    guardar('si'); ocultar(); window.psCargarPixel();
+  });
+  document.getElementById('cookieNo').addEventListener('click', function(){
+    var eraSi = leer() === 'si';
+    guardar('no'); ocultar(); borrarCookiesMeta();
+    if(eraSi) location.reload();
+  });
+  var reabrir = document.getElementById('cookieReabrir');
+  if(reabrir) reabrir.addEventListener('click', mostrar);
+})();
+</script>
+
+<script>
+// Formulario de contacto. Envia a /api/lead (funcion de Cloudflare Pages), nunca
+// directo a la base de datos: la pagina no lleva ninguna llave. Turnstile se carga
+// al acercarse al formulario, para no gastar ancho de banda en la ruta critica.
+(function(){
+  var form = document.getElementById('leadForm');
+  if(!form) return;
+  var estado = document.getElementById('leadStatus');
+  var boton = form.querySelector('button[type="submit"]');
+  var wa = 'https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20sin%20costo.';
+
+  // Turnstile solo cuando el formulario esta por entrar en pantalla.
+  var cargado = false;
+  function cargarTurnstile(){
+    if(cargado) return;
+    cargado = true;
+    var t = document.createElement('script');
+    t.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    t.async = true; t.defer = true;
+    document.head.appendChild(t);
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e, o){
+      if(e[0].isIntersecting){ cargarTurnstile(); o.disconnect(); }
+    }, { rootMargin: '600px 0px' }).observe(form);
+  } else { cargarTurnstile(); }
+
+  // Los utm_ llegan en la primera pagina y el formulario puede enviarse despues.
+  var utm = {};
+  try {
+    var q = new URLSearchParams(location.search);
+    ['utm_source','utm_medium','utm_campaign'].forEach(function(k){
+      if(q.get(k)) sessionStorage.setItem('ps_' + k, q.get(k).slice(0, 100));
+      var v = sessionStorage.getItem('ps_' + k);
+      if(v) utm[k] = v;
+    });
+  } catch(e){}
+
+  var MENSAJES = {
+    nombre: 'Escriba su nombre.',
+    telefono: 'Escriba un teléfono válido, con 7 a 20 dígitos.',
+    area_m2: 'El área debe ser un número mayor que cero.',
+    consentimiento: 'Necesitamos su autorización para poder contactarlo.',
+    turnstile: 'No pudimos verificar que sea una persona. Intente de nuevo.'
+  };
+  function decir(texto, error){
+    estado.textContent = texto;
+    estado.className = 'lead-status' + (error ? ' is-error' : ' is-ok');
+  }
+
+  // Mensaje de error con salida por WhatsApp, armado con el DOM (sin innerHTML).
+  function fallo(prefijo){
+    var a = document.createElement('a');
+    a.setAttribute('href', wa);
+    a.target = '_blank'; a.rel = 'noopener';
+    a.textContent = 'WhatsApp';
+    estado.textContent = prefijo;
+    estado.appendChild(a);
+    estado.appendChild(document.createTextNode('.'));
+    estado.className = 'lead-status is-error';
+  }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var f = new FormData(form);
+    var token = f.get('cf-turnstile-response');
+    if(!form.nombre.value.trim()) return decir(MENSAJES.nombre, true);
+    if(!/^[0-9+()\-\s]{7,20}$/.test(form.telefono.value.trim())) return decir(MENSAJES.telefono, true);
+    if(!form.consentimiento.checked) return decir(MENSAJES.consentimiento, true);
+    if(!token) return decir('Espere un momento a que termine la verificación e intente de nuevo.', true);
+
+    boton.disabled = true;
+    decir('Enviando...', false);
+    var cuerpo = {
+      nombre: form.nombre.value, telefono: form.telefono.value,
+      superficie: form.superficie.value, area_m2: form.area_m2.value,
+      mensaje: form.mensaje.value, sitio: form.sitio.value,
+      consentimiento: true, turnstile: token
+    };
+    Object.keys(utm).forEach(function(k){ cuerpo[k] = utm[k]; });
+
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(cuerpo)
+    }).then(function(r){
+      return r.json().catch(function(){ return { ok: false }; }).then(function(j){ return { status: r.status, j: j }; });
+    }).then(function(x){
+      if(x.j && x.j.ok){
+        form.reset();
+        if(window.turnstile) try { turnstile.reset(); } catch(e){}
+        decir('Recibimos sus datos. Le respondemos en horario de oficina.', false);
+        if(typeof fbq === 'function') fbq('track', 'Lead');
+      } else if(x.j && MENSAJES[x.j.campo]){
+        decir(MENSAJES[x.j.campo], true);
+        if(window.turnstile) try { turnstile.reset(); } catch(e){}
+      } else {
+        fallo('No pudimos guardar sus datos. Escríbanos por ');
+      }
+    }).catch(function(){
+      fallo('No hay conexión. Escríbanos por ');
+    }).then(function(){ boton.disabled = false; });
   });
 })();
 </script>
