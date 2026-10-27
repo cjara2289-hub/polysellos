@@ -13,3 +13,7 @@ Thumbs.db
 .dev.vars
 *.pem
 *.key
+blueprints/
+CLAUDE.md
+AGENTS.md
+.claude/
