@@ -20,7 +20,7 @@ const realFetch = globalThis.fetch;
 
 function reset(extra = {}) {
   llamadas = [];
-  cfg = { turnstileOk: true, host: 'polysellos.pages.dev', supabaseOk: true, resendFalla: false, ...extra };
+  cfg = { turnstileOk: true, host: 'polysellos.net', supabaseOk: true, resendFalla: false, ...extra };
   globalThis.fetch = async (url, init) => {
     llamadas.push({ url: String(url), init });
     if (String(url).includes('turnstile')) {
@@ -36,9 +36,9 @@ function reset(extra = {}) {
 
 function req(body, o = {}) {
   const headers = { 'Content-Type': o.ct ?? 'application/json' };
-  if (o.origin !== null) headers.Origin = o.origin ?? 'https://polysellos.pages.dev';
+  if (o.origin !== null) headers.Origin = o.origin ?? 'https://polysellos.net';
   if (o.len) headers['Content-Length'] = o.len;
-  return new Request('https://polysellos.pages.dev/api/lead', {
+  return new Request('https://polysellos.net/api/lead', {
     method: 'POST', headers, body: typeof body === 'string' ? body : JSON.stringify(body),
   });
 }

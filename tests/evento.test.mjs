@@ -23,8 +23,8 @@ test.after(() => { globalThis.fetch = realFetch; });
 
 function req(body, o = {}) {
   const headers = { 'Content-Type': o.ct ?? 'application/json' };
-  if (o.origin !== null) headers.Origin = o.origin ?? 'https://polysellos.pages.dev';
-  return new Request('https://polysellos.pages.dev/api/evento', {
+  if (o.origin !== null) headers.Origin = o.origin ?? 'https://polysellos.net';
+  return new Request('https://polysellos.net/api/evento', {
     method: 'POST', headers, body: typeof body === 'string' ? body : JSON.stringify(body),
   });
 }
