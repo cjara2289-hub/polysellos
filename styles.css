@@ -902,6 +902,14 @@ footer{background:var(--paper);border-top-color:var(--line);}
   .menu-panel a:hover{background:rgba(11,20,22,.05);}
 }
 
+/* Pares de fotos reales en paginas internas y antes/despues en casos */
+.page-duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;align-items:start;max-width:680px;margin-top:24px;}
+.page-duo .page-figure,.antes-despues .page-figure{margin:0;max-width:none;}
+.page-duo .page-figure img,.antes-despues .page-figure img{width:100%;height:auto;}
+.page-duo .page-figure img{aspect-ratio:3/4;object-fit:cover;object-position:62% 50%;}
+.antes-despues{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:640px;margin-top:24px;}
+@media(max-width:520px){.page-duo{grid-template-columns:minmax(0,1fr);}}
+
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
    que las que sobreescriben, asi que solo ganan si van despues.
