@@ -246,6 +246,36 @@ else:
     if "_headers" not in cmd:
         err("scripts/cloudflare-build.txt no activa las cabeceras (_headers)")
 
+# ---------------------------------------------------------------- CSP: scripts en linea con hash
+# script-src no lleva 'unsafe-inline': cada <script> en linea (sin src, que no sea JSON-LD)
+# tiene que estar autorizado por su hash SHA-256 exacto en _headers.cloudflare.
+if not existe("_headers.cloudflare"):
+    err("falta _headers.cloudflare")
+else:
+    import base64
+    import hashlib
+    csp = re.search(r"Content-Security-Policy:\s*(.+)", leer("_headers.cloudflare"))
+    directivas = {}
+    if csp:
+        for d in csp.group(1).split(";"):
+            partes = d.split()
+            if partes:
+                directivas[partes[0]] = partes[1:]
+    fuentes = directivas.get("script-src")
+    if fuentes is None:
+        err("_headers.cloudflare: la CSP no tiene script-src")
+    else:
+        if "'unsafe-inline'" in fuentes:
+            err("_headers.cloudflare: script-src no debe llevar 'unsafe-inline'")
+        for p in paginas:
+            for m in re.finditer(r"<script\b([^>]*)>(.*?)</script>", re.sub(r"<!--.*?-->", "", leer(p), flags=re.S), re.S):
+                attrs, cuerpo = m.group(1), m.group(2)
+                if re.search(r"\bsrc\s*=", attrs) or re.search(r"type\s*=\s*[\"']application/ld\+json[\"']", attrs):
+                    continue
+                h = "'sha256-" + base64.b64encode(hashlib.sha256(cuerpo.encode("utf-8")).digest()).decode() + "'"
+                if h not in fuentes:
+                    err(f"{p}: script en linea sin hash en script-src; hash esperado {h} (recalcular si se edito el bloque)")
+
 print(f"Verificando sitio: {RAIZ}  ({len(paginas)} paginas)")
 for e in errores:
     print("  ERROR ", e)
