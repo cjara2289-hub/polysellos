@@ -34,3 +34,15 @@
     if (a.getAttribute('data-ruta') === ruta) a.setAttribute('aria-current', 'page');
   });
 })();
+
+/* Al llegar por un enlace (no con atras, adelante ni recargar) la pagina abre arriba. El navegador ya lo
+   hace en polysellos.net; scrollIntoView tambien sube el scroll del marco que contenga la pagina, como
+   la vista previa. Con #ancla se respeta el destino. */
+(function () {
+  try {
+    var nav = performance.getEntriesByType('navigation')[0];
+    if (nav && nav.type === 'navigate' && !location.hash) {
+      document.documentElement.scrollIntoView({ behavior: 'instant' });
+    }
+  } catch (e) {}
+})();
