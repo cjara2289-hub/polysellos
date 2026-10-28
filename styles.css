@@ -916,6 +916,15 @@ footer{background:var(--paper);border-top-color:var(--line);}
 /* Pares de fotos: dos columnas tambien en movil, asi bajan fotos mas chicas */
 .page-duo{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
 
+/* Hero de escritorio igual al del celular: la losa como textura suave detras de todo el texto
+   (antes iba a la derecha con mascara) y sin el hueco vacio arriba del titular. */
+.hero-bg{left:0;opacity:.14;-webkit-mask-image:none;mask-image:none;}
+@media(min-width:861px){
+  /* La regla general section{padding:...} tambien le daba 136px arriba al hero: ese era el hueco. */
+  .hero{min-height:0;padding:0;}
+  .hero-inner{padding-top:104px;padding-bottom:88px;align-items:center;}
+}
+
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
    que las que sobreescriben, asi que solo ganan si van despues.
