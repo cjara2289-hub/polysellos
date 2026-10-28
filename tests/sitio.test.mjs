@@ -75,7 +75,7 @@ test('menu desplegable en todas las paginas, con enlaces que existen', () => {
     const html = leer(f);
     assert.ok(html.includes('id="menuBtn"') && html.includes('aria-controls="menuPanel"'), `${f}: falta el boton de menu`);
     assert.ok(/<nav class="menu-panel" id="menuPanel"[^>]*hidden>/.test(html), `${f}: falta el panel de menu`);
-    assert.ok(html.includes('<script src="/assets/menu.js" defer></script>'), `${f}: falta menu.js`);
+    assert.ok(/<script src="\/assets\/menu\.js(\?v=\w+)?" defer><\/script>/.test(html), `${f}: falta menu.js`);
     const panel = html.match(/<nav class="menu-panel"[\s\S]*?<\/nav>/)[0];
     const enlaces = [...panel.matchAll(/href="([^"]+)"/g)].map((m) => m[1]);
     assert.ok(enlaces.length >= 12, `${f}: el menu tiene ${enlaces.length} enlaces`);

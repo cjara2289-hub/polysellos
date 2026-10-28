@@ -23,5 +23,20 @@
   ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 
-/index.html
+# Paginas, styles.css, sitemap y demas archivos de un solo nivel: siempre se revalidan
+# (304 con ETag, casi gratis). Sin esto, un telefono podia mezclar HTML nuevo con un
+# styles.css viejo guardado hasta 4 horas. Los casos de la raiz y /index.html van aparte.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/:slug
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Los scripts propios cambian con el sitio: no se guardan 7 dias como las imagenes.
+/assets/menu.js
+  ! Cache-Control
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/eventos.js
+  ! Cache-Control
   Cache-Control: public, max-age=0, must-revalidate
