@@ -408,8 +408,6 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .cookie-yes{background:var(--membrane-500);color:var(--obsidian-950);}
 .cookie-no{background:transparent;color:var(--concrete-50);border-color:rgba(255,255,255,.28);}
 .cookie-reopen{background:none;border:0;padding:0;cursor:pointer;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);text-decoration:underline;text-underline-offset:3px;}
-/* La barra de WhatsApp se esconde mientras el aviso esta abierto: ocupan la misma esquina en celular. */
-.cookie-pending .cta-sticky{display:none;}
 @media(max-width:520px){
   .cookie{left:10px;right:10px;bottom:10px;max-width:none;padding:12px 14px;border-radius:var(--radius-md);}
   .cookie-title{display:none;}
@@ -602,7 +600,7 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
 
 /* ---------- Barra fija de WhatsApp ---------- */
 .cta-sticky{
-  position:fixed;z-index:300;left:12px;right:12px;bottom:12px;
+  position:fixed;z-index:300;left:12px;right:12px;bottom:calc(12px + var(--cookie-h,0px));
   display:flex;align-items:center;justify-content:center;gap:11px;
   min-height:52px;padding:0 20px;border-radius:var(--radius-md);
   background:var(--membrane-500);color:var(--obsidian-950);
@@ -614,7 +612,7 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
 .cta-sticky.is-on{opacity:1;visibility:visible;transform:none;}
 .cta-sticky svg{width:22px;height:22px;flex-shrink:0;}
 @media(min-width:861px){
-  .cta-sticky{left:auto;right:24px;bottom:24px;min-height:54px;padding:0 24px;border-radius:999px;}
+  .cta-sticky{left:auto;right:24px;bottom:calc(24px + var(--cookie-h,0px));min-height:54px;padding:0 24px;border-radius:999px;}
 }
 
 /* ---------- Selector de motivo ---------- */
