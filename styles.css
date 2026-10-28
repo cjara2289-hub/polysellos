@@ -207,12 +207,13 @@ a{color:inherit;text-decoration:none;}
 
 /* ---------- Shared section header ---------- */
 section{padding:72px 0;}
+@media(min-width:861px){section{padding:104px 0;}}
 .eyebrow{display:block;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.22em;text-transform:uppercase;color:var(--membrane-500);margin-bottom:16px;}
 h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:clamp(1.625rem,6vw,2.75rem);line-height:1.12;letter-spacing:-.018em;margin:0;color:var(--concrete-0);}
 .lede{margin:0;font-size:0.96875rem;line-height:1.6;color:var(--concrete-400);text-wrap:pretty;}
 
 /* ---------- Ficha técnica ---------- */
-.ficha{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.06);}
+.ficha{background:var(--obsidian-950);}
 .ficha-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:48px;}
 .ficha-head .lede{max-width:340px;}
 .stats-grid{
@@ -224,8 +225,10 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .stat .lbl{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);margin-top:14px;}
 
 /* ---------- Comparativo ---------- */
-.comparativo{background:var(--obsidian-900);}
-.comparativo .lede{max-width:600px;margin-bottom:40px;}
+.comparativo{background:var(--concrete-0);color:var(--obsidian-900);}
+.comparativo .eyebrow{color:var(--membrane-800);}
+.comparativo h2{color:var(--obsidian-900);}
+.comparativo .lede{max-width:600px;margin-bottom:40px;color:var(--concrete-600);}
 .comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
 .comp-card{border:1px solid rgba(255,255,255,.09);border-radius:var(--radius-lg);background:var(--obsidian-800);padding:28px 24px 24px;}
 .comp-card-title{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);margin:0 0 22px;font-weight:400;}
@@ -234,7 +237,7 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .comp-row .v{font-size:0.875rem;color:var(--concrete-300);text-align:right;}
 .comp-card.is-poly{
   position:relative;border-color:rgba(18,194,176,.45);
-  background:linear-gradient(180deg,rgba(18,194,176,.09) 0%,var(--obsidian-900) 60%);
+  background:linear-gradient(180deg,rgba(18,194,176,.12) 0%,rgba(18,194,176,0) 60%),var(--obsidian-900);
   box-shadow:0 0 0 1px rgba(18,194,176,.12),0 22px 50px rgba(0,0,0,.45);
 }
 .comp-card.is-poly::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0;background:linear-gradient(90deg,var(--membrane-700),var(--membrane-500),var(--membrane-300));}
@@ -242,16 +245,16 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .comp-card.is-poly .comp-card-title img{width:16px;height:auto;opacity:.9;}
 .comp-card.is-poly .comp-row{border-top-color:rgba(18,194,176,.18);}
 .comp-card.is-poly .comp-row .k{color:var(--concrete-300);}
-.comp-card.is-poly .comp-row .v{color:var(--concrete-0);font-weight:600;}
+.comp-card.is-poly .comp-row .v{color:var(--concrete-0);font-weight:600;white-space:nowrap;}
 .comparativo-close{
   margin:52px 0 0;font-family:var(--font-display);font-stretch:125%;font-weight:800;
   font-size:clamp(1.1875rem,4.5vw,1.875rem);line-height:1.25;letter-spacing:-.018em;
-  color:var(--concrete-0);max-width:760px;text-wrap:pretty;
+  color:var(--obsidian-900);max-width:760px;text-wrap:pretty;
 }
-.comparativo-close em{font-style:normal;color:var(--membrane-500);}
+.comparativo-close em{font-style:normal;color:var(--membrane-800);}
 
 /* ---------- En obra ---------- */
-.obra{background:var(--obsidian-900);border-top:1px solid rgba(255,255,255,.06);}
+.obra{background:var(--obsidian-900);}
 .obra-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:28px;margin-bottom:44px;}
 .obra-head .lede{max-width:640px;margin-top:14px;}
 .obra-figs{display:flex;gap:32px;flex-shrink:0;}
@@ -357,7 +360,7 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 @media(max-width:520px){.obra-gallery.obra-gallery--4{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto;gap:10px;}}
 
 /* ---------- Formulario de contacto ---------- */
-.lead{background:var(--obsidian-800);padding:96px 0;border-top:1px solid rgba(255,255,255,.06);}
+.lead{background:var(--obsidian-800);padding:96px 0;}
 .lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:start;}
 .lead h2{font-size:clamp(1.75rem,6vw,2.75rem);margin:0 0 18px;}
 .lead .lede{max-width:440px;}
@@ -405,8 +408,8 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .cookie-yes{background:var(--membrane-500);color:var(--obsidian-950);}
 .cookie-no{background:transparent;color:var(--concrete-50);border-color:rgba(255,255,255,.28);}
 .cookie-reopen{background:none;border:0;padding:0;cursor:pointer;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);text-decoration:underline;text-underline-offset:3px;}
-/* El FAB de WhatsApp se esconde mientras el aviso esta abierto: ocupan la misma esquina en celular. */
-.cookie-pending .fab{display:none;}
+/* La barra de WhatsApp se esconde mientras el aviso esta abierto: ocupan la misma esquina en celular. */
+.cookie-pending .cta-sticky{display:none;}
 @media(max-width:520px){
   .cookie{left:10px;right:10px;bottom:10px;max-width:none;padding:12px 14px;border-radius:var(--radius-md);}
   .cookie-title{display:none;}
@@ -428,20 +431,6 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
 }
 .footer-social svg{width:20px;height:20px;stroke:var(--membrane-400);flex-shrink:0;}
 .footer-legal{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);line-height:1.8}
-
-/* ---------- FAB ---------- */
-.fab{
-  position:fixed;bottom:28px;right:20px;z-index:300;
-  width:56px;height:56px;border-radius:50%;
-  background:var(--membrane-500);color:var(--obsidian-950);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.28);
-  /* visibility en la lista: el JS la alterna junto con opacity, y sin esto cambia de
-     golpe y el fundido de salida nunca se ve. */
-  transition:transform 260ms var(--ease-out),translate 260ms var(--ease-out),opacity 260ms var(--ease-out),visibility 260ms,scale 140ms var(--ease-out);
-}
-/* translate y no transform: el JS fija transform inline en escritorio y ganaria a esta regla. */
-.fab svg{width:26px;height:26px;}
 
 /* ================= Mobile ================= */
 @media(max-width:860px){
@@ -498,12 +487,10 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   .menu-panel a:hover{background:rgba(255,255,255,.06);}
   .header-cta:hover{border-color:var(--membrane-500);color:var(--membrane-500);}
   .hero-card .cta-ghost:hover{border-color:var(--membrane-500);color:var(--membrane-500);}
-  .stat:hover{background:var(--obsidian-700);}
   .obra-gallery figure:hover img{transform:scale(1.04);}
   .cta-btn:hover{background:var(--membrane-600);box-shadow:0 0 0 4px rgba(18,194,176,.22);}
   .cta-dark:hover{background:var(--membrane-600);color:var(--obsidian-950);}
   .footer-social a:hover{border-color:var(--membrane-500);}
-  .fab:hover{translate:0 -3px;}
   .e404-ghost:hover{border-color:var(--membrane-500);color:var(--membrane-500);}
   .e404-nav a:hover{text-decoration:underline;}
 }
@@ -511,11 +498,9 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
 /* Foco visible: con teclado, sobre fondo oscuro el outline por defecto casi no se ve.
    En las dos secciones claras el teal de marca no da contraste, va el 800. */
 :focus-visible{outline:2px solid var(--membrane-500);outline-offset:3px;}
-.cotiza :focus-visible,.faq :focus-visible{outline-color:var(--membrane-800);}
-/* Press: lo que se toca tiene que responder al instante. El FAB usa la propiedad
-   scale y no transform porque el JS le pone transform inline en escritorio. */
+.cotiza :focus-visible,.faq :focus-visible,.comparativo :focus-visible{outline-color:var(--membrane-800);}
+/* Press: lo que se toca tiene que responder al instante.  */
 .menu-btn:active,.header-cta:active,.hero-card .cta-ghost:active,.e404-ghost:active,.footer-social a:active{transform:scale(.97);}
-.fab:active{scale:.94;}
 
 /* ---------- Pagina 404 ---------- */
 .e404{padding:140px 0 120px;background:var(--obsidian-950);min-height:52vh;}
@@ -591,6 +576,117 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
 }
 .crosslinks a:active,.comp-link:active,.page-cta-link:active{transform:scale(.97);}
 
+/* ---------- Lista de sistemas ---------- */
+.sys-list{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--concrete-200);}
+.sys-row{display:grid;grid-template-columns:1fr;gap:6px 24px;align-items:baseline;padding:22px 4px;border-bottom:1px solid var(--concrete-200);color:var(--obsidian-900);}
+.sys-row h3{margin:0;font-family:var(--font-sans);font-size:1.1875rem;font-weight:600;}
+.sys-row p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--concrete-600);max-width:560px;text-wrap:pretty;}
+.sys-go{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.14em;text-transform:uppercase;color:var(--membrane-800);}
+@media(min-width:861px){
+  .sys-row{grid-template-columns:220px 1fr auto;padding:24px 8px;}
+}
+
+/* ---------- Caso de cliente ---------- */
+.caso-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;}
+.caso-grid img{width:100%;height:auto;max-width:380px;border-radius:var(--radius-lg);}
+.caso-body .lede{max-width:560px;margin-top:14px;}
+.caso-body .obra-figs{flex-wrap:wrap;margin-top:28px;gap:20px 32px;}
+.caso-equipo{margin:28px 0 10px;font-size:.9375rem;line-height:1.6;color:var(--concrete-300);max-width:520px;}
+.caso-body .obra-cta-row{margin-top:20px;gap:8px 22px;}
+@media(min-width:861px){.caso-grid{grid-template-columns:minmax(0,380px) 1fr;gap:56px;}}
+
+/* ---------- Contacto unico ---------- */
+.lead-wa{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:28px;}
+.lead-wa span{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);}
+.lead-form-intro{margin:0;font-size:.9375rem;line-height:1.55;color:var(--concrete-300);}
+
+/* ---------- Barra fija de WhatsApp ---------- */
+.cta-sticky{
+  position:fixed;z-index:300;left:12px;right:12px;bottom:12px;
+  display:flex;align-items:center;justify-content:center;gap:11px;
+  min-height:52px;padding:0 20px;border-radius:var(--radius-md);
+  background:var(--membrane-500);color:var(--obsidian-950);
+  font-family:var(--font-sans);font-weight:700;font-size:1rem;
+  box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.28);
+  opacity:0;visibility:hidden;transform:translateY(16px);
+  transition:transform 260ms var(--ease-out-strong),opacity 260ms var(--ease-out-strong),visibility 260ms,background var(--dur-base) var(--ease-out);
+}
+.cta-sticky.is-on{opacity:1;visibility:visible;transform:none;}
+.cta-sticky svg{width:22px;height:22px;flex-shrink:0;}
+@media(min-width:861px){
+  .cta-sticky{left:auto;right:24px;bottom:24px;min-height:54px;padding:0 24px;border-radius:999px;}
+}
+
+/* ---------- Selector de motivo ---------- */
+.motivo{width:min(460px,calc(100% - 24px));max-height:calc(100% - 24px);margin:auto;padding:0;border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-lg);background:var(--obsidian-900);color:var(--concrete-50);box-shadow:0 24px 70px rgba(0,0,0,.6);}
+.motivo::backdrop{background:rgba(8,15,17,.72);}
+.motivo-box{position:relative;padding:28px 24px 24px;}
+.motivo h2{font-size:clamp(1.375rem,5vw,1.75rem);margin:0 0 10px;}
+.motivo .eyebrow{margin-bottom:12px;}
+.motivo-cerrar{position:absolute;top:8px;right:8px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:none;border:0;border-radius:var(--radius-sm);color:var(--concrete-300);cursor:pointer;transition:transform 140ms var(--ease-out-strong);}
+.motivo-cerrar svg{width:20px;height:20px;}
+/* Texto solo para lectores de pantalla: el icono no lleva texto visible. */
+.solo-lector{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
+.motivo-ops{display:flex;flex-direction:column;gap:10px;margin-top:22px;}
+.motivo-op{display:flex;flex-direction:column;gap:3px;padding:14px 16px;border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-md);background:var(--obsidian-800);color:var(--concrete-50);transition:border-color var(--dur-base) var(--ease-out),transform 140ms var(--ease-out-strong);}
+.motivo-op strong{font-size:1rem;font-weight:600;}
+.motivo-op span{font-size:.875rem;color:var(--concrete-400);}
+.motivo[open]{animation:psMotivo 200ms var(--ease-out-strong);}
+@keyframes psMotivo{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+@media (hover:hover) and (pointer:fine){
+  .motivo-op:hover{border-color:var(--membrane-500);}
+  .motivo-cerrar:hover{color:var(--concrete-0);}
+  .sys-row:hover h3{color:var(--membrane-800);}
+}
+.motivo-op:active,.motivo-cerrar:active,.cta-sticky:active{transform:scale(.97);}
+
+/* ---------- Home minimal: menos rotulos, menos cajas, mas aire ---------- */
+/* Criterio: una sola cosa llama la atencion (las cifras de la ficha, en grande); todo
+   lo demas es tipografia y espacio. Sin rotulos en mayuscula sobre cada titular, sin
+   celdas con borde, sin tarjetas repetidas. */
+section{padding:clamp(72px,11vw,136px) 0;}
+.hero-grid-bg{display:none;}
+.hero-inner{padding-bottom:72px;}
+.hero{min-height:84vh;}
+.comparativo h2,.ficha h2,.cotiza h2,.faq h2,.obra h2,.lead h2{font-size:clamp(2rem,5.2vw,3.5rem);line-height:1.06;max-width:20ch;text-wrap:balance;}
+.comparativo .lede,.ficha .lede,.cotiza .lede,.faq .lede,.obra .lede,.lead .lede{font-size:1.0625rem;line-height:1.65;max-width:52ch;margin-top:20px;}
+.comparativo .lede{margin-bottom:56px;}
+.cotiza .lede{margin-bottom:72px;}
+
+/* Ficha: cuatro cifras sobre el fondo, separadas por un hilo y no por celdas */
+.ficha-head{display:block;margin-bottom:0;}
+.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 28px;margin-top:72px;background:none;border:0;border-radius:0;overflow:visible;}
+.stat{background:none;padding:28px 0 0;border-top:1px solid rgba(255,255,255,.16);}
+.stat .num{font-size:clamp(2rem,4.2vw,3.5rem);letter-spacing:-.02em;}
+.stat .lbl{font-family:var(--font-sans);font-size:.9375rem;line-height:1.5;letter-spacing:0;text-transform:none;color:var(--concrete-400);margin-top:16px;max-width:22ch;}
+@media(min-width:861px){.stats-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:48px 32px;}}
+
+/* Sistemas: la poliurea como afirmacion, los demas como lista */
+.comp-card.is-poly{display:block;padding:44px 28px;border-radius:var(--radius-lg);box-shadow:none;}
+.comp-card.is-poly .comp-card-title{display:flex;align-items:center;gap:14px;margin:0 0 18px;font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:clamp(1.5rem,3.4vw,2.25rem);line-height:1.1;letter-spacing:-.015em;text-transform:none;color:var(--concrete-0);}
+.comp-card.is-poly .comp-card-title img{width:28px;opacity:1;}
+.comp-card.is-poly .comp-poly-text p{font-size:1.0625rem;line-height:1.65;max-width:52ch;}
+@media(min-width:861px){.comp-card.is-poly{padding:64px 64px;}}
+.sys-list{margin-top:16px;border-top:0;}
+.sys-row{padding:30px 0;}
+.sys-row h3{font-size:1.375rem;letter-spacing:-.01em;transition:color var(--dur-base) var(--ease-out);}
+.sys-go{font-family:var(--font-sans);font-size:.9375rem;font-weight:600;letter-spacing:0;text-transform:none;text-decoration:underline;text-underline-offset:4px;}
+.comp-link{font-family:var(--font-sans);font-size:.9375rem;font-weight:600;letter-spacing:0;text-transform:none;text-decoration:underline;text-underline-offset:4px;}
+.comparativo-close{margin-top:88px;font-size:clamp(1.25rem,3vw,1.75rem);font-weight:700;max-width:34ch;}
+.comparativo-close em{color:inherit;}
+
+/* Caso de cliente: cifras sin rotulo en mayuscula */
+.obra-fig-lbl{font-family:var(--font-sans);font-size:.875rem;letter-spacing:0;text-transform:none;color:var(--concrete-400);margin-top:10px;}
+.equipo-legal{color:var(--concrete-400);}
+.lead-wa span{font-family:var(--font-sans);font-size:.9375rem;letter-spacing:0;text-transform:none;color:var(--concrete-400);}
+
+/* FAQ: titulo a la izquierda, preguntas a la derecha */
+@media(min-width:861px){
+  .faq-layout{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:96px;}
+  .faq-intro{position:sticky;top:120px;}
+}
+.faq-list summary{padding-top:26px;padding-bottom:26px;}
+
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
    que las que sobreescriben, asi que solo ganan si van despues.
@@ -604,4 +700,6 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
   .intro-logo{opacity:1;transform:none;animation:none;}
   .hero-cue svg{animation:none;}
   .crosslinks a,.comp-link,.page-cta-link,.menu-panel,.menu-icon i{transition:none;}
+  .cta-sticky{transition:none;transform:none;}
+  .motivo[open]{animation:none;}
 }
