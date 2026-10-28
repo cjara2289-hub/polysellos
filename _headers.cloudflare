@@ -32,6 +32,15 @@
 /:slug
   Cache-Control: public, max-age=0, must-revalidate
 
+/styles.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sitemap.xml
+  Cache-Control: public, max-age=0, must-revalidate
+
+/llms.txt
+  Cache-Control: public, max-age=0, must-revalidate
+
 # Los scripts propios cambian con el sitio: no se guardan 7 dias como las imagenes.
 /assets/menu.js
   ! Cache-Control
