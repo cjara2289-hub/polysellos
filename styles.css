@@ -383,7 +383,13 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 .cookie-reopen{background:none;border:0;padding:0;cursor:pointer;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);text-decoration:underline;text-underline-offset:3px;}
 /* El FAB de WhatsApp se esconde mientras el aviso esta abierto: ocupan la misma esquina en celular. */
 .cookie-pending .fab{display:none;}
-@media(max-width:520px){.cookie{left:12px;right:12px;bottom:12px;max-width:none;}}
+@media(max-width:520px){
+  .cookie{left:10px;right:10px;bottom:10px;max-width:none;padding:12px 14px;border-radius:var(--radius-md);}
+  .cookie-title{display:none;}
+  .cookie-text{margin:0 0 10px;font-size:.8125rem;line-height:1.45;}
+  .cookie-actions{gap:8px;}
+  .cookie-btn{font-size:.875rem;padding:9px 12px;}
+}
 
 /* ---------- Footer ---------- */
 footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07);padding:44px 0;}
