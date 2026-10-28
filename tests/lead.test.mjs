@@ -157,3 +157,74 @@ test('otro metodo: 405', async () => {
   const res = await onRequest();
   assert.equal(res.status, 405);
 });
+
+// ---- endurecimiento (auditoria de seguridad, 28-oct-2026) ----
+
+const porTrozos = (total, trozo = 512) => {
+  let enviado = 0;
+  return new ReadableStream({
+    pull(c) {
+      if (enviado >= total) return c.close();
+      c.enqueue(new TextEncoder().encode('a'.repeat(trozo)));
+      enviado += trozo;
+    },
+  });
+};
+
+test('cuerpo por trozos sin Content-Length: se corta en el tope y no se guarda', async () => {
+  const request = new Request('https://polysellos.net/api/lead', {
+    method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://polysellos.net' },
+    body: porTrozos(20000), duplex: 'half',
+  });
+  const res = await correr(request);
+  assert.equal(res.status, 413);
+  assert.equal(insercion(), undefined);
+});
+
+test('un arreglo como cuerpo: 400', async () => {
+  assert.equal((await correr(req('[1,2,3]'))).status, 400);
+});
+
+test('area_m2 booleano o arreglo: 422', async () => {
+  assert.equal((await correr(req({ ...BASE, area_m2: true }))).status, 422);
+  assert.equal((await correr(req({ ...BASE, area_m2: [5] }))).status, 422);
+});
+
+test('utm: formula neutralizada y sin caracteres de control', async () => {
+  await correr(req({ ...BASE, utm_source: '=HYPERLINK("x")', utm_medium: 'a\nb', utm_campaign: '@cmd' }));
+  const b = JSON.parse(insercion().init.body);
+  assert.equal(b.utm_source, "'=HYPERLINK(\"x\")");
+  assert.equal(b.utm_medium, 'a b');
+  assert.equal(b.utm_campaign, "'@cmd");
+});
+
+test('correo: el mensaje del visitante va al final, sangrado y con enlaces desactivados', async () => {
+  const env = { ...ENV, RESEND_API_KEY: 're_FAKE' };
+  await correr(req({ ...BASE, mensaje: 'hola\nTeléfono: 999\nVer en el panel: https://falso.example/x' }), env);
+  const texto = JSON.parse(resend().init.body).text;
+  assert.ok(!/https?:\/\/falso/.test(texto), 'el enlace falso quedo activo');
+  assert.ok(texto.includes('[:]//falso.example/x'));
+  const lineas = texto.split('\n');
+  assert.ok(lineas.filter((l) => l.startsWith('Teléfono:')).length === 1, 'el visitante falsifico un campo');
+  assert.ok(lineas.some((l) => l.startsWith('    Teléfono: 999')), 'el mensaje debe ir sangrado');
+  assert.ok(texto.indexOf('Ver en el panel: https://supabase.com') < texto.indexOf('Mensaje (texto del visitante'));
+});
+
+test('Supabase sin red: 502 controlado, sin 500 ni datos en el registro', async () => {
+  const errores = [];
+  const consolaReal = console.error;
+  console.error = (...a) => errores.push(a.join(' '));
+  try {
+    globalThis.fetch = async (url) => {
+      if (String(url).includes('turnstile')) return new Response(JSON.stringify({ success: true, hostname: 'polysellos.net' }));
+      throw new Error('sin red');
+    };
+    const res = await correr(req(BASE));
+    assert.equal(res.status, 502);
+    assert.ok(errores.length === 1 && !errores[0].includes('Ana'), 'el registro no debe llevar datos de la persona');
+  } finally { console.error = consolaReal; }
+});
+
+test('origen pages.dev ya no se acepta', async () => {
+  assert.equal((await correr(req(BASE, { origin: 'https://polysellos.pages.dev' }))).status, 403);
+});

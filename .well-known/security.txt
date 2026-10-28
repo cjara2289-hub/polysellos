@@ -1,0 +1,4 @@
+Contact: mailto:polysellospanama@gmail.com
+Expires: 2027-10-28T00:00:00Z
+Preferred-Languages: es, en
+Canonical: https://polysellos.net/.well-known/security.txt

@@ -92,3 +92,33 @@ test('otro metodo: 405', async () => {
   const res = await onRequest();
   assert.equal(res.status, 405);
 });
+
+// ---- endurecimiento (auditoria de seguridad, 28-oct-2026) ----
+
+test('cuerpo por trozos sin Content-Length: se corta en el tope', async () => {
+  let enviado = 0;
+  const cuerpo = new ReadableStream({
+    pull(c) { if (enviado >= 10000) return c.close(); c.enqueue(new TextEncoder().encode('a'.repeat(512))); enviado += 512; },
+  });
+  const request = new Request('https://polysellos.net/api/evento', {
+    method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://polysellos.net' }, body: cuerpo, duplex: 'half',
+  });
+  assert.equal((await correr(request)).status, 413);
+  assert.equal(insercion(), undefined);
+});
+
+test('pagina con caracteres raros o sin barra inicial: 422', async () => {
+  for (const pagina of ['/a b', '/a\nb', 'poliurea', '/<script>', '//' + 'x'.repeat(120)]) {
+    assert.equal((await correr(req({ ...BASE, pagina }))).status, 422, pagina);
+  }
+});
+
+test('utm: formula neutralizada y control rechazado', async () => {
+  await correr(req({ ...BASE, utm_source: '=SUM(1)' }));
+  assert.equal(JSON.parse(insercion().init.body).utm_source, "'=SUM(1)");
+  assert.equal((await correr(req({ ...BASE, utm_medium: 'a\nb' }))).status, 422);
+});
+
+test('origen pages.dev ya no se acepta', async () => {
+  assert.equal((await correr(req(BASE, { origin: 'https://polysellos.pages.dev' }))).status, 403);
+});
