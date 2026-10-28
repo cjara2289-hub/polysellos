@@ -908,7 +908,15 @@ footer{background:var(--paper);border-top-color:var(--line);}
 .page-duo .page-figure img,.antes-despues .page-figure img{width:100%;height:auto;}
 .page-duo .page-figure img{aspect-ratio:3/4;object-fit:cover;object-position:62% 50%;}
 .antes-despues{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:640px;margin-top:24px;}
-@media(max-width:520px){.page-duo{grid-template-columns:minmax(0,1fr);}}
+
+/* Correcciones del reporte QA: texto teal sobre fondo claro llegaba a 2.1:1 (minimo 4.5:1) */
+.faq .cta-dark{color:var(--ink);}
+.page-cta-link,.legal-back a,.e404-nav a,.faq-list summary .plus{color:var(--teal-text);}
+@media (hover:hover) and (pointer:fine){
+  .menu-btn:hover,.header-cta:hover,.hero-card .cta-ghost:hover,.e404-ghost:hover{color:var(--teal-text);}
+}
+/* Pares de fotos: dos columnas tambien en movil, asi bajan fotos mas chicas */
+.page-duo{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
 
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
