@@ -389,12 +389,14 @@ h2{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:c
 footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07);padding:44px 0;}
 .footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;}
 .footer-inner img{height:30px;width:auto;opacity:.95;}
-.footer-social{display:flex;align-items:center;gap:12px;}
+.footer-social{display:flex;align-items:center;flex-wrap:wrap;gap:10px 12px;}
+.footer-social-label{width:100%;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.18em;text-transform:uppercase;color:var(--concrete-400);}
 .footer-social a{
-  width:44px;height:44px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.14);
+  min-height:44px;padding:0 18px 0 14px;gap:10px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.28);
   display:flex;align-items:center;justify-content:center;transition:border-color var(--dur-base),transform 140ms var(--ease-out);
+  font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.12em;text-transform:uppercase;color:var(--concrete-50);
 }
-.footer-social svg{width:18px;height:18px;stroke:var(--concrete-300);}
+.footer-social svg{width:20px;height:20px;stroke:var(--membrane-400);flex-shrink:0;}
 .footer-legal{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase;color:var(--concrete-500);line-height:1.8}
 
 /* ---------- FAB ---------- */
@@ -442,7 +444,9 @@ footer{background:var(--obsidian-950);border-top:1px solid rgba(255,255,255,.07)
     transform-origin:top center;transform:scaleY(0);
   }
   .cotiza-fill.is-grown{transform:scaleY(1);}
-  .cotiza-num{position:relative;z-index:1;}
+  .cotiza-grid>div{position:relative;padding-left:64px;min-height:40px;}
+  .cotiza-num{position:absolute;left:0;top:0;z-index:1;}
+  .cotiza-grid h3{margin:9px 0 8px;}
 }
 @media(max-width:520px){
   /* Cada px de aqui sube el boton de WhatsApp, que en un iPhone de 812 quedaba
