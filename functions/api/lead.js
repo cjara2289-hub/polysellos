@@ -3,7 +3,7 @@
 //   SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, TURNSTILE_SECRET, RESEND_API_KEY
 // La llave de Supabase es la publishable: la tabla solo permite INSERT (RLS).
 
-const ORIGENES = ['https://polysellos.pages.dev'];
+const ORIGENES = ['https://polysellos.net', 'https://www.polysellos.net', 'https://polysellos.pages.dev'];
 const SUPERFICIES = ['techo', 'losa', 'estacionamiento', 'piso industrial', 'otro'];
 const MAX_BYTES = 4096;
 // Aviso por correo a cada lead nuevo. Sin dominio verificado, Resend solo envia desde

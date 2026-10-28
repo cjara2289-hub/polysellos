@@ -3,7 +3,7 @@
 // Usa los mismos secretos de Cloudflare Pages que /api/lead: SUPABASE_URL y
 // SUPABASE_PUBLISHABLE_KEY (la publishable va solo en el header apikey).
 
-const ORIGENES = ['https://polysellos.pages.dev'];
+const ORIGENES = ['https://polysellos.net', 'https://www.polysellos.net', 'https://polysellos.pages.dev'];
 const TIPOS = ['clic_whatsapp', 'envio_formulario'];
 const MAX_BYTES = 1024;
 const UTM = ['utm_source', 'utm_medium', 'utm_campaign'];

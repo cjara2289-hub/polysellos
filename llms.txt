@@ -4,12 +4,12 @@
 
 ## Páginas
 
-- [Inicio](https://polysellos.pages.dev/): qué hacemos, obra real, ficha técnica, sistemas, cómo cotizar y preguntas frecuentes.
-- [Poliurea en caliente](https://polysellos.pages.dev/poliurea): sistema principal, cifras de la ficha técnica, cómo se prepara la superficie y cuándo no conviene.
-- [Poliurea en frío](https://polysellos.pages.dev/poliurea-en-frio): capa impermeable de dos componentes, aplicada en frío, para terrazas, balcones, techos metálicos y zonas húmedas.
-- [Poliuretano](https://polysellos.pages.dev/poliuretano): revestimiento de dos componentes, elástico y que se puede pisar, para bases de cemento con mucho tránsito pesado.
-- [Acrílico](https://polysellos.pages.dev/acrilico): capa impermeable a base de agua para azoteas, terrazas y techos.
-- [Polímero MS](https://polysellos.pages.dev/polimero-ms): reparación de filtraciones en uniones de tejados, canaletas y entradas de tuberías.
-- [Cementicio](https://polysellos.pages.dev/cementicio): revestimiento de cemento y polímeros para baños, terrazas y depósitos de agua.
-- [Guía de filtraciones](https://polysellos.pages.dev/guia-filtraciones): cómo saber si el agua viene de la losa, de una tubería o de la condensación.
-- [Casos de obra](https://polysellos.pages.dev/casos): Sun Tower Mall, 130 m² de losa de estacionamiento sellados en un día, y segunda etapa en curso.
+- [Inicio](https://polysellos.net/): qué hacemos, obra real, ficha técnica, sistemas, cómo cotizar y preguntas frecuentes.
+- [Poliurea en caliente](https://polysellos.net/poliurea): sistema principal, cifras de la ficha técnica, cómo se prepara la superficie y cuándo no conviene.
+- [Poliurea en frío](https://polysellos.net/poliurea-en-frio): capa impermeable de dos componentes, aplicada en frío, para terrazas, balcones, techos metálicos y zonas húmedas.
+- [Poliuretano](https://polysellos.net/poliuretano): revestimiento de dos componentes, elástico y que se puede pisar, para bases de cemento con mucho tránsito pesado.
+- [Acrílico](https://polysellos.net/acrilico): capa impermeable a base de agua para azoteas, terrazas y techos.
+- [Polímero MS](https://polysellos.net/polimero-ms): reparación de filtraciones en uniones de tejados, canaletas y entradas de tuberías.
+- [Cementicio](https://polysellos.net/cementicio): revestimiento de cemento y polímeros para baños, terrazas y depósitos de agua.
+- [Guía de filtraciones](https://polysellos.net/guia-filtraciones): cómo saber si el agua viene de la losa, de una tubería o de la condensación.
+- [Casos de obra](https://polysellos.net/casos): Sun Tower Mall, 130 m² de losa de estacionamiento sellados en un día, y segunda etapa en curso.

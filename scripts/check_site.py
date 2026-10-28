@@ -11,7 +11,7 @@ import re
 import sys
 
 RAIZ = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else ".")
-ORIGEN = "https://polysellos.pages.dev"
+ORIGEN = "https://polysellos.net"
 SALTAR = {".git", ".cloudflare", ".wrangler", "node_modules", "blueprints", "dist"}
 # Cifras y frases que ya NO son validas (ficha K102 manda desde 2026-10-27).
 PROHIBIDAS = [
