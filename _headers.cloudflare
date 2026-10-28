@@ -25,21 +25,16 @@
 
 # Paginas, styles.css, sitemap y demas archivos de un solo nivel: siempre se revalidan
 # (304 con ETag, casi gratis). Sin esto, un telefono podia mezclar HTML nuevo con un
-# styles.css viejo guardado hasta 4 horas. Los casos de la raiz y /index.html van aparte.
+# styles.css viejo guardado hasta 4 horas. Ademas, el ajuste Browser Cache TTL de la zona
+# polysellos.net esta en 'Respetar cabeceras' (0): con 4 horas fijaba un minimo a css y js.
 /
   Cache-Control: public, max-age=0, must-revalidate
 
 /:slug
   Cache-Control: public, max-age=0, must-revalidate
 
-/styles.css
-  Cache-Control: public, max-age=0, must-revalidate
 
-/sitemap.xml
-  Cache-Control: public, max-age=0, must-revalidate
 
-/llms.txt
-  Cache-Control: public, max-age=0, must-revalidate
 
 # Los scripts propios cambian con el sitio: no se guardan 7 dias como las imagenes.
 /assets/menu.js
