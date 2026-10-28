@@ -687,6 +687,111 @@ section{padding:clamp(72px,11vw,136px) 0;}
 }
 .faq-list summary{padding-top:26px;padding-bottom:26px;}
 
+/* ---------- Refresh visual: una sola paleta oscura y una pausa clara ---------- */
+/* Criterio: la foto de obra es lo que vende, asi que se ve. Las secciones comparten
+   fondo oscuro en escalones (950/900/800) y solo "Tres pasos" queda en claro, como
+   pausa. Va despues de todo lo anterior a proposito: mismas especificidades, gana el orden. */
+
+/* Hero: titular mas contenido para que el boton entre en el primer pantallazo */
+.hero{min-height:min(84vh,780px);}
+.hero-bg{filter:grayscale(.15) contrast(1.05) brightness(1.05);}
+.hero-scrim-1{background:linear-gradient(180deg,rgba(8,15,17,.72) 0%,rgba(8,15,17,.18) 40%,rgba(8,15,17,.62) 80%,var(--obsidian-950) 100%);}
+.hero-scrim-2{background:linear-gradient(100deg,rgba(8,15,17,.9) 0%,rgba(8,15,17,.5) 48%,rgba(0,140,127,.12) 100%);}
+.hero-inner{padding-top:128px;}
+.hero-copy{max-width:820px;}
+.hero h1{font-size:clamp(2.125rem,5.4vw,3.875rem);}
+@media(max-width:860px){.hero-inner{padding-top:80px;}}
+@media(max-width:520px){.hero-inner{padding-top:72px;}}
+
+/* Aviso de cookies: barra baja a todo el ancho, no tapa el titular */
+.cookie{left:0;right:0;bottom:0;max-width:none;display:flex;align-items:center;justify-content:center;gap:12px 28px;padding:14px 24px;border-width:1px 0 0;border-radius:0;box-shadow:0 -10px 30px rgba(0,0,0,.4);}
+.cookie-title{display:none;}
+.cookie-text{margin:0;max-width:760px;font-size:.875rem;}
+.cookie-actions{flex:none;}
+.cookie-btn{flex:none;padding:10px 20px;}
+@media(max-width:700px){
+  .cookie{flex-direction:column;align-items:stretch;padding:12px 16px;gap:10px;}
+  .cookie-text{font-size:.8125rem;}
+  .cookie-btn{flex:1;}
+}
+
+/* Ritmo de secciones */
+.comparativo{background:var(--obsidian-900);color:var(--concrete-50);}
+.comparativo .eyebrow{color:var(--membrane-500);}
+.comparativo h2{color:var(--concrete-0);}
+.comparativo .lede{color:var(--concrete-400);}
+.comparativo-close{color:var(--concrete-0);}
+.comparativo-close em{color:var(--membrane-400);}
+.faq{background:var(--obsidian-950);color:var(--concrete-50);}
+.faq h2{color:var(--concrete-0);}
+.faq .lede,.faq-intro .lede{color:var(--concrete-400);}
+.faq-eyebrow{color:var(--membrane-500);}
+.faq-list details{border-bottom-color:rgba(255,255,255,.12);}
+.faq-list summary{color:var(--concrete-50);}
+.faq-list summary .plus{color:var(--membrane-500);}
+.faq-list p{color:var(--concrete-300);}
+.faq .cta-dark{background:var(--membrane-500);color:var(--obsidian-950);}
+.faq :focus-visible,.comparativo :focus-visible{outline-color:var(--membrane-500);}
+
+/* Sistemas: la poliurea con su foto y los otros cinco en tarjetas */
+.comp-card.is-poly,
+.comp-card.is-poly .comp-poly-text{padding:0;}
+.comp-card.is-poly{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);overflow:hidden;}
+.comp-card.is-poly .comp-poly-text{padding:44px 28px;align-self:center;}
+.comp-poly-img{width:100%;height:100%;min-height:300px;max-height:420px;object-fit:cover;}
+@media(min-width:861px){.comp-card.is-poly .comp-poly-text{padding:64px 56px;}}
+@media(max-width:860px){
+  .comp-card.is-poly{grid-template-columns:minmax(0,1fr);}
+  .comp-poly-img{order:-1;height:auto;min-height:0;max-height:none;aspect-ratio:16/10;}
+}
+.sys-list{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:14px;}
+.sys-list li{display:flex;}
+.sys-row{flex:1;display:flex;flex-direction:column;gap:10px;padding:28px 26px;background:var(--obsidian-800);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);color:var(--concrete-50);transition:border-color var(--dur-base) var(--ease-out),transform var(--dur-press) var(--ease-out);}
+.sys-row h3{color:var(--concrete-0);}
+.sys-row p{color:var(--concrete-400);}
+.sys-go{margin-top:auto;padding-top:10px;color:var(--membrane-400);}
+.sys-row:active{transform:scale(.99);}
+@media(min-width:861px){
+  .sys-list{grid-template-columns:repeat(6,minmax(0,1fr));}
+  .sys-list li{grid-column:span 2;}
+  .sys-list li:nth-child(-n+2){grid-column:span 3;}
+  .sys-row{padding:32px 30px;}
+}
+@media (hover:hover) and (pointer:fine){
+  .sys-row:hover{border-color:var(--membrane-500);}
+  .sys-row:hover h3{color:var(--membrane-400);}
+}
+
+/* Tira "Asi se aplica": cuatro fotos reales de la obra, en orden */
+.proceso{margin-top:72px;}
+.proceso-title{margin:0 0 20px;font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:1.25rem;letter-spacing:-.01em;color:var(--concrete-0);}
+.proceso-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.proceso-grid figure{margin:0;border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);overflow:hidden;background:var(--obsidian-800);}
+.proceso-grid img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;}
+.proceso-grid figcaption{padding:12px 14px;font-size:.9375rem;font-weight:600;color:var(--concrete-200);}
+@media(min-width:861px){.proceso-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;}}
+
+/* Paginas internas: misma familia que la home */
+.page-hero{background:linear-gradient(180deg,rgba(8,15,17,.78),rgba(8,15,17,.5) 60%,var(--obsidian-950)),linear-gradient(100deg,rgba(8,15,17,.92),rgba(8,15,17,.35)),url('assets/hero-losa.webp') center 40%/cover no-repeat var(--obsidian-950);}
+.page-section{border-top-color:rgba(255,255,255,.06);}
+.page-list{list-style:none;padding:0;}
+.page-list li{position:relative;padding-left:24px;}
+.page-list li::before{content:"";position:absolute;left:0;top:.78em;width:10px;height:2px;background:var(--membrane-500);}
+.page-section .stats-grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:32px 24px;margin-top:32px;}
+.page-section .stat .num{font-size:clamp(1.5rem,2.5vw,2.125rem);white-space:nowrap;}
+.page-figure{max-width:420px;}
+.page-faq h2{font-size:clamp(1.5rem,3.4vw,2.25rem);max-width:28ch;margin-bottom:28px;}
+.page-faq .faq-list{max-width:820px;margin-bottom:32px;}
+@media(max-width:520px){.page-section .stat:last-child:nth-child(odd){grid-column:1/-1;}}
+@media(min-width:861px){
+  /* Titulo a la izquierda y fijo, contenido a la derecha: la pagina deja de ser una columna pegada al borde */
+  .page-section .wrap:has(>h2){display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:72px;align-items:start;}
+  .page-section .wrap:has(>h2)>h2{grid-column:1;grid-row:1/span 12;position:sticky;top:96px;margin:0;}
+  .page-section .wrap:has(>h2)>*:not(h2){grid-column:2;}
+  .crosslinks .wrap,.page-section .wrap:has(.stats-grid){display:block;}
+  .page-section .wrap:has(.stats-grid)>h2{position:static;margin-bottom:16px;}
+}
+
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
    que las que sobreescriben, asi que solo ganan si van despues.
