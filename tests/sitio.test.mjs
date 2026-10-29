@@ -8,7 +8,7 @@ const leer = (f) => readFileSync(f, 'utf8');
 const SISTEMAS = ['poliurea', 'poliurea-en-frio', 'poliuretano', 'acrilico', 'polimero-ms', 'cementicio'];
 const PAGINAS = readdirSync('.').filter((f) => f.endsWith('.html')).sort();
 const INTERNAS = PAGINAS.filter((f) => f !== 'index.html');
-const CONTENIDO = [...SISTEMAS.map((s) => `${s}.html`), 'guia-filtraciones.html', 'casos.html'];
+const CONTENIDO = [...SISTEMAS.map((s) => `${s}.html`), 'guia-filtraciones.html', 'casos.html', 'ficha-tecnica.html', 'preguntas-frecuentes.html'];
 const palabras = (s) => s.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
 
 test('las paginas de contenido existen', () => {
@@ -70,7 +70,7 @@ test('encabezados sin saltos de nivel y un solo h1', () => {
 });
 
 test('menu desplegable en todas las paginas, con enlaces que existen', () => {
-  const destinos = new Set(['/', ...CONTENIDO.map((f) => '/' + f.replace('.html', '')), '/privacidad']);
+  const destinos = new Set(['/', ...PAGINAS.map((f) => '/' + f.replace('.html', ''))]);
   for (const f of PAGINAS) {
     const html = leer(f);
     assert.ok(html.includes('id="menuBtn"') && html.includes('aria-controls="menuPanel"'), `${f}: falta el boton de menu`);

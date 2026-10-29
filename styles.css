@@ -1067,6 +1067,32 @@ section{padding:clamp(48px,9vw,112px) 0;}
 @keyframes psFabAnillo{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.35,1.6);opacity:0}}
 @media(min-width:861px){.cta-sticky{right:24px;bottom:calc(24px + var(--cookie-h,0px));min-height:58px;padding:0 26px 0 20px;border-radius:999px;}}
 
+
+/* Siga explorando: cuatro mosaicos que mandan a las paginas propias (obra, ficha, preguntas, guia) */
+.explora{background:var(--paper);}
+.explora h2{margin-bottom:22px;}
+.explora-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ex-tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;height:100%;min-height:236px;aspect-ratio:4/5;border-radius:18px;overflow:hidden;color:#fff;background:var(--ink);transition:transform 140ms var(--ease-out);}
+.ex-tile:active{transform:scale(.97);}
+.ex-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.ex-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(11,20,22,.88) 100%);}
+.ex-cap{position:relative;z-index:1;display:flex;flex-direction:column;gap:2px;padding:14px;}
+.ex-cap strong{font-family:var(--font-display);font-size:1.0625rem;font-weight:700;line-height:1.15;}
+.ex-cap span{font-size:.8125rem;line-height:1.3;opacity:.92;}
+.ex-cifra{background:var(--teal-band);}
+.ex-preg{background:var(--ink);}
+.ex-num{position:relative;z-index:1;margin:auto 0 0;padding:14px 14px 0;font-family:var(--font-display);font-weight:800;font-size:2.125rem;line-height:1;letter-spacing:-.02em;color:#fff;}
+.ex-preg .ex-num{font-size:1.625rem;line-height:1.1;color:#5FE3D3;}
+.ex-cifra .ex-cap,.ex-preg .ex-cap{padding-top:10px;}
+@media(min-width:861px){.explora-grid{grid-template-columns:repeat(4,1fr);gap:20px}.ex-tile{min-height:320px}.ex-num{font-size:2.75rem}.ex-preg .ex-num{font-size:2rem}}
+@media (hover:hover) and (pointer:fine){.ex-tile:hover{transform:translateY(-3px);}}
+
+/* Pagina de ficha tecnica: cada cifra con su frase en lenguaje llano */
+.stat-note{margin:10px 0 0;font-size:.9375rem;line-height:1.45;color:rgba(255,255,255,.9);}
+.stat-foot{margin-top:28px;font-size:.9375rem;color:rgba(255,255,255,.9);}
+.page-section .stats-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+.page-section:has(.stats-grid) .stat .num{font-size:clamp(2rem,9vw,2.75rem);}
+
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
    que las que sobreescriben, asi que solo ganan si van despues.
@@ -1082,6 +1108,6 @@ section{padding:clamp(48px,9vw,112px) 0;}
   .crosslinks a,.comp-link,.page-cta-link,.menu-panel,.menu-icon i{transition:none;}
   .cta-sticky,.cta-sticky.is-on{transition:none;transform:none;animation:none;}
   .cta-sticky::after,.ba.is-hint .ba-handle,.ba.is-hint .ba-antes{animation:none;}
-  .sys-tile,.menu-plus::before,.menu-plus::after{transition:none;}
+  .ex-tile,.sys-tile,.menu-plus::before,.menu-plus::after{transition:none;}
   .motivo[open]{animation:none;}
 }
