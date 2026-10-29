@@ -12,10 +12,13 @@ const AVISO_A = 'polysellospanama@gmail.com';
 const AVISO_DE = 'Polysellos CRM <onboarding@resend.dev>';
 const PANEL = 'https://supabase.com/dashboard/project/lqkobqcsegyobjimxwdp/editor';
 
+const SEGURIDAD = { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'X-Frame-Options': 'DENY', 'Referrer-Policy': 'no-referrer', 'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'" };
+
 const json = (cuerpo, status = 200) =>
   new Response(JSON.stringify(cuerpo), {
     status,
-    headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' },
+    // Las Functions no heredan _headers: las cabeceras de seguridad van aqui.
+    headers: { 'Content-Type': 'application/json', ...SEGURIDAD },
   });
 
 const texto = (v, max) => (typeof v === 'string' ? v.trim().slice(0, max) : '');

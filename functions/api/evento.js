@@ -8,7 +8,8 @@ const TIPOS = ['clic_whatsapp', 'envio_formulario'];
 const MAX_BYTES = 1024;
 const UTM = ['utm_source', 'utm_medium', 'utm_campaign'];
 
-const vacio = (status) => new Response(null, { status, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
+// Las Functions no heredan _headers: las cabeceras de seguridad van aqui.
+const vacio = (status) => new Response(null, { status, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'X-Frame-Options': 'DENY', 'Referrer-Policy': 'no-referrer', 'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'" } });
 
 export async function onRequestPost({ request, env }) {
   if (!ORIGENES.includes(request.headers.get('Origin'))) return vacio(403);
@@ -26,7 +27,8 @@ export async function onRequestPost({ request, env }) {
   const pagina = typeof d.pagina === 'string' ? d.pagina : '';
   if (!TIPOS.includes(tipo)) return vacio(422);
   if (!/^[a-z0-9-]{1,40}$/.test(cta)) return vacio(422);
-  if (!/^\/[A-Za-z0-9\-_\/.]{0,99}$/.test(pagina)) return vacio(422);
+  // Sin '..' ni '//': la pagina es solo una ruta del sitio, nunca un recorrido de directorios.
+  if (!/^\/[A-Za-z0-9\-_\/.]{0,99}$/.test(pagina) || pagina.includes('..') || pagina.includes('//')) return vacio(422);
 
   // Solo las columnas que anon puede insertar; cualquier otro campo se descarta.
   const fila = { tipo, cta, pagina };
