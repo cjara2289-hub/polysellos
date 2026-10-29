@@ -43,7 +43,7 @@
 <!-- El fondo del hero es el elemento LCP y vive en CSS, o sea que el navegador no
      lo descubre hasta parsear styles.css. Este preload le gana esos ~222ms. -->
 <link rel="preload" as="image" href="assets/hero-losa.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261031c">
+<link rel="stylesheet" href="styles.css?v=20261101a">
 <noscript><style>[data-reveal]{opacity:1;transform:none;}.cotiza-fill{transform:scaleX(1);}</style></noscript>
 <!-- El pixel de Meta SOLO se carga si el visitante acepta las cookies (aviso al final
      del body). Sin consentimiento no se define fbq ni se pide fbevents.js, y por eso
@@ -318,6 +318,7 @@
 
 <section class="hero" id="top">
   <div class="hero-bg" data-ps-parallax="0.18"></div>
+  <video class="hero-video" data-src="assets/video/rampa-terminada-vertical-01.mp4" data-solo-movil muted loop playsinline preload="none" poster="assets/video/rampa-terminada-vertical-01-poster.webp" aria-hidden="true" tabindex="-1"></video>
   <div class="hero-scrim-1"></div>
   <div class="hero-scrim-2"></div>
   <div class="hero-grid-bg"></div>
@@ -366,6 +367,10 @@
       <span class="ba-tag ba-tag-a">Antes</span><span class="ba-tag ba-tag-d">Después</span>
       <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Deslice para comparar la rampa antes y después">
       <span class="ba-handle" aria-hidden="true"></span>
+    </div>
+    <h3 class="reel-title" data-reveal>Así se aplica</h3>
+    <div class="reel" data-reveal>
+      <video data-src="assets/video/aplicacion-capa-vertical-04.mp4" muted loop playsinline preload="none" poster="assets/video/aplicacion-capa-vertical-04-poster.webp" aria-label="Un aplicador con traje blanco extiende la capa gris sobre una rampa de estacionamiento"></video>
     </div>
     <div class="paso-strip" role="list" data-reveal>
       <figure role="listitem"><img src="assets/fotos/antes-despues-rampa-antes-02-640.webp" alt="Rampa durante la limpieza, con fisuras y trabajadores" width="640" height="853" loading="lazy" decoding="async"><figcaption>Limpieza</figcaption></figure>
@@ -564,6 +569,7 @@
 <script src="/assets/pixel.js?v=20261028c" defer></script>
 <script src="/assets/intro.js?v=20261028c" defer></script>
 <script src="/assets/animaciones.js?v=20261028c" defer></script>
+<script src="/assets/video.js?v=20261101" defer></script>
 <script src="/assets/comparar.js?v=20261029" defer></script>
 <script src="/assets/fab.js?v=20261031a" defer></script>
 <script src="/assets/faq.js?v=20261028d" defer></script>
