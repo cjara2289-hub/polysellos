@@ -8,8 +8,8 @@
   if(!barra) return;
   var contacto = document.getElementById('contacto');
   // En la home el boton del hero ya esta a la vista: la pastilla entra cuando ese boton sale de
-  // pantalla, para no ver dos botones iguales a la vez. Sin boton de hero, entra a los 1,2 s.
-  var heroBtn = document.querySelector('.hero-actions .cta-btn');
+  // pantalla, para no ver dos botones iguales a la vez. En las paginas internas la referencia es el boton del encabezado de la pagina. Sin ninguno, entra a los 1,2 s.
+  var heroBtn = document.querySelector('.hero-actions .cta-btn, .page-hero .page-cta .cta-btn');
   var listo = false, contactoVisible = false;
   // La entrada con rebote y el anillo corren una sola vez; despues el boton solo aparece y
   // desaparece con opacidad. Antes la animacion se repetia cada vez que se cruzaba el formulario

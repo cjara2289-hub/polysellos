@@ -242,7 +242,10 @@ if not existe("scripts/cloudflare-build.txt"):
 else:
     cmd = leer("scripts/cloudflare-build.txt")
     esperados = paginas + ["styles.css", "robots.txt", "sitemap.xml", "assets"] + (["llms.txt"] if existe("llms.txt") else [])
+    comodin_html = bool(re.search(r"(?<![\w.-])\*\.html(?![\w.-])", cmd))
     for e in esperados:
+        if comodin_html and e.endswith(".html"):
+            continue
         if not re.search(r"(?<![\w.-])" + re.escape(e) + r"(?![\w.-])", cmd):
             err(f"scripts/cloudflare-build.txt no copia {e} a dist/")
     if "_headers" not in cmd:
