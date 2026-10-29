@@ -189,7 +189,9 @@ for p, s0 in html.items():
             continue
         if not ident or f'for="{ident.group(1)}"' not in s:
             err(f"{p}: campo sin etiqueta asociada: {tag[:70]}")
-    for b in re.findall(r"<button\b[^>]*>(.*?)</button>", s, re.S):
+    for atr, b in re.findall(r"<button\b([^>]*)>(.*?)</button>", s, re.S):
+        if "aria-label" in atr:
+            continue
         if not re.sub(r"<[^>]+>", "", b).strip():
             err(f"{p}: boton sin texto")
 if existe("styles.css"):
@@ -240,7 +242,10 @@ if not existe("scripts/cloudflare-build.txt"):
 else:
     cmd = leer("scripts/cloudflare-build.txt")
     esperados = paginas + ["styles.css", "robots.txt", "sitemap.xml", "assets"] + (["llms.txt"] if existe("llms.txt") else [])
+    comodin_html = bool(re.search(r"(?<![\w.-])\*\.html(?![\w.-])", cmd))
     for e in esperados:
+        if comodin_html and e.endswith(".html"):
+            continue
         if not re.search(r"(?<![\w.-])" + re.escape(e) + r"(?![\w.-])", cmd):
             err(f"scripts/cloudflare-build.txt no copia {e} a dist/")
     if "_headers" not in cmd:

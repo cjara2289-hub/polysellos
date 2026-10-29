@@ -25,11 +25,24 @@
       if(ve && !cargada) return;
       if(ve){
         if(!listo){ v.src = v.getAttribute('data-src'); listo = true; }
-        var p = v.play(); if(p && p.catch) p.catch(function(){});
+        if(!v.getAttribute('data-pausa-manual')){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
       } else if(listo){ v.pause(); }
     }
     new IntersectionObserver(function(es){
       ultimo = es[es.length - 1].isIntersecting; actuar(ultimo);
     }, { threshold: 0.25 }).observe(v);
+  });
+
+  // Boton de pausa del video de muestra (WCAG 2.2.2): el que elige pausar no se reanuda solo.
+  document.querySelectorAll('.video-pausa').forEach(function(b){
+    var v = b.parentNode.querySelector('video');
+    if(!v) return;
+    b.addEventListener('click', function(){
+      var pausado = b.getAttribute('aria-pressed') === 'true';
+      b.setAttribute('aria-pressed', pausado ? 'false' : 'true');
+      b.setAttribute('aria-label', pausado ? 'Pausar video' : 'Reanudar video');
+      v.setAttribute('data-pausa-manual', pausado ? '' : '1');
+      if(pausado){ var p = v.play(); if(p && p.catch) p.catch(function(){}); } else { v.pause(); }
+    });
   });
 })();

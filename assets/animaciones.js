@@ -58,13 +58,21 @@
   var bg = document.querySelector('.hero-bg');
   var header = document.getElementById('siteHeader');
   var raf = null;
+  // El paralaje solo corre en escritorio y mientras el hero se ve. En el celular la foto y el
+  // video tapan el hero completo, y seguir moviendo una capa de 124 % de alto durante toda la
+  // pagina costaba cuadros al hacer scroll.
+  var paralaje = !!bg && window.matchMedia('(min-width: 861px)').matches;
+  var hero = document.getElementById('top');
+  var finHero = hero ? hero.offsetHeight : 0;
+  var tight = false;
   function onScroll(){
     if(raf) return;
     raf = requestAnimationFrame(function(){
       raf = null;
       var y = window.scrollY || document.documentElement.scrollTop;
-      if(bg) bg.style.transform = 'translate3d(0,' + (y * 0.18).toFixed(1) + 'px,0)';
-      if(header) header.classList.toggle('is-tight', y > 40);
+      if(paralaje && y < finHero + 200) bg.style.transform = 'translate3d(0,' + (y * 0.18).toFixed(1) + 'px,0)';
+      var t = y > 40;
+      if(header && t !== tight){ tight = t; header.classList.toggle('is-tight', t); }
     });
   }
   window.addEventListener('scroll', onScroll, { passive: true });

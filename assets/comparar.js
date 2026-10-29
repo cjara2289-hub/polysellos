@@ -4,7 +4,10 @@
   document.querySelectorAll('[data-ba]').forEach(function(ba){
     var r = ba.querySelector('.ba-range');
     if(!r) return;
-    function mover(){ ba.style.setProperty('--ba', r.value + '%'); }
+    function mover(){
+      ba.style.setProperty('--ba', r.value + '%');
+      r.setAttribute('aria-valuetext', 'Antes ' + r.value + ' %, después ' + (100 - r.value) + ' %');
+    }
     r.addEventListener('input', mover);
     mover();
     // Una sola pista de que se puede deslizar: la linea va y vuelve cuando entra en pantalla.
