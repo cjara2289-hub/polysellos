@@ -39,10 +39,11 @@
 <link rel="icon" href="assets/app-icon.png">
 <!-- Fuentes propias (ver @font-face en styles.css). El preload de la variable evita el parpadeo del titular. -->
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-latin-var.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/bricolage-latin-var.woff2" crossorigin>
 <!-- El fondo del hero es el elemento LCP y vive en CSS, o sea que el navegador no
      lo descubre hasta parsear styles.css. Este preload le gana esos ~222ms. -->
 <link rel="preload" as="image" href="assets/hero-losa.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261030b">
+<link rel="stylesheet" href="styles.css?v=20261101a">
 <noscript><style>[data-reveal]{opacity:1;transform:none;}.cotiza-fill{transform:scaleX(1);}</style></noscript>
 <!-- El pixel de Meta SOLO se carga si el visitante acepta las cookies (aviso al final
      del body). Sin consentimiento no se define fbq ni se pide fbevents.js, y por eso
@@ -252,117 +253,6 @@
      edita una, hay que editar la otra. Google ya no pinta acordeones de FAQ para
      sitios comerciales desde 2023, asi que esto no da rich result; sirve para que
      las respuestas se puedan citar como pasajes en busqueda con IA. -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": "https://polysellos.net/#faq",
-  "isPartOf": {
-    "@id": "https://polysellos.net/#webpage"
-  },
-  "about": {
-    "@id": "https://polysellos.net/#empresa"
-  },
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿El diagnóstico tiene costo?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Evaluamos su superficie y entregamos un diagnóstico técnico sin costo ni compromiso antes de cotizar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuánto cuesta impermeabilizar mi techo?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No hay un precio por metro cuadrado que sirva para todos los casos. El costo depende de la superficie, del área real, del acceso y del estado en que esté: dos losas del mismo tamaño pueden costar distinto. Escríbanos con el tipo de superficie, el área aproximada y una foto si la tiene. El diagnóstico es sin costo y con eso le damos el precio de su caso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuánto tiempo toma la aplicación?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La poliurea en caliente llega al gel (lo que tarda la mezcla en dejar de ser líquida) en 45 segundos o menos. Se aplica por tramos; cada tramo trabajado debe quedar libre de peso y de cosas apiladas durante las primeras 24 horas. En los demás sistemas los tiempos son otros y se los indicamos en el diagnóstico sin costo."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Debo detener mis operaciones?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Con poliurea en caliente se trabaja por secciones, y cada tramo tratado debe quedar libre de peso y de cosas apiladas durante las primeras 24 horas. En los demás sistemas se lo indicamos en el diagnóstico."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Se puede aplicar con lluvia o humedad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Con poliurea depende del estado de la superficie: la superficie debe estar suficientemente seca al aplicar, y lo revisamos antes de empezar. Con lluvia intensa no se aplica, por la seguridad de los trabajadores."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Resiste el sol directo sin dañarse?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Qué tan bien aguanta el sol depende del sistema y del acabado. Escríbanos y le indicamos cuál corresponde a su superficie."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Funciona sobre cualquier superficie?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Se adhiere a concreto y metal cuando la superficie se prepara con la capa base que corresponde. El diagnóstico revisa cada caso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo se elige el sistema de impermeabilización?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depende de la superficie, del uso, de la pendiente (la inclinación que hace correr el agua) y del estado en que esté. Aplicamos poliurea como sistema principal, y también poliurea en frío, acrílico, poliuretano, polímero MS y cementicio. En el diagnóstico sin costo le recomendamos el que corresponde, aunque no sea la poliurea."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo sé si la filtración viene de la losa o de una tubería?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Una filtración de losa suele aparecer o aumentar con la lluvia, mientras que la de una tubería también aparece en días secos. Envíenos una foto de la mancha y del techo; en el diagnóstico sin costo confirmamos el origen antes de cotizar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué cubre la garantía?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La garantía se entrega por escrito y cubre los defectos de aplicación de la membrana (la capa continua). No cubre fuerza mayor (hechos que nadie puede controlar), perforaciones ni trabajos hechos después por otras personas. Tampoco cubre filtraciones que vengan de fuera del área trabajada, como grietas en la estructura o agua acumulada por falta de inclinación."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué pasa si vuelve a filtrar?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nos avisa por escrito y vamos al lugar a revisar de dónde viene el agua. Si es un defecto de aplicación, se corrige sin costo, según los términos de la garantía escrita. Si el origen no tiene que ver con lo contratado, se lo informamos por escrito con las razones y cotizamos la solución aparte, sin cobrar la inspección."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué zonas atienden?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Atendemos Ciudad de Panamá, la Provincia de Panamá, Panamá Oeste y Colón. Si su proyecto está en otra zona, escríbanos y evaluamos cada caso."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -398,23 +288,26 @@
   </div>
   <nav class="menu-panel" id="menuPanel" aria-label="Menú principal" hidden>
     <div class="menu-inner">
-      <div class="menu-group">
-        <p class="menu-title">Navegar</p>
+      <details class="menu-sys">
+        <summary>Sistemas<span class="menu-plus" aria-hidden="true"></span></summary>
+        <div class="menu-sys-list">
+          <a href="/poliurea" data-ruta="/poliurea">Poliurea en caliente</a>
+          <a href="/poliurea-en-frio" data-ruta="/poliurea-en-frio">Poliurea en frío</a>
+          <a href="/poliuretano" data-ruta="/poliuretano">Poliuretano</a>
+          <a href="/acrilico" data-ruta="/acrilico">Acrílico</a>
+          <a href="/polimero-ms" data-ruta="/polimero-ms">Polímero MS</a>
+          <a href="/cementicio" data-ruta="/cementicio">Cementicio</a>
+        </div>
+      </details>
+      <a class="menu-main" href="/casos" data-ruta="/casos">Casos de obra</a>
+      <a class="menu-main" href="/ficha-tecnica" data-ruta="/ficha-tecnica">Ficha técnica</a>
+      <a class="menu-main" href="/preguntas-frecuentes" data-ruta="/preguntas-frecuentes">Preguntas frecuentes</a>
+      <a class="menu-main" href="/#contacto">Contacto</a>
+      <div class="menu-minor">
         <a href="/" data-ruta="/">Inicio</a>
-        <a href="/casos" data-ruta="/casos">Casos de obra</a>
         <a href="/guia-filtraciones" data-ruta="/guia-filtraciones">Guía de filtraciones</a>
         <a href="/#cotizamos">Cómo cotizar</a>
-        <a href="/#contacto">Contacto</a>
         <a href="/privacidad" data-ruta="/privacidad">Privacidad</a>
-      </div>
-      <div class="menu-group">
-        <p class="menu-title">Sistemas</p>
-        <a href="/poliurea" data-ruta="/poliurea">Poliurea en caliente</a>
-        <a href="/poliurea-en-frio" data-ruta="/poliurea-en-frio">Poliurea en frío</a>
-        <a href="/poliuretano" data-ruta="/poliuretano">Poliuretano</a>
-        <a href="/acrilico" data-ruta="/acrilico">Acrílico</a>
-        <a href="/polimero-ms" data-ruta="/polimero-ms">Polímero MS</a>
-        <a href="/cementicio" data-ruta="/cementicio">Cementicio</a>
       </div>
     </div>
   </nav>
@@ -425,113 +318,82 @@
 
 <section class="hero" id="top">
   <div class="hero-bg" data-ps-parallax="0.18"></div>
+  <video class="hero-video" data-src="assets/video/rampa-terminada-vertical-01.mp4" data-solo-movil muted loop playsinline preload="none" poster="assets/video/rampa-terminada-vertical-01-poster.webp" aria-hidden="true" tabindex="-1"></video>
   <div class="hero-scrim-1"></div>
   <div class="hero-scrim-2"></div>
   <div class="hero-grid-bg"></div>
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <!-- El kicker va DENTRO del h1 para que el titular contenga "impermeabilizacion",
-           "poliurea" y "Panama" sin tocar el eslogan, que es el ejemplo canonico de voz
-           correcta del brief de identidad. Visualmente es identico al div que habia
-           antes. Se quito "industrial": descalificaba a quien tiene una losa
-           residencial filtrando, que es buena parte del trafico de Instagram. -->
-      <!-- Sin data-reveal en todo el hero a proposito: arrancaban en opacity:0 y la
-           tarjeta entraba a los 320ms + 620ms de transicion, o sea que el CTA
-           terminaba de aparecer casi un segundo despues del splash. Para trafico
-           pagado eso es la primera impresion entera. El resto de la pagina si
-           conserva la animacion. -->
+      <!-- El kicker va DENTRO del h1 para que el titular contenga "impermeabilizacion" y
+           "Panama" sin tocar el eslogan. Es una pastilla oscura sobre la foto: antes era
+           texto teal sobre fondo claro y se perdia. Sin data-reveal en el hero: el CTA
+           tiene que estar a la vista desde el primer pintado. -->
       <h1>
-        <span class="h1-kicker"><span class="rule"></span>Impermeabilización · Panamá</span>
+        <span class="h1-kicker">Impermeabilización · Panamá</span>
         Membrana continua.<br>Cero juntas.<br><em>Cero filtraciones.</em>
       </h1>
-      <!-- El sub es el unico lugar del hero donde puede entrar el problema del
-           visitante, porque el eslogan del h1 no se toca. Antes repetia las cifras
-           que la ficha tecnica da mejor 100px mas abajo. 124 caracteres: el largo
-           importa tanto como el contenido, cada linea empuja el boton de WhatsApp
-           mas abajo del pliegue. -->
-      <p class="sub">Sun Tower Mall: 130 m² de losa sellados en un día. Pida su diagnóstico sin costo.</p>
-      <!-- Tres tags, no cuatro: a 393px la cuarta caia a una segunda fila y costaba
-           ~42px de pliegue. "Techos" entra porque es como llama a su problema quien
-           llega de Instagram; "losa" es vocabulario de constructor. "Concreto" era
-           sustrato, no trabajo, y "Pisos industriales" sigue en el JSON-LD y en la seccion de sistemas. -->
-      <div class="hero-tags">
-        <span>Techos</span>
-        <span>Losas</span>
-        <span>Estacionamientos</span>
+      <p class="sub">Techos y losas sellados en una sola capa. Diagnóstico sin costo.</p>
+      <div class="hero-actions">
+        <a class="cta-btn" data-cta="hero" data-abrir-motivo href="https://wa.me/50763731269?text=Hola.%20Quisiera%20solicitar%20un%20diagn%C3%B3stico%20sin%20costo." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+          Pida su diagnóstico
+        </a>
+        <a class="cta-ghost" href="#prueba">Ver obra terminada</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="hero-card">
-      <div class="hero-card-seam"></div>
-      <span>Diagnóstico sin costo</span>
-      <a class="cta-btn" data-cta="hero" data-abrir-motivo href="https://wa.me/50763731269?text=Hola.%20Quisiera%20solicitar%20un%20diagn%C3%B3stico%20sin%20costo." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
-        Pida su diagnóstico
-      </a>
-      <a class="cta-ghost" href="#obra">Ver obra terminada</a>
-      <span class="note">WhatsApp · +507 6373-1269</span>
+<!-- POR QUE IMPERMEABILIZAR: tres consecuencias, sin parrafos -->
+<section class="dolor" id="por-que">
+  <div class="wrap">
+    <h2 data-reveal>El agua no se detiene sola.</h2>
+    <ul class="dolor-grid">
+      <li data-reveal><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6c6 8 10 13 10 19a10 10 0 0 1-20 0c0-6 4-11 10-19Z"/><path d="M19 27a5 5 0 0 0 5 5"/></svg><strong>Manchas y goteras</strong><span>Empiezan pequeñas y crecen con cada lluvia.</span></li>
+      <li data-reveal data-delay="90"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14h36M6 24h36M6 34h36"/><path d="M16 14v20M32 14v20" stroke-dasharray="3 5"/></svg><strong>Acero que se oxida</strong><span>El agua llega al refuerzo de la losa y lo daña.</span></li>
+      <li data-reveal data-delay="180"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="32" height="32" rx="3"/><path d="M8 28c4-3 8 3 12 0s8 3 12 0 6 2 8 0"/></svg><strong>Humedad adentro</strong><span>Pintura que se levanta y olor a encierro.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PRUEBA: antes y despues + como se aplica -->
+<section class="prueba" id="prueba">
+  <div class="wrap">
+    <h2 data-reveal>Así queda una losa.</h2>
+    <div class="ba" data-ba data-reveal>
+      <img class="ba-img" src="assets/fotos/antes-despues-rampa-despues-02.webp" srcset="assets/fotos/antes-despues-rampa-despues-02-640.webp 640w, assets/fotos/antes-despues-rampa-despues-02.webp 1080w" sizes="(max-width:860px) 92vw, 560px" alt="Rampa de estacionamiento con el recubrimiento gris continuo ya aplicado" width="1080" height="1440" loading="lazy" decoding="async">
+      <img class="ba-img ba-antes" src="assets/fotos/antes-despues-rampa-antes-02.webp" srcset="assets/fotos/antes-despues-rampa-antes-02-640.webp 640w, assets/fotos/antes-despues-rampa-antes-02.webp 1080w" sizes="(max-width:860px) 92vw, 560px" alt="La misma rampa antes de aplicar, con fisuras y manchas en el concreto" width="1080" height="1440" loading="lazy" decoding="async">
+      <span class="ba-tag ba-tag-a">Antes</span><span class="ba-tag ba-tag-d">Después</span>
+      <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Deslice para comparar la rampa antes y después">
+      <span class="ba-handle" aria-hidden="true"></span>
+    </div>
+    <h3 class="reel-title" data-reveal>Así se aplica</h3>
+    <div class="reel" data-reveal>
+      <video data-src="assets/video/aplicacion-capa-vertical-04.mp4" muted loop playsinline preload="none" poster="assets/video/aplicacion-capa-vertical-04-poster.webp" aria-label="Un aplicador con traje blanco extiende la capa gris sobre una rampa de estacionamiento"></video>
+    </div>
+    <div class="paso-strip" role="list" data-reveal>
+      <figure role="listitem"><img src="assets/fotos/antes-despues-rampa-antes-02-640.webp" alt="Rampa durante la limpieza, con fisuras y trabajadores" width="640" height="853" loading="lazy" decoding="async"><figcaption>Limpieza</figcaption></figure>
+      <figure role="listitem"><img src="assets/fotos/poliurea-caliente-preparacion-fisuras-05-640.webp" alt="Piso con fisuras selladas en blanco antes de aplicar el recubrimiento" width="480" height="640" loading="lazy" decoding="async"><figcaption>Fisuras selladas</figcaption></figure>
+      <figure role="listitem"><img src="assets/etapa2-3-primera-capa-640.webp" alt="Aplicador con traje blanco colocando la primera capa sobre la losa" width="640" height="853" loading="lazy" decoding="async"><figcaption>Aplicación</figcaption></figure>
+      <figure role="listitem"><img src="assets/fotos/poliurea-caliente-terminado-rampa-04-640.webp" alt="Rampa con el recubrimiento gris ya aplicado, vista desde un extremo" width="480" height="640" loading="lazy" decoding="async"><figcaption>Terminado</figcaption></figure>
     </div>
   </div>
-
 </section>
 
 <!-- SISTEMAS QUE APLICAMOS -->
 <section class="comparativo" id="servicio">
   <div class="wrap">
-    <h2 data-reveal data-delay="70">El sistema se elige por la superficie.</h2>
-    <p class="lede" data-reveal data-delay="130">La poliurea es nuestro sistema principal. También aplicamos otros cuando la superficie o el uso lo piden. En el diagnóstico sin costo le recomendamos el que corresponde.</p>
-
-    <div class="comp-grid">
-      <div class="comp-card is-poly" data-reveal>
-        <div class="comp-poly-text">
-          <h3 class="comp-card-title"><img src="assets/mark-dark.png" alt="" width="48" height="48" loading="lazy" decoding="async"> Poliurea en caliente · sistema principal</h3>
-          <p>Capa continua aplicada con máquina, sin juntas. Para losas, techos, estacionamientos y pisos industriales.</p>
-          <a class="comp-link" href="/poliurea">Ver detalle</a>
-        </div>
-        <img class="comp-poly-img" src="assets/etapa2-4-membrana.webp" alt="Rampa de estacionamiento con la membrana de poliurea ya aplicada, en una sola capa continua" width="900" height="1200" loading="lazy" decoding="async">
-      </div>
-    </div>
-
-      <ul class="sys-list" data-reveal data-delay="60">
-        <li><a class="sys-row" href="/poliurea-en-frio"><h3>Poliurea en frío</h3><p>Capa de poliurea que se aplica en frío. Para terrazas, balcones, techos metálicos y zonas húmedas.</p><span class="sys-go">Ver detalle</span></a></li>
-        <li><a class="sys-row" href="/poliuretano"><h3>Poliuretano</h3><p>Capa líquida que se estira y sobre la que se puede caminar. Pensado para superficies de cemento con tráfico pesado. Lo confirmamos en el diagnóstico. También sirve para renovar un piso sin demolerlo, aplicándola sobre la cerámica.</p><span class="sys-go">Ver detalle</span></a></li>
-        <li><a class="sys-row" href="/acrilico"><h3>Acrílico</h3><p>Capa a base de agua para azoteas, terrazas y techos. Si el agua se acumula, lo revisamos en el diagnóstico sin costo.</p><span class="sys-go">Ver detalle</span></a></li>
-        <li><a class="sys-row" href="/polimero-ms"><h3>Polímero MS</h3><p>Sellador flexible para reparar filtraciones, uniones de tejados, canaletas y entradas de tuberías.</p><span class="sys-go">Ver detalle</span></a></li>
-        <li><a class="sys-row" href="/cementicio"><h3>Cementicio</h3><p>Capa a base de cemento y polímeros. Para baños, terrazas y depósitos de agua.</p><span class="sys-go">Ver detalle</span></a></li>
-      </ul>
-
-    <p class="comparativo-close" data-reveal data-delay="240">La poliurea no siempre es la respuesta. <em>Se lo decimos en el diagnóstico.</em></p>
-  </div>
-</section>
-
-<!-- FICHA TÉCNICA -->
-<section class="ficha">
-  <div class="wrap">
-    <div class="ficha-head">
-      <div>
-        <h2 data-reveal data-delay="70">La poliurea en cifras, no en discurso.</h2>
-      </div>
-      <p class="lede" data-reveal data-delay="140">Valores de la ficha técnica del sistema de poliurea en caliente. Pida la ficha completa por WhatsApp.</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat" data-reveal>
-        <div class="num" data-count="45" data-prefix="≤" data-suffix=" s">≤45 s</div>
-        <div class="lbl">Tiempo de gel: la mezcla deja de ser líquida</div>
-      </div>
-      <div class="stat" data-reveal data-delay="80">
-        <div class="num">0,4 MPa</div>
-        <div class="lbl">A 0,4 MPa, no deja pasar el agua, 2 h</div>
-      </div>
-      <div class="stat" data-reveal data-delay="160">
-        <div class="num" data-count="450" data-prefix="≥" data-suffix=" %">≥450 %</div>
-        <div class="lbl">Se estira sin romperse</div>
-      </div>
-      <div class="stat" data-reveal data-delay="240">
-        <div class="num" data-count="16" data-prefix="≥" data-suffix=" MPa">≥16 MPa</div>
-        <div class="lbl">Fuerza que aguanta antes de romperse</div>
-      </div>
-    </div>
+    <h2 data-reveal>Cada superficie, su sistema.</h2>
+    <p class="lede" data-reveal data-delay="60">Le recomendamos el que corresponde en el diagnóstico sin costo, aunque no sea la poliurea.</p>
+    <ul class="sys-grid">
+      <li data-reveal><a class="sys-tile is-main" href="/poliurea"><span class="sys-badge">Principal</span><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 30h40"/><path d="M8 30v8h32v-8"/><path d="M10 22c5-4 9 4 14 0s9 4 14 0"/><path d="M24 6v8M20 10l4-4 4 4"/></svg><h3>Poliurea en caliente</h3><p>Losas, techos y estacionamientos</p></a></li>
+      <li data-reveal data-delay="70"><a class="sys-tile" href="/poliurea-en-frio"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4v40M6 14l36 20M42 14 6 34"/><circle cx="24" cy="24" r="4"/></svg><h3>Poliurea en frío</h3><p>Terrazas, balcones y techos metálicos</p></a></li>
+      <li data-reveal data-delay="0"><a class="sys-tile" href="/poliuretano"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 34h36M10 34V18h28v16"/><path d="M16 26h16"/><circle cx="16" cy="40" r="2"/><circle cx="32" cy="40" r="2"/></svg><h3>Poliuretano</h3><p>Pisos con tráfico pesado</p></a></li>
+      <li data-reveal data-delay="70"><a class="sys-tile" href="/acrilico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 26 24 8l20 18"/><path d="M10 22v18h28V22"/></svg><h3>Acrílico</h3><p>Azoteas, terrazas y techos</p></a></li>
+      <li data-reveal data-delay="0"><a class="sys-tile" href="/polimero-ms"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 40 40 8"/><path d="M14 26l8 8M26 14l8 8"/><path d="M6 30l12 12M30 6l12 12"/></svg><h3>Polímero MS</h3><p>Reparar filtraciones y uniones</p></a></li>
+      <li data-reveal data-delay="70"><a class="sys-tile" href="/cementicio"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h28v36H10z"/><path d="M10 18h28M10 30h28M24 6v12M17 18v12M31 18v12M24 30v12"/></svg><h3>Cementicio</h3><p>Baños, terrazas y depósitos de agua</p></a></li>
+    </ul>
   </div>
 </section>
 
@@ -565,108 +427,16 @@
   </div>
 </section>
 
-<!-- CASO DE CLIENTE -->
-<section class="obra" id="obra">
-  <div class="wrap caso-grid">
-    <img src="assets/foto-despues.jpeg" alt="Capa continua terminada sobre la losa" width="675" height="900" loading="lazy" decoding="async">
-    <div class="caso-body">
-      <h2 data-reveal data-delay="70">Sun Tower Mall: 130 m² de losa sellados en un día.</h2>
-      <p class="lede" data-reveal data-delay="130">130 m² de losa de estacionamiento que dejaba pasar agua, sellados en un día con una membrana continua de poliurea. La segunda etapa, de 370,25 m², está en curso.</p>
-      <div class="obra-figs" data-reveal data-delay="180">
-        <div>
-          <div class="obra-fig-num">130 m²</div>
-          <div class="obra-fig-lbl">Losa sellada</div>
-        </div>
-        <div>
-          <div class="obra-fig-num">1 día</div>
-          <div class="obra-fig-lbl">Aplicación</div>
-        </div>
-        <div>
-          <div class="obra-fig-num">370,25 m²</div>
-          <div class="obra-fig-lbl">Segunda etapa, en curso</div>
-        </div>
-      </div>
-      <p class="caso-equipo" data-reveal>Las aplicaciones las hace el equipo de Polysellos, con traje de protección. Detrás de cada obra hay una empresa registrada en Panamá.</p>
-      <p class="equipo-legal" data-reveal>POLYSELLOS, S.E.P. · RUC 155774835-2-2025 DV9</p>
-      <div class="obra-cta-row" data-reveal data-delay="120">
-        <a class="cta-btn" data-cta="obra" data-abrir-motivo href="https://wa.me/50763731269?text=Hola.%20Vi%20el%20caso%20de%20Sun%20Tower%20Mall%20y%20quisiera%20cotizar%20un%20proyecto%20similar.%0ASuperficie%3A%0A%C3%81rea%20aproximada%20%28m2%29%3A%0AUbicaci%C3%B3n%3A" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
-          Cotice una losa como esta
-        </a>
-        <a class="comp-link" href="/casos">Ver el caso completo</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="wrap proceso" data-reveal>
-    <p class="proceso-title">Así se aplica</p>
-    <ul class="proceso-grid">
-      <li><figure><img src="assets/fotos/antes-despues-rampa-antes-02.webp" srcset="assets/fotos/antes-despues-rampa-antes-02-640.webp 640w, assets/fotos/antes-despues-rampa-antes-02.webp 1080w" sizes="(max-width:860px) 46vw, 290px" alt="Rampa de estacionamiento vista desde el balcón durante la limpieza, con fisuras y trabajadores" width="1080" height="1440" loading="lazy" decoding="async"><figcaption>1. Limpieza</figcaption></figure></li>
-      <li><figure><img src="assets/fotos/poliurea-caliente-preparacion-fisuras-05.webp" srcset="assets/fotos/poliurea-caliente-preparacion-fisuras-05-640.webp 640w, assets/fotos/poliurea-caliente-preparacion-fisuras-05.webp 810w" sizes="(max-width:860px) 46vw, 290px" alt="Piso de estacionamiento con fisuras selladas en blanco antes de aplicar el recubrimiento" width="810" height="1080" loading="lazy" decoding="async"><figcaption>2. Fisuras selladas</figcaption></figure></li>
-      <li><figure><img src="assets/fotos/poliurea-caliente-aplicacion-rampa-02.webp" srcset="assets/fotos/poliurea-caliente-aplicacion-rampa-02-640.webp 640w, assets/fotos/poliurea-caliente-aplicacion-rampa-02.webp 1200w" sizes="(max-width:860px) 46vw, 290px" alt="Dos trabajadores con traje blanco aplicando recubrimiento gris con manguera sobre una rampa de estacionamiento" width="1200" height="1600" loading="lazy" decoding="async"><figcaption>3. Aplicación</figcaption></figure></li>
-      <li><figure><img src="assets/fotos/poliurea-caliente-terminado-rampa-04.webp" srcset="assets/fotos/poliurea-caliente-terminado-rampa-04-640.webp 640w, assets/fotos/poliurea-caliente-terminado-rampa-04.webp 1200w" sizes="(max-width:860px) 46vw, 290px" alt="Rampa de estacionamiento con el recubrimiento gris ya aplicado, vista desde un extremo" width="1200" height="1600" loading="lazy" decoding="async"><figcaption>4. Terminado</figcaption></figure></li>
+<!-- SIGA EXPLORANDO: la home despierta curiosidad y manda a paginas propias -->
+<section class="explora" id="explora">
+  <div class="wrap">
+    <h2 data-reveal>Siga explorando.</h2>
+    <ul class="explora-grid">
+      <li data-reveal><a class="ex-tile ex-foto" href="/casos"><img src="assets/foto-despues.jpeg" alt="Losa de estacionamiento con la capa continua terminada" width="675" height="900" loading="lazy" decoding="async"><span class="ex-cap"><strong>Una obra real</strong><span>130 m² sellados en un día</span></span></a></li>
+      <li data-reveal data-delay="70"><a class="ex-tile ex-cifra" href="/ficha-tecnica"><span class="ex-num">≥450 %</span><span class="ex-cap"><strong>Ficha técnica</strong><span>Cuánto se estira sin romperse</span></span></a></li>
+      <li data-reveal><a class="ex-tile ex-foto" href="/preguntas-frecuentes"><img src="assets/fotos/poliurea-caliente-estacionamiento-parcial-01-640.webp" alt="Estacionamiento con la mitad de la superficie ya cubierta con recubrimiento gris y la otra mitad por aplicar" width="640" height="480" loading="lazy" decoding="async"><span class="ex-cap"><strong>¿Cuánto cuesta?</strong><span>Depende del área. Preguntas frecuentes</span></span></a></li>
+      <li data-reveal data-delay="70"><a class="ex-tile ex-foto" href="/guia-filtraciones"><img src="assets/fotos/filtraciones-losa-estacionamiento-fisura-03-640.webp" alt="Losa de un estacionamiento con fisuras y manchas de humedad" width="640" height="853" loading="lazy" decoding="async"><span class="ex-cap"><strong>¿Mancha en el techo?</strong><span>De dónde viene el agua</span></span></a></li>
     </ul>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="wrap faq-layout">
-    <div class="faq-intro">
-      <h2 data-reveal data-delay="70">Lo que más nos preguntan.</h2>
-      <p class="lede" data-reveal data-delay="130">Si su duda no está aquí, escríbanos por WhatsApp. Le respondemos en horario de oficina.</p>
-    </div>
-
-    <div class="faq-list" data-reveal data-delay="100">
-      <details>
-        <summary><h3>¿El diagnóstico tiene costo?</h3><span class="plus">+</span></summary>
-        <p>No. Evaluamos su superficie y entregamos un diagnóstico técnico sin costo ni compromiso antes de cotizar.</p>
-      </details>
-      <details>
-        <summary><h3>¿Cuánto cuesta impermeabilizar mi techo?</h3><span class="plus">+</span></summary>
-        <p>No hay un precio por metro cuadrado que sirva para todos los casos. El costo depende de la superficie, del área real, del acceso y del estado en que esté: dos losas del mismo tamaño pueden costar distinto. Escríbanos con el tipo de superficie, el área aproximada y una foto si la tiene. El diagnóstico es sin costo y con eso le damos el precio de su caso.</p>
-      </details>
-      <details>
-        <summary><h3>¿Cuánto tiempo toma la aplicación?</h3><span class="plus">+</span></summary>
-        <p>La poliurea en caliente llega al gel (lo que tarda la mezcla en dejar de ser líquida) en 45 segundos o menos. Se aplica por tramos; cada tramo trabajado debe quedar libre de peso y de cosas apiladas durante las primeras 24 horas. En los demás sistemas los tiempos son otros y se los indicamos en el diagnóstico sin costo.</p>
-      </details>
-      <details>
-        <summary><h3>¿Debo detener mis operaciones?</h3><span class="plus">+</span></summary>
-        <p>Con poliurea en caliente se trabaja por secciones, y cada tramo tratado debe quedar libre de peso y de cosas apiladas durante las primeras 24 horas. En los demás sistemas se lo indicamos en el diagnóstico.</p>
-      </details>
-      <details>
-        <summary><h3>¿Se puede aplicar con lluvia o humedad?</h3><span class="plus">+</span></summary>
-        <p>Con poliurea depende del estado de la superficie: la superficie debe estar suficientemente seca al aplicar, y lo revisamos antes de empezar. Con lluvia intensa no se aplica, por la seguridad de los trabajadores.</p>
-      </details>
-      <details>
-        <summary><h3>¿Resiste el sol directo sin dañarse?</h3><span class="plus">+</span></summary>
-        <p>Qué tan bien aguanta el sol depende del sistema y del acabado. Escríbanos y le indicamos cuál corresponde a su superficie.</p>
-      </details>
-      <details>
-        <summary><h3>¿Funciona sobre cualquier superficie?</h3><span class="plus">+</span></summary>
-        <p>Se adhiere a concreto y metal cuando la superficie se prepara con la capa base que corresponde. El diagnóstico revisa cada caso.</p>
-      </details>
-      <details>
-        <summary><h3>¿Cómo se elige el sistema de impermeabilización?</h3><span class="plus">+</span></summary>
-        <p>Depende de la superficie, del uso, de la pendiente (la inclinación que hace correr el agua) y del estado en que esté. Aplicamos poliurea como sistema principal, y también poliurea en frío, acrílico, poliuretano, polímero MS y cementicio. En el diagnóstico sin costo le recomendamos el que corresponde, aunque no sea la poliurea.</p>
-      </details>
-      <details>
-        <summary><h3>¿Cómo sé si la filtración viene de la losa o de una tubería?</h3><span class="plus">+</span></summary>
-        <p>Una filtración de losa suele aparecer o aumentar con la lluvia, mientras que la de una tubería también aparece en días secos. Envíenos una foto de la mancha y del techo; en el diagnóstico sin costo confirmamos el origen antes de cotizar.</p>
-      </details>
-      <details>
-        <summary><h3>¿Qué cubre la garantía?</h3><span class="plus">+</span></summary>
-        <p>La garantía se entrega por escrito y cubre los defectos de aplicación de la membrana (la capa continua). No cubre fuerza mayor (hechos que nadie puede controlar), perforaciones ni trabajos hechos después por otras personas. Tampoco cubre filtraciones que vengan de fuera del área trabajada, como grietas en la estructura o agua acumulada por falta de inclinación.</p>
-      </details>
-      <details>
-        <summary><h3>¿Qué pasa si vuelve a filtrar?</h3><span class="plus">+</span></summary>
-        <p>Nos avisa por escrito y vamos al lugar a revisar de dónde viene el agua. Si es un defecto de aplicación, se corrige sin costo, según los términos de la garantía escrita. Si el origen no tiene que ver con lo contratado, se lo informamos por escrito con las razones y cotizamos la solución aparte, sin cobrar la inspección.</p>
-      </details>
-      <details>
-        <summary><h3>¿Qué zonas atienden?</h3><span class="plus">+</span></summary>
-        <p>Atendemos Ciudad de Panamá, la Provincia de Panamá, Panamá Oeste y Colón. Si su proyecto está en otra zona, escríbanos y evaluamos cada caso.</p>
-      </details>
-    </div>
   </div>
 </section>
 
@@ -755,6 +525,8 @@
       <a href="/cementicio">Cementicio</a>
       <a href="/guia-filtraciones">Guía de filtraciones</a>
       <a href="/casos">Casos de obra</a>
+      <a href="/ficha-tecnica">Ficha técnica</a>
+      <a href="/preguntas-frecuentes">Preguntas frecuentes</a>
       <a href="/privacidad">Privacidad</a>
     </nav>
     <span class="footer-legal">Polysellos · Panamá · Impermeabilización<br>© 2026 POLYSELLOS, S.E.P. · RUC 155774835-2-2025 DV9<br>Sun Tower, piso 1, oficina 3 · Vía Ricardo J. Alfaro, Betania</span>
@@ -797,13 +569,15 @@
 <script src="/assets/pixel.js?v=20261028c" defer></script>
 <script src="/assets/intro.js?v=20261028c" defer></script>
 <script src="/assets/animaciones.js?v=20261028c" defer></script>
-<script src="/assets/fab.js?v=20261029c" defer></script>
+<script src="/assets/video.js?v=20261101" defer></script>
+<script src="/assets/comparar.js?v=20261029" defer></script>
+<script src="/assets/fab.js?v=20261031a" defer></script>
 <script src="/assets/faq.js?v=20261028d" defer></script>
 <script src="/assets/contacto.js?v=20261028c" defer></script>
 <script src="/assets/cookies.js?v=20261030a" defer></script>
 <script src="/assets/formulario.js?v=20261028c" defer></script>
 
 <script src="/assets/eventos.js?v=20261028b" defer></script>
-<script src="/assets/menu.js?v=20261029c" defer></script>
+<script src="/assets/menu.js?v=20261031a" defer></script>
 </body>
 </html>

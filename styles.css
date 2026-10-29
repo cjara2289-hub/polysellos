@@ -925,6 +925,204 @@ footer{background:var(--paper);border-top-color:var(--line);}
   .hero-inner{padding-top:104px;padding-bottom:88px;align-items:center;}
 }
 
+/* ---------- Rediseno movil ---------- */
+/* Pedido: menos lectura, mas imagen, tipografia menos densa. Archivo expandido 800 en todo
+   era el peso visual de la pagina; titulares ahora en Bricolage Grotesque (una sola fuente
+   variable, 77 KB) y el cuerpo en Archivo normal. Se acabaron las etiquetas en mayuscula con
+   tracking ancho y la mono en etiquetas: son lo que hacia "denso" a cada bloque. Space Mono
+   ya no se usa, asi que dejo de cargarla (ver los @font-face de arriba, que siguen declarados
+   pero sin uso, el navegador no los descarga). */
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:500 800;font-display:swap;
+  src:url('assets/fonts/bricolage-latin-var.woff2') format('woff2');}
+:root{
+  --font-display:'Bricolage Grotesque','Archivo',sans-serif;
+  --font-mono:'Archivo',sans-serif;
+  --fs-label:.8125rem;
+}
+h1,h2,h3,.stat .num,.obra-fig-num,.cotiza-num{font-stretch:100%;}
+h2{font-weight:700;letter-spacing:-.015em;line-height:1.1;font-size:clamp(1.75rem,7.4vw,2.75rem);text-wrap:balance;}
+.breadcrumb,.comp-card-title,.comp-link,.comp-row .k,.cookie-reopen,.cookie-title,.e404-nav,.equipo-legal,.eyebrow,.faq-card-phone span,.faq-card-tag,.field label,.final-cta-action span,.footer-legal,.footer-nav,.footer-social a,.footer-social-label,.hero-cue span,.lead-wa span,.menu-title,.obra-fig-lbl,.obra-gallery figcaption,.page-cta-link,.page-figure figcaption,.stat .lbl,.sys-go{text-transform:none;letter-spacing:.01em;font-weight:500;}
+.stat .num,.obra-fig-num{font-family:var(--font-display);font-weight:700;}
+section{padding:clamp(48px,9vw,112px) 0;}
+
+/* Hero: la foto manda. Oscurece abajo para que el texto blanco se lea sobre cualquier parte */
+.hero{background:var(--ink);min-height:calc(100svh - 62px);justify-content:flex-end;}
+.hero-bg{left:0;right:0;opacity:1;filter:saturate(1.05) contrast(1.04);-webkit-mask-image:none;mask-image:none;background-position:center 35%;}
+.hero-scrim-1{display:block;background:linear-gradient(180deg,rgba(11,20,22,.45) 0%,rgba(11,20,22,.05) 28%,rgba(11,20,22,.55) 58%,rgba(11,20,22,.94) 100%);}
+.hero-scrim-2{background:linear-gradient(100deg,rgba(11,20,22,.55) 0%,transparent 70%);}
+.hero-inner{display:block;padding:96px 20px 28px;}
+.hero h1{color:#fff;font-weight:750;font-size:clamp(2rem,8.8vw,3.75rem);line-height:1.04;letter-spacing:-.025em;text-wrap:nowrap;}
+.hero h1 em{color:#5FE3D3;}
+.hero h1 .h1-kicker{display:flex;width:fit-content;align-items:center;gap:8px;margin:0 0 16px;padding:7px 13px;border-radius:999px;
+  font-family:var(--font-sans);font-size:.8125rem;font-weight:600;letter-spacing:.01em;text-transform:none;
+  color:#fff;background:rgba(11,20,22,.62);border:1px solid rgba(255,255,255,.32);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+.hero .sub{color:rgba(255,255,255,.92);font-size:1.0625rem;margin-top:16px;max-width:30ch;}
+.hero-actions{display:flex;flex-direction:column;gap:12px;margin-top:24px;max-width:420px;}
+.hero-actions .cta-btn{width:100%;min-height:56px;font-size:1.0625rem;border-radius:14px;box-shadow:0 10px 28px rgba(18,194,176,.35);}
+.hero-actions .cta-ghost{align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font-weight:600;font-size:.9375rem;color:#fff;border-bottom:1px solid rgba(255,255,255,.55);border-radius:0;width:auto;}
+@media(min-width:861px){
+  .hero{min-height:min(88vh,820px);}
+  .hero-inner{padding:120px 24px 72px;}
+  .hero h1{font-size:clamp(3rem,5.2vw,4.5rem);}
+  .hero-actions{flex-direction:row;align-items:center;gap:22px;max-width:none;}
+  .hero-actions .cta-btn{width:auto;padding:0 32px;}
+}
+
+/* Por que impermeabilizar */
+.dolor{background:var(--paper);}
+.dolor h2{margin-bottom:28px;}
+.dolor-grid{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+.dolor-grid li{display:grid;grid-template-columns:44px 1fr;column-gap:16px;align-items:center;padding:16px 18px;border-radius:16px;background:#fff;border:1px solid var(--line);}
+.dolor-grid svg{grid-row:span 2;width:44px;height:44px;color:var(--teal-text);}
+.dolor-grid strong{font-family:var(--font-display);font-size:1.125rem;font-weight:700;color:var(--ink);}
+.dolor-grid span{font-size:.9375rem;color:var(--concrete-400);line-height:1.4;}
+@media(min-width:861px){.dolor-grid{grid-template-columns:repeat(3,1fr);gap:20px}.dolor-grid li{grid-template-columns:1fr;row-gap:10px;padding:28px}.dolor-grid svg{grid-row:auto}}
+
+/* Prueba: antes/despues + tira de pasos */
+.prueba{background:var(--mist);}
+.prueba h2{margin-bottom:24px;}
+.ba{--ba:50%;position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/4;max-height:72svh;margin:0 auto;background:var(--ink);box-shadow:0 18px 44px rgba(11,20,22,.18);touch-action:pan-y;}
+.ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.ba-antes{clip-path:inset(0 calc(100% - var(--ba)) 0 0);}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;}
+.ba-handle{position:absolute;top:0;bottom:0;left:var(--ba);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px rgba(11,20,22,.15);pointer-events:none;}
+.ba-handle::after{content:"";position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B1416' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 7-5 5 5 5M15 7l5 5-5 5'/%3E%3C/svg%3E") center/24px no-repeat;box-shadow:0 6px 18px rgba(11,20,22,.3);}
+.ba-tag{position:absolute;top:14px;padding:6px 12px;border-radius:999px;font-size:.8125rem;font-weight:700;background:rgba(11,20,22,.7);color:#fff;pointer-events:none;}
+.ba-tag-a{left:14px;}.ba-tag-d{right:14px;background:var(--membrane-500);color:var(--ink);}
+.ba-range:focus-visible ~ .ba-handle::after{outline:3px solid var(--teal-text);outline-offset:3px;}
+.ba.is-hint .ba-handle{animation:psBaPista 1.6s var(--ease-out) 1;}
+.ba.is-hint .ba-antes{animation:psBaClip 1.6s var(--ease-out) 1;}
+@keyframes psBaPista{0%,100%{transform:translateX(0)}35%{transform:translateX(34px)}70%{transform:translateX(-34px)}}
+@keyframes psBaClip{0%,100%{clip-path:inset(0 calc(100% - var(--ba)) 0 0)}35%{clip-path:inset(0 calc(100% - var(--ba) - 34px) 0 0)}70%{clip-path:inset(0 calc(100% - var(--ba) + 34px) 0 0)}}
+.paso-strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:20px -24px 0;padding:0 24px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.paso-strip::-webkit-scrollbar{display:none;}
+.paso-strip figure{flex:0 0 62%;max-width:260px;margin:0;scroll-snap-align:start;position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;}
+.paso-strip img{width:100%;height:100%;object-fit:cover;}
+.paso-strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;font-weight:700;font-size:1rem;color:#fff;background:linear-gradient(180deg,transparent,rgba(11,20,22,.82));}
+@media(min-width:861px){
+  .ba{max-width:560px;}
+  .paso-strip{margin:28px 0 0;padding:0;overflow:visible;display:grid;grid-template-columns:repeat(4,1fr);}
+  .paso-strip figure{flex:none;max-width:none;}
+}
+
+/* Sistemas: cuadricula unificada, mismo molde para los seis */
+.comparativo{background:var(--paper);}
+.comparativo .lede{margin:12px 0 24px;max-width:46ch;}
+.sys-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.sys-tile{position:relative;display:flex;flex-direction:column;height:100%;min-height:172px;padding:18px 16px 16px;border-radius:18px;background:#fff;border:1px solid var(--line);overflow:hidden;color:var(--ink);
+  background-image:url('assets/mark-dark.png');background-repeat:no-repeat;background-position:right -26px bottom -26px;background-size:110px auto;transition:transform 140ms var(--ease-out),border-color var(--dur-base);}
+.sys-tile::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#fff 0%,#fff 62%,rgba(255,255,255,.93) 100%);pointer-events:none;}
+.sys-tile>*{position:relative;}
+.sys-tile svg{width:38px;height:38px;color:var(--teal-text);margin-bottom:auto;}
+.sys-tile h3{font-family:var(--font-display);font-size:1.0625rem;font-weight:700;line-height:1.15;margin:16px 0 4px;color:var(--ink);}
+.sys-tile p{margin:0;font-size:.8125rem;line-height:1.35;color:var(--concrete-400);}
+.sys-tile.is-main{border-color:rgba(0,122,112,.45);background-color:var(--mist);}
+.sys-tile.is-main::before{background:linear-gradient(180deg,var(--mist) 0%,var(--mist) 62%,rgba(233,245,242,.93) 100%);}
+.sys-badge{position:absolute;top:12px;right:12px;padding:4px 9px;border-radius:999px;background:var(--membrane-500);color:var(--ink);font-size:.6875rem;font-weight:700;}
+.sys-tile:active{transform:scale(.97);}
+@media(min-width:861px){
+  .sys-grid{grid-template-columns:repeat(3,1fr);gap:20px;}
+  .sys-tile{min-height:220px;padding:26px 24px 22px;}
+  .sys-tile h3{font-size:1.25rem;}.sys-tile p{font-size:.9375rem;}
+}
+@media (hover:hover) and (pointer:fine){.sys-tile:hover{border-color:var(--teal-text);transform:translateY(-3px);}}
+
+/* Secciones de texto: menos aire y menos peso */
+.cotiza .lede,.obra .lede{font-size:1rem;}
+.cotiza .lede{margin-bottom:36px;}
+.cotiza-grid{gap:26px;}
+.faq-list summary h3{font-size:1.0625rem;font-weight:600;}
+
+@media(max-width:860px){
+  .cotiza .lede{display:none;}
+  .cotiza h2{margin-bottom:24px;}
+  .obra-figs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .obra-fig-num{font-size:1.25rem;}
+  .caso-equipo{font-size:.875rem;}
+}
+
+/* Menu: Sistemas plegado, tres entradas grandes y lo demas en una fila chica */
+.menu-inner{display:block;padding:8px 12px 16px;}
+.menu-sys summary{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 14px;list-style:none;cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--ink);border-radius:var(--radius-sm);}
+.menu-sys summary::-webkit-details-marker{display:none;}
+.menu-plus{position:relative;width:18px;height:18px;}
+.menu-plus::before,.menu-plus::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:var(--teal-text);border-radius:1px;transition:transform 200ms var(--ease-out);}
+.menu-plus::after{transform:rotate(90deg);}
+.menu-sys[open] .menu-plus::after{transform:rotate(0);}
+.menu-sys-list{display:grid;grid-template-columns:1fr 1fr;gap:4px 8px;padding:0 6px 10px;}
+.menu-sys-list a{min-height:44px;padding:0 12px;font-size:.9375rem;background:var(--mist);border-radius:12px;}
+.menu-panel a.menu-main{min-height:56px;font-family:var(--font-display);font-weight:700;font-size:1.25rem;padding:0 14px;}
+.menu-minor{display:flex;flex-wrap:wrap;gap:0 4px;margin-top:6px;padding-top:6px;border-top:1px solid var(--line);}
+.menu-minor a{min-height:44px;padding:0 12px;font-size:.875rem;color:var(--concrete-400);}
+@media(min-width:861px){.menu-inner{display:block;padding:12px 16px 20px;}}
+
+/* Boton fijo de WhatsApp: pastilla a la derecha que sigue el scroll. Entra con un resorte
+   y un anillo que late dos veces; despues queda quieto. Solo transform y opacity. */
+.cta-sticky{left:auto;right:14px;bottom:calc(14px + var(--cookie-h,0px) + env(safe-area-inset-bottom,0px));min-height:56px;padding:0 20px 0 16px;border-radius:999px;gap:10px;
+  box-shadow:0 12px 30px rgba(11,20,22,.28);transform:translateY(28px) scale(.7);transform-origin:100% 100%;font-size:.9375rem;}
+.cta-sticky.is-on{transform:none;animation:psFabEntra 620ms cubic-bezier(.34,1.56,.64,1) 1;}
+.cta-sticky::after{content:"";position:absolute;inset:0;border-radius:999px;border:2px solid var(--membrane-500);opacity:0;pointer-events:none;}
+.cta-sticky.is-on::after{animation:psFabAnillo 1.5s var(--ease-out) 700ms 2;}
+@keyframes psFabEntra{from{transform:translateY(28px) scale(.7);opacity:0}to{transform:none;opacity:1}}
+@keyframes psFabAnillo{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.35,1.6);opacity:0}}
+@media(min-width:861px){.cta-sticky{right:24px;bottom:calc(24px + var(--cookie-h,0px));min-height:58px;padding:0 26px 0 20px;border-radius:999px;}}
+
+
+/* Siga explorando: cuatro mosaicos que mandan a las paginas propias (obra, ficha, preguntas, guia) */
+.explora{background:var(--paper);}
+.explora h2{margin-bottom:22px;}
+.explora-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ex-tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;height:100%;min-height:236px;aspect-ratio:4/5;border-radius:18px;overflow:hidden;color:#fff;background:var(--ink);transition:transform 140ms var(--ease-out);}
+.ex-tile:active{transform:scale(.97);}
+.ex-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.ex-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(11,20,22,.88) 100%);}
+.ex-cap{position:relative;z-index:1;display:flex;flex-direction:column;gap:2px;padding:14px;}
+.ex-cap strong{font-family:var(--font-display);font-size:1.0625rem;font-weight:700;line-height:1.15;}
+.ex-cap span{font-size:.8125rem;line-height:1.3;opacity:.92;}
+.ex-cifra{background:var(--teal-band);}
+.ex-preg{background:var(--ink);}
+.ex-num{position:relative;z-index:1;margin:auto 0 0;padding:14px 14px 0;font-family:var(--font-display);font-weight:800;font-size:2.125rem;line-height:1;letter-spacing:-.02em;color:#fff;}
+.ex-preg .ex-num{font-size:1.625rem;line-height:1.1;color:#5FE3D3;}
+.ex-cifra .ex-cap,.ex-preg .ex-cap{padding-top:10px;}
+@media(min-width:861px){.explora-grid{grid-template-columns:repeat(4,1fr);gap:20px}.ex-tile{min-height:320px}.ex-num{font-size:2.75rem}.ex-preg .ex-num{font-size:2rem}}
+@media (hover:hover) and (pointer:fine){.ex-tile:hover{transform:translateY(-3px);}}
+
+/* Pagina de ficha tecnica: cada cifra con su frase en lenguaje llano */
+.stat-note{margin:10px 0 0;font-size:.9375rem;line-height:1.45;color:rgba(255,255,255,.9);}
+.stat-foot{margin-top:28px;font-size:.9375rem;color:rgba(255,255,255,.9);}
+.page-section .stats-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+.page-section:has(.stats-grid) .stat .num{font-size:clamp(2rem,9vw,2.75rem);}
+
+
+/* Encabezado de pagina interna: banda de imagen arriba (foto real o el icono del sistema, el mismo
+   de la cuadricula de la home) y el texto debajo sobre fondo limpio. Antes era texto largo sobre
+   una foto lavada. */
+.page-hero{padding:0 0 8px;background:var(--paper);}
+.ph-media{position:relative;height:clamp(190px,32svh,300px);overflow:hidden;background:var(--teal-band);}
+.ph-media img{display:block;width:100%;height:100%;object-fit:cover;}
+.ph-media:has(img)::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(180deg,transparent,rgba(11,20,22,.35));}
+.ph-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;
+  background:radial-gradient(120% 90% at 85% 10%,rgba(95,227,211,.28),transparent 60%),var(--teal-band);}
+.ph-icon svg{width:112px;height:112px;opacity:.95;}
+.ph-num{font-family:var(--font-display);font-weight:800;font-size:clamp(3.25rem,16vw,5.5rem);letter-spacing:-.03em;}
+.ph-q{background:radial-gradient(120% 90% at 85% 10%,rgba(95,227,211,.22),transparent 60%),var(--ink);color:#5FE3D3;}
+.page-hero .wrap{padding-top:20px;padding-bottom:28px;}
+.page-hero .breadcrumb{margin-bottom:14px;}
+.page-title{font-weight:700;font-size:clamp(1.75rem,7.4vw,2.75rem);letter-spacing:-.02em;margin-bottom:16px;}
+.answer{font-size:1rem;line-height:1.6;margin-bottom:22px;}
+@media(min-width:861px){.ph-media{height:clamp(240px,34vw,340px)}}
+
+
+/* Video: el clip del hero tapa la foto cuando empieza a correr (la foto queda de respaldo);
+   la muestra de aplicacion es un bloque vertical bajo el comparador. */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 700ms var(--ease-out);pointer-events:none;}
+.hero-video.is-playing{opacity:1;}
+@media(min-width:861px){.hero-video{display:none;}}
+.reel-title{margin:28px 0 12px;font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--ink);}
+.reel{position:relative;aspect-ratio:9/16;max-height:70svh;margin:0 auto;border-radius:18px;overflow:hidden;background:var(--ink);box-shadow:0 18px 44px rgba(11,20,22,.18);}
+.reel video{display:block;width:100%;height:100%;object-fit:cover;}
+@media(min-width:861px){.reel{max-width:360px;}}
+
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
    que las que sobreescriben, asi que solo ganan si van despues.
@@ -938,6 +1136,9 @@ footer{background:var(--paper);border-top-color:var(--line);}
   .intro-logo{opacity:1;transform:none;animation:none;}
   .hero-cue svg{animation:none;}
   .crosslinks a,.comp-link,.page-cta-link,.menu-panel,.menu-icon i{transition:none;}
-  .cta-sticky{transition:none;transform:none;}
+  .cta-sticky,.cta-sticky.is-on{transition:none;transform:none;animation:none;}
+  .cta-sticky::after,.ba.is-hint .ba-handle,.ba.is-hint .ba-antes{animation:none;}
+  .hero-video{transition:none;}
+  .ex-tile,.sys-tile,.menu-plus::before,.menu-plus::after{transition:none;}
   .motivo[open]{animation:none;}
 }
