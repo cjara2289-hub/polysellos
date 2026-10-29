@@ -73,7 +73,9 @@
     var cuerpo = {
       nombre: form.nombre.value, telefono: form.telefono.value,
       superficie: form.superficie.value, area_m2: form.area_m2.value,
-      mensaje: form.mensaje.value, sitio: form.sitio.value,
+      // El tipo de inmueble va al principio del mensaje: no hace falta una columna nueva en la base.
+      mensaje: (form.inmueble.value ? 'Tipo de inmueble: ' + form.inmueble.value + '\n' : '') + form.mensaje.value,
+      sitio: form.sitio.value,
       consentimiento: true, turnstile: token
     };
     Object.keys(utm).forEach(function(k){ cuerpo[k] = utm[k]; });
