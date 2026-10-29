@@ -56,6 +56,8 @@ test('envio de formulario sin utm: 204 y utm en null', async () => {
 });
 
 const rechazos = [
+  ['pagina con ..', () => req({ ...BASE, pagina: '/../etc/passwd' }), 422],
+  ['pagina con //', () => req({ ...BASE, pagina: '//evil.com/x' }), 422],
   ['origen ajeno', () => req(BASE, { origin: 'https://malo.com' }), 403],
   ['sin origen', () => req(BASE, { origin: null }), 403],
   ['no es json', () => req('x', { ct: 'text/plain' }), 415],
@@ -121,4 +123,12 @@ test('utm: formula neutralizada y control rechazado', async () => {
 
 test('origen pages.dev ya no se acepta', async () => {
   assert.equal((await correr(req(BASE, { origin: 'https://polysellos.pages.dev' }))).status, 403);
+});
+
+test('las respuestas llevan cabeceras de seguridad', async () => {
+  const res = await correr(req(BASE));
+  assert.equal(res.headers.get('X-Frame-Options'), 'DENY');
+  assert.match(res.headers.get('Strict-Transport-Security'), /includeSubDomains/);
+  assert.equal(res.headers.get('Referrer-Policy'), 'no-referrer');
+  assert.match(res.headers.get('Content-Security-Policy'), /default-src 'none'/);
 });

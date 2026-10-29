@@ -228,3 +228,12 @@ test('Supabase sin red: 502 controlado, sin 500 ni datos en el registro', async 
 test('origen pages.dev ya no se acepta', async () => {
   assert.equal((await correr(req(BASE, { origin: 'https://polysellos.pages.dev' }))).status, 403);
 });
+
+test('las respuestas llevan cabeceras de seguridad', async () => {
+  const res = await correr(req(BASE));
+  assert.equal(res.headers.get('X-Frame-Options'), 'DENY');
+  assert.match(res.headers.get('Strict-Transport-Security'), /includeSubDomains/);
+  assert.equal(res.headers.get('Referrer-Policy'), 'no-referrer');
+  assert.match(res.headers.get('Content-Security-Policy'), /default-src 'none'/);
+  assert.equal(res.headers.get('Cache-Control'), 'no-store');
+});
