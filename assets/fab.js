@@ -1,26 +1,25 @@
-// Barra fija de WhatsApp: acompana el scroll hacia abajo y hacia arriba en todas las paginas. Se muestra
-// cuando la tarjeta del hero ya salio de pantalla y se esconde mientras la seccion de
-// contacto esta a la vista (alli ya hay un boton igual). Vive fuera del bloque de
-// animacion: con "reducir movimiento" el JS de scroll sale temprano y la barra no
-// aparecia nunca. visibility la saca del orden de tabulacion cuando esta escondida.
+// Boton fijo de WhatsApp: acompana el scroll en todas las paginas. Aparece con una entrada
+// animada (ver .cta-sticky en styles.css) y se esconde solo mientras
+// la seccion de contacto esta a la vista, donde ya hay un boton igual. Vive fuera del bloque
+// de animacion: con "reducir movimiento" ese JS sale temprano y el boton no aparecia nunca.
+// visibility lo saca del orden de tabulacion cuando esta escondido.
 (function(){
   var barra = document.getElementById('ctaSticky');
-  // En la home la referencia es la tarjeta del hero; en las paginas internas, su encabezado.
-  var hero = document.querySelector('.hero-card, .page-hero');
-  var contacto = document.getElementById('contacto');
   if(!barra) return;
-  // Privacidad y 404 no tienen hero: la barra queda visible desde el principio.
-  if(!hero || !('IntersectionObserver' in window)){ barra.classList.add('is-on'); return; }
-
-  var heroVisible = true, contactoVisible = false;
-  function pintar(){
-    var mostrar = !heroVisible && !contactoVisible;
-    barra.classList.toggle('is-on', mostrar);
+  var contacto = document.getElementById('contacto');
+  // En la home el boton del hero ya esta a la vista: la pastilla entra cuando ese boton sale de
+  // pantalla, para no ver dos botones iguales a la vez. Sin boton de hero, entra a los 1,2 s.
+  var heroBtn = document.querySelector('.hero-actions .cta-btn');
+  var listo = false, contactoVisible = false;
+  function pintar(){ barra.classList.toggle('is-on', listo && !contactoVisible); }
+  if(heroBtn && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      listo = !es[es.length - 1].isIntersecting; pintar();
+    }, { threshold: 0.4 }).observe(heroBtn);
+  } else {
+    setTimeout(function(){ listo = true; pintar(); }, 1200);
   }
-  new IntersectionObserver(function(es){
-    heroVisible = es[es.length - 1].isIntersecting; pintar();
-  }, { threshold: 0.15 }).observe(hero);
-  if(contacto){
+  if(contacto && 'IntersectionObserver' in window){
     new IntersectionObserver(function(es){
       contactoVisible = es[es.length - 1].isIntersecting; pintar();
     }, { threshold: 0.2 }).observe(contacto);

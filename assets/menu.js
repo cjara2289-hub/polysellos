@@ -33,6 +33,9 @@
   p.querySelectorAll('a[data-ruta]').forEach(function (a) {
     if (a.getAttribute('data-ruta') === ruta) a.setAttribute('aria-current', 'page');
   });
+  // En una pagina de sistema, el desplegable de Sistemas abre solo para mostrar donde esta.
+  var sys = p.querySelector('.menu-sys');
+  if (sys && sys.querySelector('[aria-current="page"]')) sys.open = true;
 })();
 
 /* Al llegar por un enlace (no con atras, adelante ni recargar) la pagina abre arriba. El navegador ya lo
