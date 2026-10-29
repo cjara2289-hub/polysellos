@@ -1055,9 +1055,10 @@ section{padding:clamp(48px,9vw,112px) 0;}
    y un anillo que late dos veces; despues queda quieto. Solo transform y opacity. */
 .cta-sticky{left:auto;right:14px;bottom:calc(14px + var(--cookie-h,0px) + env(safe-area-inset-bottom,0px));min-height:56px;padding:0 20px 0 16px;border-radius:999px;gap:10px;
   box-shadow:0 12px 30px rgba(11,20,22,.28);transform:translateY(28px) scale(.7);transform-origin:100% 100%;font-size:.9375rem;}
-.cta-sticky.is-on{transform:none;animation:psFabEntra 620ms cubic-bezier(.34,1.56,.64,1) 1;}
+.cta-sticky.is-on{transform:none;}
+.cta-sticky.is-on.es-primera{animation:psFabEntra 620ms cubic-bezier(.34,1.56,.64,1) 1;}
 .cta-sticky::after{content:"";position:absolute;inset:0;border-radius:999px;border:2px solid var(--membrane-500);opacity:0;pointer-events:none;}
-.cta-sticky.is-on::after{animation:psFabAnillo 1.5s var(--ease-out) 700ms 2;}
+.cta-sticky.is-on.es-primera::after{animation:psFabAnillo 1.5s var(--ease-out) 700ms 2;}
 @keyframes psFabEntra{from{transform:translateY(28px) scale(.7);opacity:0}to{transform:none;opacity:1}}
 @keyframes psFabAnillo{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.35,1.6);opacity:0}}
 @media(min-width:861px){.cta-sticky{right:24px;bottom:calc(24px + var(--cookie-h,0px));min-height:58px;padding:0 26px 0 20px;border-radius:999px;}}
@@ -1131,6 +1132,16 @@ section{padding:clamp(48px,9vw,112px) 0;}
 .lead{padding:clamp(40px,9vw,96px) 0;}
 footer{padding:clamp(28px,6vw,44px) 0;}
 @media(min-width:861px){.footer-nav{width:auto;max-width:none;grid-template-columns:repeat(2,auto);gap:8px 56px;}.menu-minor{grid-template-columns:repeat(4,auto)}}
+
+
+/* Rendimiento al hacer scroll en el celular: encabezado sin desenfoque (el blur de 14 px sobre
+   contenido en movimiento y video era lo mas caro) y sin cambio de relleno al pasar los 40 px,
+   que movia todo el contenido de golpe. */
+@media(max-width:860px){
+  .site,.site.is-tight{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(247,250,249,.98);}
+  .site.is-tight .site-bar{padding-top:12px;padding-bottom:12px;}
+  .hero h1 .h1-kicker{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,20,22,.78);}
+}
 
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
