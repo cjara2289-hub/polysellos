@@ -43,7 +43,7 @@
 <!-- El fondo del hero es el elemento LCP y vive en CSS, o sea que el navegador no
      lo descubre hasta parsear styles.css. Este preload le gana esos ~222ms. -->
 <link rel="preload" as="image" href="assets/hero-losa.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261101c">
+<link rel="stylesheet" href="styles.css?v=20261102a">
 <noscript><style>[data-reveal]{opacity:1;transform:none;}.cotiza-fill{transform:scaleX(1);}</style></noscript>
 <!-- El pixel de Meta SOLO se carga si el visitante acepta las cookies (aviso al final
      del body). Sin consentimiento no se define fbq ni se pide fbevents.js, y por eso
@@ -368,7 +368,7 @@
       <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Deslice para comparar la rampa antes y después">
       <span class="ba-handle" aria-hidden="true"></span>
     </div>
-    <h3 class="reel-title" data-reveal>Así se aplica</h3>
+    <h3 class="reel-title" data-reveal>Véanos en acción</h3>
     <div class="reel" data-reveal>
       <video data-src="assets/video/aplicacion-capa-vertical-04.mp4" muted loop playsinline preload="none" poster="assets/video/aplicacion-capa-vertical-04-poster.webp" aria-label="Un aplicador con traje blanco extiende la capa gris sobre una rampa de estacionamiento"></video>
     </div>
@@ -517,17 +517,24 @@
       </a>
     </div>
     <nav class="footer-nav" aria-label="Páginas del sitio">
-      <a href="/poliurea">Poliurea en caliente</a>
-      <a href="/poliurea-en-frio">Poliurea en frío</a>
-      <a href="/poliuretano">Poliuretano</a>
-      <a href="/acrilico">Acrílico</a>
-      <a href="/polimero-ms">Polímero MS</a>
-      <a href="/cementicio">Cementicio</a>
-      <a href="/guia-filtraciones">Guía de filtraciones</a>
-      <a href="/casos">Casos de obra</a>
-      <a href="/ficha-tecnica">Ficha técnica</a>
-      <a href="/preguntas-frecuentes">Preguntas frecuentes</a>
-      <a href="/privacidad">Privacidad</a>
+      <div class="fn-grupo">
+        <p class="fn-titulo">Sistemas</p>
+        <a href="/poliurea">Poliurea en caliente</a>
+        <a href="/poliurea-en-frio">Poliurea en frío</a>
+        <a href="/poliuretano">Poliuretano</a>
+        <a href="/acrilico">Acrílico</a>
+        <a href="/polimero-ms">Polímero MS</a>
+        <a href="/cementicio">Cementicio</a>
+      </div>
+      <div class="fn-grupo">
+        <p class="fn-titulo">Más</p>
+        <a href="/casos">Casos de obra</a>
+        <a href="/ficha-tecnica">Ficha técnica</a>
+        <a href="/preguntas-frecuentes">Preguntas frecuentes</a>
+        <a href="/guia-filtraciones">Guía de filtraciones</a>
+        <a href="/#contacto">Contacto</a>
+        <a href="/privacidad">Privacidad</a>
+      </div>
     </nav>
     <span class="footer-legal">Polysellos · Panamá · Impermeabilización<br>© 2026 POLYSELLOS, S.E.P. · RUC 155774835-2-2025 DV9<br>Sun Tower, piso 1, oficina 3 · Vía Ricardo J. Alfaro, Betania</span>
     <button type="button" class="cookie-reopen" id="cookieReabrir">Preferencias de cookies</button>
