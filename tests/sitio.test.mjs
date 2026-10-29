@@ -8,7 +8,7 @@ const leer = (f) => readFileSync(f, 'utf8');
 const SISTEMAS = ['poliurea', 'poliurea-en-frio', 'poliuretano', 'acrilico', 'polimero-ms', 'cementicio'];
 const PAGINAS = readdirSync('.').filter((f) => f.endsWith('.html')).sort();
 const INTERNAS = PAGINAS.filter((f) => f !== 'index.html');
-const CONTENIDO = [...SISTEMAS.map((s) => `${s}.html`), 'guia-filtraciones.html', 'casos.html', 'ficha-tecnica.html', 'preguntas-frecuentes.html'];
+const CONTENIDO = [...SISTEMAS.map((s) => `${s}.html`), 'guia-filtraciones.html', 'casos.html', 'ficha-tecnica.html', 'preguntas-frecuentes.html', 'impermeabilizacion-estacionamientos.html', 'propiedad-horizontal.html'];
 const palabras = (s) => s.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
 
 test('las paginas de contenido existen', () => {

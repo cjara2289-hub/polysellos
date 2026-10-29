@@ -72,3 +72,10 @@
 /assets/formulario.js
   ! Cache-Control
   Cache-Control: public, max-age=0, must-revalidate
+
+/assets/motivo.js
+/assets/video.js
+/assets/comparar.js
+/assets/faq.js
+  ! Cache-Control
+  Cache-Control: public, max-age=0, must-revalidate

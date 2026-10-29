@@ -43,7 +43,7 @@
 <!-- El fondo del hero es el elemento LCP y vive en CSS, o sea que el navegador no
      lo descubre hasta parsear styles.css. Este preload le gana esos ~222ms. -->
 <link rel="preload" as="image" href="assets/hero-losa.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261102b">
+<link rel="stylesheet" href="styles.css?v=20261103c">
 <noscript><style>[data-reveal]{opacity:1;transform:none;}.cotiza-fill{transform:scaleX(1);}</style></noscript>
 <!-- El pixel de Meta SOLO se carga si el visitante acepta las cookies (aviso al final
      del body). Sin consentimiento no se define fbq ni se pide fbevents.js, y por eso
@@ -249,10 +249,6 @@
   ]
 }
 </script>
-<!-- El texto de cada respuesta es identico al visible en la seccion FAQ: si se
-     edita una, hay que editar la otra. Google ya no pinta acordeones de FAQ para
-     sitios comerciales desde 2023, asi que esto no da rich result; sirve para que
-     las respuestas se puedan citar como pasajes en busqueda con IA. -->
 </head>
 <body>
 
@@ -280,7 +276,7 @@
         <span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
         <span>Menú</span>
       </button>
-      <a class="header-cta" data-cta="header" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20sin%20costo." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp: +507 6373-1269">
+      <a class="header-cta" data-cta="header" href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20sin%20costo." target="_blank" rel="noopener" aria-label="Diagnóstico sin costo por WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
       <span>Diagnóstico sin costo</span>
     </a>
@@ -297,6 +293,13 @@
           <a href="/acrilico" data-ruta="/acrilico">Acrílico</a>
           <a href="/polimero-ms" data-ruta="/polimero-ms">Polímero MS</a>
           <a href="/cementicio" data-ruta="/cementicio">Cementicio</a>
+        </div>
+      </details>
+      <details class="menu-sys">
+        <summary>Para su caso<span class="menu-plus" aria-hidden="true"></span></summary>
+        <div class="menu-sys-list">
+          <a href="/impermeabilizacion-estacionamientos" data-ruta="/impermeabilizacion-estacionamientos">Estacionamientos</a>
+          <a href="/propiedad-horizontal" data-ruta="/propiedad-horizontal">Propiedad horizontal</a>
         </div>
       </details>
       <a class="menu-main" href="/casos" data-ruta="/casos">Casos de obra</a>
@@ -333,15 +336,27 @@
         <span class="h1-kicker">Impermeabilización · Panamá</span>
         Membrana continua.<br>Cero juntas.<br><em>Cero filtraciones.</em>
       </h1>
-      <p class="sub">Techos y losas sellados en una sola capa. Diagnóstico sin costo.</p>
+      <p class="sub">Una sola capa continua, aplicada con máquina. Diagnóstico sin costo y garantía por escrito.</p>
       <div class="hero-actions">
         <a class="cta-btn" data-cta="hero" data-abrir-motivo href="https://wa.me/50763731269?text=Hola.%20Quisiera%20solicitar%20un%20diagn%C3%B3stico%20sin%20costo." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
           Pida su diagnóstico
         </a>
-        <a class="cta-ghost" href="#prueba">Ver obra terminada</a>
+        <a class="cta-ghost" href="#prueba">Ver una obra real</a>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- CONFIANZA: tres cifras verificables, justo bajo el hero -->
+<section class="confianza" aria-label="Respaldo de Polysellos">
+  <div class="wrap">
+    <ul class="conf-grid">
+      <li data-reveal><strong>15+ años</strong><span>de experiencia en obra por cada integrante del equipo</span></li>
+      <li data-reveal data-delay="70"><strong>1.000 m²</strong><span>de obra trabajados entre poliurea y acrílico</span></li>
+      <li data-reveal data-delay="140"><strong>5 a 10 años</strong><span>de garantía por escrito contra defectos de aplicación, según el sistema</span></li>
+    </ul>
   </div>
 </section>
 
@@ -350,17 +365,18 @@
   <div class="wrap">
     <h2 data-reveal>El agua no se detiene sola.</h2>
     <ul class="dolor-grid">
-      <li data-reveal><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6c6 8 10 13 10 19a10 10 0 0 1-20 0c0-6 4-11 10-19Z"/><path d="M19 27a5 5 0 0 0 5 5"/></svg><strong>Manchas y goteras</strong><span>Empiezan pequeñas y crecen con cada lluvia.</span></li>
-      <li data-reveal data-delay="90"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14h36M6 24h36M6 34h36"/><path d="M16 14v20M32 14v20" stroke-dasharray="3 5"/></svg><strong>Acero que se oxida</strong><span>El agua llega al refuerzo de la losa y lo daña.</span></li>
-      <li data-reveal data-delay="180"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="32" height="32" rx="3"/><path d="M8 28c4-3 8 3 12 0s8 3 12 0 6 2 8 0"/></svg><strong>Humedad adentro</strong><span>Pintura que se levanta y olor a encierro.</span></li>
+      <li data-reveal><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6c6 8 10 13 10 19a10 10 0 0 1-20 0c0-6 4-11 10-19Z"/><path d="M19 27a5 5 0 0 0 5 5"/></svg><strong>Cada lluvia la agranda</strong><span>La mancha de hoy suele crecer con el agua que sigue entrando.</span></li>
+      <li data-reveal data-delay="90"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14h36M6 24h36M6 34h36"/><path d="M16 14v20M32 14v20" stroke-dasharray="3 5"/></svg><strong>El daño que no se ve</strong><span>El agua puede llegar al acero de la losa antes de que usted lo note.</span></li>
+      <li data-reveal data-delay="180"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="32" height="32" rx="3"/><path d="M8 28c4-3 8 3 12 0s8 3 12 0 6 2 8 0"/></svg><strong>La casa lo cuenta</strong><span>Pintura que se levanta y olor a encierro.</span></li>
     </ul>
+    <p class="dolor-cierre" data-reveal>Tapar la mancha no detiene el agua. Primero se confirma de dónde viene.</p>
   </div>
 </section>
 
 <!-- PRUEBA: antes y despues + como se aplica -->
 <section class="prueba" id="prueba">
   <div class="wrap">
-    <h2 data-reveal>Así queda una losa.</h2>
+    <h2 data-reveal>Esta rampa tenía fisuras. Hoy es una sola capa.</h2>
     <div class="ba" data-ba data-reveal>
       <img class="ba-img" src="assets/fotos/antes-despues-rampa-despues-02.webp" srcset="assets/fotos/antes-despues-rampa-despues-02-640.webp 640w, assets/fotos/antes-despues-rampa-despues-02.webp 1080w" sizes="(max-width:860px) 92vw, 560px" alt="Rampa de estacionamiento con el recubrimiento gris continuo ya aplicado" width="1080" height="1440" loading="lazy" decoding="async">
       <img class="ba-img ba-antes" src="assets/fotos/antes-despues-rampa-antes-02.webp" srcset="assets/fotos/antes-despues-rampa-antes-02-640.webp 640w, assets/fotos/antes-despues-rampa-antes-02.webp 1080w" sizes="(max-width:860px) 92vw, 560px" alt="La misma rampa antes de aplicar, con fisuras y manchas en el concreto" width="1080" height="1440" loading="lazy" decoding="async">
@@ -368,11 +384,12 @@
       <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Deslice para comparar la rampa antes y después">
       <span class="ba-handle" aria-hidden="true"></span>
     </div>
-    <h3 class="reel-title" data-reveal>Véanos en acción</h3>
+    <h3 class="reel-title" data-reveal>Así se aplica, en obra real</h3>
     <div class="reel" data-reveal>
+      <button type="button" class="video-pausa" aria-pressed="false" aria-label="Pausar video"><span aria-hidden="true"></span></button>
       <video data-src="assets/video/aplicacion-capa-vertical-04.mp4" muted loop playsinline preload="none" poster="assets/video/aplicacion-capa-vertical-04-poster.webp" aria-label="Un aplicador con traje blanco extiende la capa gris sobre una rampa de estacionamiento"></video>
     </div>
-    <div class="paso-strip" role="list" data-reveal>
+    <div class="paso-strip" role="list" tabindex="0" aria-label="Fotos del proceso" data-reveal>
       <figure role="listitem"><img src="assets/fotos/antes-despues-rampa-antes-02-640.webp" alt="Rampa durante la limpieza, con fisuras y trabajadores" width="640" height="853" loading="lazy" decoding="async"><figcaption>Limpieza</figcaption></figure>
       <figure role="listitem"><img src="assets/fotos/poliurea-caliente-preparacion-fisuras-05-640.webp" alt="Piso con fisuras selladas en blanco antes de aplicar el recubrimiento" width="480" height="640" loading="lazy" decoding="async"><figcaption>Fisuras selladas</figcaption></figure>
       <figure role="listitem"><img src="assets/etapa2-3-primera-capa-640.webp" alt="Aplicador con traje blanco colocando la primera capa sobre la losa" width="640" height="853" loading="lazy" decoding="async"><figcaption>Aplicación</figcaption></figure>
@@ -384,8 +401,8 @@
 <!-- SISTEMAS QUE APLICAMOS -->
 <section class="comparativo" id="servicio">
   <div class="wrap">
-    <h2 data-reveal>Cada superficie, su sistema.</h2>
-    <p class="lede" data-reveal data-delay="60">Le recomendamos el que corresponde en el diagnóstico sin costo, aunque no sea la poliurea.</p>
+    <h2 data-reveal>El sistema que corresponde a su caso.</h2>
+    <p class="lede" data-reveal data-delay="60">Aplicamos seis. En el diagnóstico sin costo le recomendamos el que corresponde, aunque no sea la poliurea.</p>
     <ul class="sys-grid">
       <li data-reveal><a class="sys-tile is-main" href="/poliurea"><span class="sys-badge">Principal</span><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 30h40"/><path d="M8 30v8h32v-8"/><path d="M10 22c5-4 9 4 14 0s9 4 14 0"/><path d="M24 6v8M20 10l4-4 4 4"/></svg><h3>Poliurea en caliente</h3><p>Losas, techos y estacionamientos</p></a></li>
       <li data-reveal data-delay="70"><a class="sys-tile" href="/poliurea-en-frio"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4v40M6 14l36 20M42 14 6 34"/><circle cx="24" cy="24" r="4"/></svg><h3>Poliurea en frío</h3><p>Terrazas, balcones y techos metálicos</p></a></li>
@@ -397,11 +414,26 @@
   </div>
 </section>
 
+<!-- POR QUE POLYSELLOS -->
+<section class="porque" id="por-que-polysellos">
+  <div class="wrap">
+    <h2 data-reveal>Por qué elegir Polysellos.</h2>
+    <ul class="porque-grid">
+      <li data-reveal><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24h36M6 16h36M6 32h36"/></svg><strong>Una capa. Sin juntas.</strong><span>Aplicada con máquina: sin uniones por donde entre el agua.</span></li>
+      <li data-reveal data-delay="70"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="16" r="7"/><path d="M10 42c1-9 7-14 14-14s13 5 14 14"/></svg><strong>Equipo con 15+ años en obra</strong><span>Empresa joven, manos con experiencia.</span></li>
+      <li data-reveal><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 5 8 11v12c0 10 7 17 16 20 9-3 16-10 16-20V11Z"/><path d="m17 24 5 5 9-10"/></svg><strong>Garantía por escrito</strong><span>Contra defectos de aplicación, de 5 a 10 años según el sistema.</span></li>
+      <li data-reveal data-delay="70"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M24 14v10l7 5"/></svg><strong>Diagnóstico honesto</strong><span>Si no es poliurea, se lo decimos antes de cotizar.</span></li>
+      <li data-reveal><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="12" width="36" height="26" rx="3"/><circle cx="24" cy="25" r="7"/><path d="M16 12l3-5h10l3 5"/></svg><strong>Obra real, documentada</strong><span>1.000 m² trabajados, con fotos y video.</span></li>
+      <li data-reveal data-delay="70"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6h18l8 8v28H12z"/><path d="M30 6v8h8M18 24h14M18 31h14"/></svg><strong>Cotización por su caso</strong><span>Según el estado de su sustrato, por escrito.</span></li>
+    </ul>
+  </div>
+</section>
+
 <!-- CÓMO COTIZAMOS -->
 <section class="cotiza" id="cotizamos">
   <div class="wrap">
-    <h2 data-reveal data-delay="70">Tres pasos. Ningún precio de catálogo.</h2>
-    <p class="lede" data-reveal data-delay="130">El costo depende de la superficie, del acceso y del área real. Por eso cada proyecto se cotiza por separado, nunca por tabla de precios.</p>
+    <h2 data-reveal data-delay="70">Tres pasos hasta su cotización por escrito.</h2>
+    <p class="lede" data-reveal data-delay="130">Cada precio es un estudio de caso según el estado de su sustrato, el acceso y el área real. Sin tabla de precios.</p>
 
     <div class="cotiza-steps">
       <div class="cotiza-track"></div>
@@ -415,12 +447,12 @@
         <div data-reveal data-delay="120">
           <div class="cotiza-num">02</div>
           <h3>Evaluamos su caso</h3>
-          <p>Con esa información —o una visita de nuestro equipo si el proyecto lo requiere— calculamos el precio real según la superficie y el acceso.</p>
+          <p>Con esa información —o una visita de nuestro equipo si el proyecto lo requiere— calculamos su cotización real según la superficie y el acceso.</p>
         </div>
         <div data-reveal data-delay="240">
           <div class="cotiza-num">03</div>
           <h3>Usted recibe su cotización</h3>
-          <p>Precio por proyecto, garantía por escrito y fecha de aplicación, todo por escrito.</p>
+          <p>Cotización por proyecto, garantía por escrito y fecha de aplicación, todo por escrito.</p>
         </div>
       </div>
     </div>
@@ -430,12 +462,14 @@
 <!-- SIGA EXPLORANDO: la home despierta curiosidad y manda a paginas propias -->
 <section class="explora" id="explora">
   <div class="wrap">
-    <h2 data-reveal>Siga explorando.</h2>
+    <h2 data-reveal>Vea la prueba antes de decidir.</h2>
     <ul class="explora-grid">
-      <li data-reveal><a class="ex-tile ex-foto" href="/casos"><img src="assets/foto-despues.jpeg" alt="Losa de estacionamiento con la capa continua terminada" width="675" height="900" loading="lazy" decoding="async"><span class="ex-cap"><strong>Una obra real</strong><span>130 m² sellados en un día</span></span></a></li>
-      <li data-reveal data-delay="70"><a class="ex-tile ex-cifra" href="/ficha-tecnica"><span class="ex-num">≥450 %</span><span class="ex-cap"><strong>Ficha técnica</strong><span>Cuánto se estira sin romperse</span></span></a></li>
-      <li data-reveal><a class="ex-tile ex-foto" href="/preguntas-frecuentes"><img src="assets/fotos/poliurea-caliente-estacionamiento-parcial-01-640.webp" alt="Estacionamiento con la mitad de la superficie ya cubierta con recubrimiento gris y la otra mitad por aplicar" width="640" height="480" loading="lazy" decoding="async"><span class="ex-cap"><strong>¿Cuánto cuesta?</strong><span>Depende del área. Preguntas frecuentes</span></span></a></li>
-      <li data-reveal data-delay="70"><a class="ex-tile ex-foto" href="/guia-filtraciones"><img src="assets/fotos/filtraciones-losa-estacionamiento-fisura-03-640.webp" alt="Losa de un estacionamiento con fisuras y manchas de humedad" width="640" height="853" loading="lazy" decoding="async"><span class="ex-cap"><strong>¿Mancha en el techo?</strong><span>De dónde viene el agua</span></span></a></li>
+      <li data-reveal><a class="ex-tile ex-foto" href="/casos"><img src="assets/foto-despues.jpeg" alt="Losa de estacionamiento con la capa continua terminada" width="675" height="900" loading="lazy" decoding="async"><span class="ex-cap"><strong>Una obra real</strong><span>Sun Tower Mall: 130 m² sellados en un día</span></span></a></li>
+      <li data-reveal data-delay="70"><a class="ex-tile ex-cifra" href="/ficha-tecnica"><span class="ex-num">≥450 %</span><span class="ex-cap"><strong>Ficha técnica</strong><span>Se estira sin romperse: 450 % o más</span></span></a></li>
+      <li data-reveal><a class="ex-tile ex-foto" href="/preguntas-frecuentes"><img src="assets/fotos/poliurea-caliente-estacionamiento-parcial-01-640.webp" alt="Estacionamiento con la mitad de la superficie ya cubierta con recubrimiento gris y la otra mitad por aplicar" width="640" height="480" loading="lazy" decoding="async"><span class="ex-cap"><strong>¿Cuánto cuesta?</strong><span>Se cotiza según su caso</span></span></a></li>
+      <li data-reveal data-delay="70"><a class="ex-tile ex-foto" href="/guia-filtraciones"><img src="assets/fotos/filtraciones-losa-estacionamiento-fisura-03-640.webp" alt="Losa de un estacionamiento con fisuras y manchas de humedad" width="640" height="853" loading="lazy" decoding="async"><span class="ex-cap"><strong>¿Mancha en el techo?</strong><span>Cómo saber de dónde viene el agua</span></span></a></li>
+      <li data-reveal><a class="ex-tile ex-foto" href="/impermeabilizacion-estacionamientos"><img src="assets/fotos/antes-despues-rampa-despues-02-640.webp" alt="Rampa de estacionamiento con el recubrimiento gris continuo ya aplicado" width="640" height="853" loading="lazy" decoding="async"><span class="ex-cap"><strong>Estacionamientos</strong><span>Losa y rampa, por tramos</span></span></a></li>
+      <li data-reveal data-delay="70"><a class="ex-tile ex-cifra" href="/propiedad-horizontal"><span class="ex-num">Edificios</span><span class="ex-cap"><strong>Propiedad horizontal</strong><span>Para juntas y administradores</span></span></a></li>
     </ul>
   </div>
 </section>
@@ -444,8 +478,8 @@
 <section class="lead" id="contacto">
   <div class="wrap lead-grid">
     <div>
-      <h2 data-reveal data-delay="70">Cuéntenos de su proyecto.</h2>
-      <p class="lede" data-reveal data-delay="130">Envíe su ubicación, el área aproximada y una foto si la tiene a la mano. Le decimos qué sistema corresponde y qué no.</p>
+      <h2 data-reveal data-delay="70">Cada lluvia agranda el daño.</h2>
+      <p class="lede" data-reveal data-delay="130">Un diagnóstico sin costo le dice de dónde viene el agua y qué sistema corresponde, aunque no sea poliurea. Envíe su ubicación, el área aproximada y una foto si la tiene a la mano.</p>
       <div class="lead-wa" data-reveal data-delay="190">
         <a class="cta-btn" data-cta="cta-final" data-abrir-motivo href="https://wa.me/50763731269?text=Hola.%20Quisiera%20solicitar%20el%20diagn%C3%B3stico%20sin%20costo.%0ASuperficie%3A%0A%C3%81rea%20aproximada%20%28m2%29%3A%0AUbicaci%C3%B3n%3A" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
@@ -494,7 +528,8 @@
         <span>Autorizo a Polysellos a usar estos datos para contactarme por mi consulta. Más información en la <a href="/privacidad">política de privacidad</a>.</span>
       </label>
       <div class="cf-turnstile" id="leadTurnstile" data-sitekey="0x4AAAAAAFoILZnCF1YqlxBi" data-theme="dark" data-language="es"></div>
-      <button class="cta-btn lead-submit" type="submit">Enviar mis datos</button>
+      <button class="cta-btn lead-submit" type="submit">Quiero mi diagnóstico sin costo</button>
+      <p class="lead-micro">Sin compromiso. Si contrata, la garantía se entrega por escrito. Sus datos solo se usan para responder su consulta.</p>
       <p class="lead-status" id="leadStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
@@ -535,8 +570,15 @@
         <a href="/#contacto">Contacto</a>
         <a href="/privacidad">Privacidad</a>
       </div>
+      <div class="fn-grupo fn-ancho">
+        <p class="fn-titulo">Para su caso</p>
+        <div class="fn-dos">
+          <a href="/impermeabilizacion-estacionamientos">Estacionamientos</a>
+          <a href="/propiedad-horizontal">Propiedad horizontal</a>
+        </div>
+      </div>
     </nav>
-    <span class="footer-legal">Polysellos · Panamá · Impermeabilización<br>© 2026 POLYSELLOS, S.E.P. · RUC 155774835-2-2025 DV9<br>Sun Tower, piso 1, oficina 3 · Vía Ricardo J. Alfaro, Betania</span>
+    <span class="footer-legal">Polysellos · Panamá · Impermeabilización<br>© 2026 POLYSELLOS, S.E.P. · RUC 155774835-2-2025 DV9<br>Sun Tower, piso 1, oficina 3 · Vía Ricardo J. Alfaro, Betania<br>+507 6373-1269 · Lun a vie 8:00 a 17:00 · Sáb 8:00 a 14:00</span>
     <button type="button" class="cookie-reopen" id="cookieReabrir">Preferencias de cookies</button>
   </div>
 </footer>
@@ -550,7 +592,7 @@
   </div>
 </div>
 
-<a class="cta-sticky" id="ctaSticky" data-cta="fab" data-abrir-motivo href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20para%20mi%20proyecto." target="_blank" rel="noopener" aria-label="Pedir diagnóstico sin costo por WhatsApp">
+<a class="cta-sticky" id="ctaSticky" data-cta="fab" data-abrir-motivo href="https://wa.me/50763731269?text=Hola.%20Quisiera%20un%20diagn%C3%B3stico%20para%20mi%20proyecto." target="_blank" rel="noopener" aria-label="Pida su diagnóstico por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
   <span>Pida su diagnóstico</span>
 </a>
@@ -572,14 +614,13 @@
   </div>
 </dialog>
 
-<script src="/assets/motivo.js?v=20261028d" defer></script>
+<script src="/assets/motivo.js?v=20261103a" defer></script>
 <script src="/assets/pixel.js?v=20261028c" defer></script>
 <script src="/assets/intro.js?v=20261028c" defer></script>
 <script src="/assets/animaciones.js?v=20261102a" defer></script>
-<script src="/assets/video.js?v=20261101b" defer></script>
-<script src="/assets/comparar.js?v=20261029" defer></script>
+<script src="/assets/video.js?v=20261103a" defer></script>
+<script src="/assets/comparar.js?v=20261103a" defer></script>
 <script src="/assets/fab.js?v=20261102a" defer></script>
-<script src="/assets/faq.js?v=20261028d" defer></script>
 <script src="/assets/contacto.js?v=20261028c" defer></script>
 <script src="/assets/cookies.js?v=20261030a" defer></script>
 <script src="/assets/formulario.js?v=20261028c" defer></script>

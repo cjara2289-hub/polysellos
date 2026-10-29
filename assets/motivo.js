@@ -18,6 +18,7 @@
     b.removeAttribute('rel');
     b.setAttribute('href', '#motivo');
     b.setAttribute('role', 'button');
+    b.setAttribute('aria-haspopup', 'dialog');
     b.addEventListener('click', function(ev){
       ev.preventDefault();
       origen = b.getAttribute('data-motivo-origen');

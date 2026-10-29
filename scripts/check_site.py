@@ -189,7 +189,9 @@ for p, s0 in html.items():
             continue
         if not ident or f'for="{ident.group(1)}"' not in s:
             err(f"{p}: campo sin etiqueta asociada: {tag[:70]}")
-    for b in re.findall(r"<button\b[^>]*>(.*?)</button>", s, re.S):
+    for atr, b in re.findall(r"<button\b([^>]*)>(.*?)</button>", s, re.S):
+        if "aria-label" in atr:
+            continue
         if not re.sub(r"<[^>]+>", "", b).strip():
             err(f"{p}: boton sin texto")
 if existe("styles.css"):

@@ -1143,6 +1143,53 @@ footer{padding:clamp(28px,6vw,44px) 0;}
   .hero h1 .h1-kicker{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,20,22,.78);}
 }
 
+
+/* Conversion: franja de confianza, por que Polysellos, cierre y arreglos de accesibilidad */
+.confianza{background:var(--ink);color:#fff;padding:22px 0;}
+.conf-grid{list-style:none;margin:0;padding:0;display:grid;gap:14px;}
+.conf-grid li{display:grid;gap:2px;}
+.conf-grid strong{font-family:var(--font-display);font-weight:800;font-size:1.75rem;line-height:1;letter-spacing:-.02em;color:#5FE3D3;}
+.conf-grid span{font-size:.9375rem;line-height:1.35;color:rgba(255,255,255,.92);}
+@media(max-width:860px){.conf-grid li{grid-template-columns:128px 1fr;align-items:center;column-gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.14);}.conf-grid li:last-child{border-bottom:0;padding-bottom:0}}
+@media(min-width:861px){.confianza{padding:34px 0}.conf-grid{grid-template-columns:repeat(3,1fr);gap:32px}.conf-grid strong{font-size:2.25rem}}
+.dolor-cierre{margin:22px 0 0;font-family:var(--font-display);font-weight:700;font-size:1.25rem;line-height:1.25;color:var(--ink);text-wrap:balance;}
+.porque{background:var(--mist);}
+.porque h2{margin-bottom:24px;}
+.porque-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.porque-grid li{display:flex;flex-direction:column;gap:6px;padding:16px;border-radius:18px;background:#fff;border:1px solid var(--line);min-width:0;}
+.porque-grid svg{width:34px;height:34px;color:var(--teal-text);margin-bottom:6px;}
+.porque-grid strong{font-family:var(--font-display);font-size:1.0625rem;font-weight:700;line-height:1.15;color:var(--ink);}
+.porque-grid span{font-size:.875rem;line-height:1.4;color:var(--concrete-400);}
+@media(min-width:861px){.porque-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.porque-grid li{padding:26px}.porque-grid strong{font-size:1.25rem}.porque-grid span{font-size:1rem}}
+.lead-micro{margin:0;font-size:.875rem;line-height:1.5;color:var(--concrete-400);text-align:center;}
+.explora-grid .ex-preg .ex-num{color:#5FE3D3;}
+.ex-foto::after{background:linear-gradient(180deg,transparent 30%,rgba(11,20,22,.92) 100%);}
+
+/* Accesibilidad (informe WCAG): reflow del titular a 320 px, objetivos de 44 px, foco en fondos oscuros */
+.hero h1{font-size:clamp(1.75rem,8.8vw,3.75rem);}
+@media(max-width:359px){.hero h1{text-wrap:balance;}.menu-btn span:last-child{display:none;}}
+.obra-gallery figcaption,.paso-strip figcaption{background:linear-gradient(180deg,transparent,rgba(11,20,22,.9));padding-top:28px;}
+.footer-nav a{min-height:44px;}
+.cookie-reopen{min-height:44px;padding:15px 0;}
+.breadcrumb ol{align-items:center;gap:0;}
+.breadcrumb li{display:flex;align-items:center;}
+.breadcrumb li+li::before{margin:0 2px 0 6px;}
+.breadcrumb a{display:inline-flex;align-items:center;min-height:44px;padding:0 6px;}
+.breadcrumb li[aria-current]{min-height:44px;}
+.page-hero .breadcrumb{margin-bottom:0;}
+.page-cta-link{display:inline-flex;align-items:center;min-height:44px;}
+.brand-link{padding:9px 0;}
+.lead-consent{min-height:44px;align-items:center;}
+.hero :focus-visible,footer :focus-visible,.ex-tile:focus-visible,.confianza :focus-visible{outline-color:#5FE3D3;}
+.reel{position:relative;}
+.video-pausa{position:absolute;top:10px;right:10px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:rgba(11,20,22,.72);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.video-pausa span{display:block;width:14px;height:16px;border-left:4px solid currentColor;border-right:4px solid currentColor;}
+.video-pausa[aria-pressed="true"] span{width:0;height:0;border:0;border-left:14px solid currentColor;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px;}
+
+.fn-ancho{grid-column:1/-1;}
+.fn-dos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;}
+@media(min-width:861px){.fn-ancho{grid-column:auto}.fn-dos{grid-template-columns:auto;}}
+
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
    que las que sobreescriben, asi que solo ganan si van despues.
