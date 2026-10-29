@@ -5,10 +5,6 @@
    El archivo es la variable ya recortada a wght 400-800 y wdth 100-125. */
 @font-face{font-family:'Archivo';font-style:normal;font-weight:400 800;font-stretch:100% 125%;font-display:swap;
   src:url('assets/fonts/archivo-latin-var.woff2') format('woff2');}
-@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;
-  src:url('assets/fonts/space-mono-400-latin.woff2') format('woff2');}
-@font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;
-  src:url('assets/fonts/space-mono-700-latin.woff2') format('woff2');}
 :root{
   --obsidian-950:#080F11;
   --obsidian-900:#0B1416;
@@ -41,7 +37,7 @@
 
   --font-display:'Archivo', sans-serif;
   --font-sans:'Archivo', sans-serif;
-  --font-mono:'Space Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-mono:'Archivo', sans-serif;
 
   --radius-sm:4px;
   --radius-md:6px;
@@ -930,8 +926,7 @@ footer{background:var(--paper);border-top-color:var(--line);}
    era el peso visual de la pagina; titulares ahora en Bricolage Grotesque (una sola fuente
    variable, 77 KB) y el cuerpo en Archivo normal. Se acabaron las etiquetas en mayuscula con
    tracking ancho y la mono en etiquetas: son lo que hacia "denso" a cada bloque. Space Mono
-   ya no se usa, asi que dejo de cargarla (ver los @font-face de arriba, que siguen declarados
-   pero sin uso, el navegador no los descarga). */
+   ya no se usa y se quitaron su @font-face y sus archivos. */
 @font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:500 800;font-display:swap;
   src:url('assets/fonts/bricolage-latin-var.woff2') format('woff2');}
 :root{
