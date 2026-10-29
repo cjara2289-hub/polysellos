@@ -14,12 +14,22 @@
     var listo = false;
     function listoParaVer(){ v.classList.add('is-playing'); }
     v.addEventListener('playing', listoParaVer);
-    new IntersectionObserver(function(es){
-      var ve = es[es.length - 1].isIntersecting;
+    // El clip del hero espera a que la pagina termine de cargar para no competir con la foto
+    // (LCP) por el ancho de banda: en 4G lenta eran 494 KB al mismo tiempo.
+    var esHero = v.hasAttribute('data-solo-movil');
+    var cargada = !esHero || document.readyState === 'complete';
+    if(!cargada) window.addEventListener('load', function(){ setTimeout(function(){ cargada = true; revisar(); }, 600); });
+    var ultimo = false;
+    function revisar(){ actuar(ultimo); }
+    function actuar(ve){
+      if(ve && !cargada) return;
       if(ve){
         if(!listo){ v.src = v.getAttribute('data-src'); listo = true; }
         var p = v.play(); if(p && p.catch) p.catch(function(){});
       } else if(listo){ v.pause(); }
+    }
+    new IntersectionObserver(function(es){
+      ultimo = es[es.length - 1].isIntersecting; actuar(ultimo);
     }, { threshold: 0.25 }).observe(v);
   });
 })();
