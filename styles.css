@@ -1119,6 +1119,19 @@ section{padding:clamp(48px,9vw,112px) 0;}
 .reel video{display:block;width:100%;height:100%;object-fit:cover;}
 @media(min-width:861px){.reel{max-width:360px;}}
 
+
+/* Pie de pagina en dos grupos de seis enlaces, para que ninguno quede solo en una fila.
+   Menu: la fila chica pasa a 2x2. Menos aire entre el formulario y el pie. */
+.footer-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 20px;width:100%;max-width:420px;font-family:var(--font-sans);font-size:.9375rem;letter-spacing:0;text-transform:none;}
+.fn-grupo{display:grid;align-content:start;gap:0;}
+.fn-titulo{margin:0 0 6px;font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--ink);}
+.footer-nav a{display:flex;align-items:center;min-height:40px;color:var(--concrete-300);}
+.menu-minor{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:12px;}
+.menu-minor a{justify-content:center;text-align:center;background:var(--mist);border-radius:12px;color:var(--ink);}
+.lead{padding:clamp(40px,9vw,96px) 0;}
+footer{padding:clamp(28px,6vw,44px) 0;}
+@media(min-width:861px){.footer-nav{width:auto;max-width:none;grid-template-columns:repeat(2,auto);gap:8px 56px;}.menu-minor{grid-template-columns:repeat(4,auto)}}
+
 /* ---------- Reducir movimiento ---------- */
 /* Va al final del archivo a proposito: estas reglas tienen la misma especificidad
    que las que sobreescriben, asi que solo ganan si van despues.
